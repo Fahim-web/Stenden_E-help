@@ -132,7 +132,180 @@ ul{
 
 }
 
+#profilePic{
+margin: 20px auto 0;
+}
+
+.user_banner{
+  height: 200px;
+  width: 100%;
+  background-color: #f4f4fe;
+}
+
+.user_banner_wrapper{
+  margin: 0 auto;
+  width: 500px;
+  height: 200px;
+}
+
+.user_banner_wrapper_pic, .user_banner_wrapper_msg{
+  margin: 0 auto;
+  width: fit-content;
+}
  
+.content_wrapper{
+  padding: 20px 0;
+  width: 100%;
+  background-color: #eee8fc;
+}
+
+/* TicketBox beginning */
+
+.ticket_box{
+  width: 1000px;
+  height:200px;
+  background-color:#ffffff ;
+  border-radius: 17px;
+  box-shadow: 2px 5px 5px #000000;
+  margin: 20px auto;
+}
+
+.ticket_box_top{
+  width: 100%;
+  height:70%;
+  border-radius: 17px 17px 0 0;
+  float:left;
+
+
+}
+
+.ticket_box_id{
+  width: 145px;
+   
+  height: 100%;
+  float:left;
+  border-radius: 17px 0 0;    
+  border: solid  #eee8fc 2px;
+}
+
+.ticket_box_id p{
+  margin: 50px 57px;
+  font-size: 1.3em;
+  font-family: arial;
+}
+
+
+.ticket_box_content{
+  height:100%;
+  border-radius: 0px 17px 0 0;
+  border: solid  #eee8fc 2px;
+  width: 85.5%;
+  float:left;
+  border-left: 0;
+}
+
+
+
+.ticket_box_content_title{
+     
+    margin: 10px;
+  }
+  
+.ticket_box_content_body{
+     
+    margin: 10px;
+  }
+  
+.ticket_box_bottom{
+  width: 100%;
+  border-radius: 17px;
+  height: 30%;
+  float:left;
+}
+
+.ticket_box_bottom p{
+    float:left;
+    margin: 2px 6px;
+  }
+
+.ticket_box_assign{
+  width: 145px;
+  height:  100%;
+  border-radius:0 0 0 17px;    
+  border: solid  #eee8fc 2px;
+  float:left;
+  border-top: 0;
+}
+
+.ticket_box_bottom_assignedTo{
+  height:  100%;
+  width: 170px;
+  border: solid  #eee8fc 2px;
+  float:left;
+  border-left: 0;
+  border-top: 0;
+  }
+  
+.ticket_box_bottom_raisedBy{
+   
+  height:  100%;
+  width:170px;
+  border: solid  #eee8fc 2px;
+  border-left: 0;
+  border-top: 0;
+  float:left;
+}
+
+.ticket_box_bottom_priority{
+    
+  height:  100%;
+  width:116px;
+  border: solid  #eee8fc 2px;
+  float:left;
+  border-left: 0;
+  border-top: 0;
+}
+
+.ticket_box_bottom_category{
+   
+  height: 100%;
+  width:160px;
+  float:left;
+  border: solid  #eee8fc 2px;
+  border-left: 0;
+  border-top: 0;
+}
+
+.ticket_box_bottom_duedate{
+   
+  height:  100%;
+  width:180px;
+  float:left;
+  border: solid  #eee8fc 2px;
+  border-left: 0;
+  border-top: 0;
+}
+
+.ticket_box_bottom_status{
+   
+  height:  100%;
+  width:59px;
+  float:left;
+  border-radius: 0 0 17px 0;
+  border: solid  #eee8fc 2px;
+  border-left: 0;
+  border-top: 0;
+}
+
+#ticket_box_assign_pic{
+  float: left;
+  margin: 1px 55px;
+}
+
+#statusLight{
+  float:left;
+  margin: 16px 18px;
+}
 
 .right_image p{
   font-size: 45px;
