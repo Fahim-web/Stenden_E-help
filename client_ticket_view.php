@@ -54,7 +54,7 @@
                     header('Location:client_ticket_view.php?error=Execute_Select');
                     exit();
                 }
-                mysqli_stmt_bind_result($stmt_select,$incID,$incTopic,$incDescription,$incReportDate,$opeName,$CustName,$CompLicense,$TypeDescription,$StatusDescription);
+                mysqli_stmt_bind_result($stmt_select,$incID,$incDescription,$incReportDate,$incTopic,$opeName,$CustName,$CompLicense,$TypeDescription,$StatusDescription);
                 mysqli_stmt_store_result($stmt_select);
                 if(mysqli_stmt_num_rows($stmt_select)==0){
                     echo"No tickets submited";
