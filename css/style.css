@@ -391,6 +391,7 @@ border-radius: 10px;
   border-radius: 10px;
   resize: none;
 }
+/* ------------------------------------------ */
 
 @media screen and (max-width: 860px) {
   .right_image img{
