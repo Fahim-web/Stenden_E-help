@@ -302,9 +302,14 @@ margin: 20px auto 0;
   margin: 1px 55px;
 }
 
-#statusLight{
+.statusLight{
   float:left;
   margin: 16px 18px;
+}
+.greenlight{
+  float:left;
+  width:90%;
+  height:100%;
 }
 
 .right_image p{

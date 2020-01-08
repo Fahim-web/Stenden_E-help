@@ -35,20 +35,22 @@
                 header('Location:../ticket.php?error=NoRowsFound');
                 exit();
             }else{
-                $sql_insert='INSERT INTO incident VALUES(NULL,NULL,?,NULL,?,NULL,?,?,?,?,?,?,NULL);';
+                // $sql_insert='INSERT INTO incident VALUES(NULL,NULL,?,NULL,?,NULL,?,?,?,?,?,?,NULL);';
 //                With customer
-//                $sql_insert='INSERT INTO incident VALUES(NULL,NULL,?,NULL,?,?,?,?,?,?,?,?,NULL);';
+$customerid=2;
+               $sql_insert='INSERT INTO incident VALUES(NULL,NULL,?,NULL,?,?,?,?,?,?,?,?,NULL);';
                 
                 while(mysqli_stmt_fetch($stmt_select)){                   
                     echo$typeid;
                     echo$statusid;
                     echo$frequencyid;
                     if($stmt_insert=mysqli_prepare($connect,$sql_insert)){
-                        mysqli_stmt_bind_param($stmt_insert,'iiississ',$typeid,$statusid,
-                                $frequencyid,$topic,$description,$frequencyid,$registered_by,$date);
+                        // mysqli_stmt_bind_param($stmt_insert,'iiississ',$typeid,$statusid,
+                        //         $frequencyid,$topic,$description,$frequencyid,$registered_by,$date);
 //                        with customer
-//                        mysqli_stmt_bind_param($stmt_insert,'iiiississ',$typeid,$statusid,$customerid,
-//                                $frequencyid,$topic,$description,$frequencyid,$registered_by,$date);
+                       mysqli_stmt_bind_param($stmt_insert,'iiiississ',$typeid,$statusid,$customerid,
+                               $frequencyid,$topic,$description,$frequencyid,$registered_by,$date);
+
                         $execute_insert=mysqli_stmt_execute($stmt_insert);
                         if($execute_insert==FALSE){
 //                                          echo mysqli_error($connect);
