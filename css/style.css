@@ -349,6 +349,48 @@ footer{
   font-size: 15px;
 }
 
+/* ---------------------TICKET--------------------- */
+main{
+  width: 100%;
+  height: 800px;
+  background-color: #90B1E8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ticket{
+  background-color: #eee8fc;
+  width:60%;
+  height:90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  -webkit-box-shadow: 2px 3px 17px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 2px 3px 17px 0px rgba(0,0,0,0.75);
+box-shadow: 2px 3px 17px 0px rgba(0,0,0,0.75);
+-webkit-border-radius: 15px;
+-moz-border-radius: 15px;
+border-radius: 15px;
+}
+.form_div{
+  margin:10px;
+  width:100%;
+}
+.inp_bord{
+  -webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+.form_text{
+  width:400px;
+  height:150px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  resize: none;
+}
 
 @media screen and (max-width: 860px) {
   .right_image img{
