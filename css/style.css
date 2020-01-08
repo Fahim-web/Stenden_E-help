@@ -133,7 +133,7 @@ ul{
 }
 
 #profilePic{
-margin: 20px auto 0;
+margin: 20px 20px 0 0;
 }
 
 .user_banner{
@@ -298,7 +298,6 @@ margin: 20px auto 0;
 }
 
 #ticket_box_assign_pic{
-  float: left;
   margin: 1px 55px;
 }
 
