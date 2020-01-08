@@ -40,37 +40,11 @@
         </div>
     </div>
     <div class="content_wrapper">
-        <div class='view_legend'>
-            <div class="legend_Lvl_1">
-                <div>
-                    <img class="legendlight" src="https://i.ibb.co/g7W2LcZ/red.png" alt="Status of the Ticket"/>
-                </div>
-                <div>
-                    <p>Awaits to be assigned</p>
-                </div>
-            </div>
-            <div class="legend_Lvl_1">
-                <div>
-                    <img class="legendlight" src="img/orange_dot.jpg" alt="Status of the Ticket"/>                    
-                </div>
-                <div>
-                    <p>Awaits to be approved</p>
-                </div>
-            </div>
-            <div class="legend_Lvl_1">
-                <div>
-                    <img class="legendlight" src="img/green_dot.jpg" alt="Status of the Ticket"/>   
-                </div>
-                <div>
-                    <p>Done</p>
-                </div>
-            </div>
-        </div>
         <!---BOX WID TIKET IN IT-->
         <?php
         $customerid=2;
         // incidentid, incident description, operator_name, customer_name, LicenseID, type description, report_date,status description;
-            $sql_select="SELECT i.incidentid,i.description,i.report_date,i.topic,o.operator_name,c.customer_name,li.description,t.description,s.StatusID
+            $sql_select="SELECT i.incidentid,i.description,i.report_date,i.topic,o.operator_name,c.customer_name,li.description,t.description,s.description
             FROM incident as i, operator as o, customer as c, type as t, status as s,company as cmp, license as li WHERE i.operatorid=o.operatorid AND i.typeID=t.typeID and i.StatusID=s.StatusID and 
             i.customerID=c.customerID and cmp.companyID=c.companyID AND cmp.LicenseID=li.LicenseID AND c.customerid=? ;";
             if($stmt_select=mysqli_prepare($connect,$sql_select)){
@@ -80,12 +54,10 @@
                     header('Location:client_ticket_view.php?error=Execute_Select');
                     exit();
                 }
-                mysqli_stmt_bind_result($stmt_select,$incID,$incDescription,$incReportDate,$incTopic,$opeName,$CustName,$CompLicense,$TypeDescription,$Statusid);
+                mysqli_stmt_bind_result($stmt_select,$incID,$incDescription,$incReportDate,$incTopic,$opeName,$CustName,$CompLicense,$TypeDescription,$StatusDescription);
                 mysqli_stmt_store_result($stmt_select);
                 if(mysqli_stmt_num_rows($stmt_select)==0){
-                    echo'<div id="none_submitted">
-                            <h3>No tickets have been submitted</h3>
-                        </div>';
+                    echo"No tickets submited";
                     // header('Location:client_ticket_view.php?error=No_Tickets_Submited');
                     // exit();
                 }
@@ -126,12 +98,10 @@
                         <p>Due Date:<br><br>'.$incReportDate.'</p>
                         </div>
                         <div class="ticket_box_bottom_status">';
-                            if($Statusid=='1'){
+                            if($StatusDescription=='opened'){
                                 echo '<img class="statusLight" src="https://i.ibb.co/g7W2LcZ/red.png" alt="Status of the Ticket"/>';         
-                            }elseif($Statusid=='2'){
-                                echo  '<img class="light" src="img/green_dot.jpg" alt="Status of the Ticket"/>';     
-                            }elseif($Statusid=='3'){
-                                echo  '<img class="light" src="img/orange_dot.jpg" alt="Status of the Ticket"/>'; 
+                            }elseif($StatusDescription=='closed'){
+                                echo  '<img class="greenlight" src="img/green_dot.jpg" alt="Status of the Ticket"/>';     
                             }echo '                                                                
                         </div>
                     </div>
