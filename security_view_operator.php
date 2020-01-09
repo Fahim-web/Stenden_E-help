@@ -43,15 +43,15 @@ session_start();
     </div>
     <div class="main_security_wrapper">
         <?php
-        $sql_select = 'SELECT customerid,companyid,username,customer_name,phone,email,password FROM Customer';
+        $sql_select = 'SELECT customerid,companyid,username,customer_name,phone,email,password,filepath FROM Customer';
         if ($stmt_select = mysqli_prepare($connect, $sql_select)) {
             $execute_select = mysqli_stmt_execute($stmt_select);
             if ($execute_select == FALSE) {
                 echo mysqli_error($conenct);
             }
-            mysqli_stmt_bind_result($stmt_select, $customerid, $companyid, $username, $customer_name, $phone, $email, $pwd);
+            mysqli_stmt_bind_result($stmt_select, $customerid, $companyid, $username, $customer_name, $phone, $email, $pwd,$filepath);
             mysqli_stmt_store_result($stmt_select);
-
+            
             if (mysqli_stmt_num_rows($stmt_select) == 0) {
                 echo 'No customers have been registered';
             } else {
@@ -90,36 +90,16 @@ session_start();
                             <div><p>Email</p></div>
                             <div><p>' . $email . '</p></div>
                         </div>
+                        <div class="security_div">
+                            <div><p>Email</p></div>
+                            <div><img src="profileimages/'.$filepath.'"></img></div>
+                        </div>
                     </div>';
                 }
                 echo '</div>';
             }
         }
         ?>
-        <!-- <div class="security_div">
-                    <p><a href="#">1</a></p>
-                </div>
-                <div class="security_div">
-                    <p>2</p>
-                </div>
-                <div class="security_div">
-                    <p>3</p>
-                </div>
-                <div class="security_div">
-                    <p>4</p>
-                </div>
-                <div class="security_div">
-                    <p>5</p>
-                </div>
-                <div class="security_div">
-                    <p>6</p>
-                </div>
-                <div class="security_div">
-                    <p>7</p>
-                </div>
-                <div class="security_div">
-                    <p>8</p>
-                </div> -->
     </div>
     <footer>
         <div class="container clearfix">
