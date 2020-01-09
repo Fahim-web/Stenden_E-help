@@ -56,40 +56,43 @@ session_start();
                 echo 'No customers have been registered';
             } else {
                 echo '<form class="security_form" action="security_operator.php" method="post">
-                            <p class="notification">Register new Operator<p>
-                            <p>Choose customer id <input class="input_security" placeholder="Enter the id of the user" type="number" name="customerid"></p>
-                            <p><input class="submit_security_operator" type="submit" name="submit" value="submit"></p>
+                            <div class="security_inside_form_top"><p class="notification">Register new Operator</p></div>
+                            <div class="security_inside_form">Choose customer id <input class="input_security" placeholder="Enter the id of the user" type="number" name="customerid"></div>
+                            <div class="security_inside_form"><input class="submit_security_operator" type="submit" name="submit" value="submit"></div>
                         
                     </form>';
+                echo '<div id="security_wrap">';
                 while (mysqli_stmt_fetch($stmt_select)) {
                     // $_SESSION['customerid'] = $customerid;
+
                     echo '<div class="security_general">
+                            <div class="security_div">
+                            <div><p>CustomerID</p></div>
+                            <div><p>' . $customerid . '</p></div>
+                        </div>
                         <div class="security_div">
-                        <p>CustomerID</p>
-                        <p><a class="link" href="#">' . $customerid . '</a></p>
-                    </div>
-                    <div class="security_div">
-                         <p>CompanyID</p>
-                        <p>' . $companyid . '</p>
-                    </div>
-                    <div class="security_div">
-                        <p>Username</p>
-                        <p>' . $username . '</p>
-                    </div>
-                    <div class="security_div">
-                        <p>Customer Name</p>
-                        <p>' . $customer_name . '</p>
-                    </div>
-                    <div class="security_div">
-                        <p>Phone Nr.</p>
-                        <p>' . $phone . '</p>
-                    </div>
-                    <div class="security_div">
-                        <p>Email</p>
-                        <p>' . $email . '</p>
-                    </div>
-                </div>';
+                            <div><p>CompanyID</p></div>
+                            <div><p>' . $companyid . '</p></div>
+                        </div>
+                        <div class="security_div">
+                            <div><p>Username</p></div>
+                            <div><p>' . $username . '</p></div>
+                        </div>
+                        <div class="security_div">
+                            <div><p>Customer Name</p></div>
+                            <div><p>' . $customer_name . '</p></div>
+                        </div>
+                        <div class="security_div">
+                            <div><p>Phone Nr.</p></div>
+                            <div><p>' . $phone . '</p></div>
+                        </div>
+                        <div class="security_div">
+                            <div><p>Email</p></div>
+                            <div><p>' . $email . '</p></div>
+                        </div>
+                    </div>';
                 }
+                echo '</div>';
             }
         }
         ?>

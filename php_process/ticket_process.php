@@ -47,7 +47,7 @@ $customerid=2;
                     
                     // Since no operator is assigned when we submit ticket mysqli_stmt_num_rows on line 33 will be executed because no operator name will be found
                     //  That is why we create additional operator in database
-                    $operatorid='3';
+                    $operatorid='8';
                     if($stmt_insert=mysqli_prepare($connect,$sql_insert)){
                         // mysqli_stmt_bind_param($stmt_insert,'iiississ',$typeid,$statusid,
                         //         $frequencyid,$topic,$description,$frequencyid,$registered_by,$date);
@@ -73,4 +73,3 @@ $customerid=2;
         exit();
     }
     mysqli_close($connect);
-?>
