@@ -390,16 +390,19 @@ ul li a {
 .main_security_wrapper{
   width:100%;
   height:700px;
-  background-color: grey;
+  /* background-color: grey; */
   display:flex;
   flex-direction: column;
-
+  justify-content: center;
+  align-items: center;
   /* flex-grow: 1; */
   /* flex-basis: 0; */
 }
 .security_div{
   flex-grow: 1;
-
+  /* margin:10px; */
+  box-sizing: border-box;
+  border:2px solid blue;
 }
 .security_general{
   display:flex;
@@ -407,7 +410,42 @@ ul li a {
   /* width:100%; */
   /* height:100%; */
   flex-grow: 1;
-
+  width: 60%;
+  margin-top:10px;
+  border:1px solid red;
+}
+.notification{
+  box-shadow: 1px 3px #888888;
+  border-radius:25px;
+  background-color:white;
+}
+.security_form{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-weight: bold;
+  box-shadow: 1px 3px #888888;
+  background-color:white;
+  /* font-size */
+}
+.submit_security_operator{
+  border-radius:0 25px 25px 0;
+	border:none;
+	outline:none;
+	background-color:#eee8fc;
+	cursor:pointer;
+}
+.input_security{
+  border:none;
+	outline:none;
+	background-color:#035e7b;
+  color:white;
+  border-radius:25px 0 0 25px;
+}
+.submit_security_operator:hover{
+	background-color:#035e7b;
+	color:white;
 }
 
 /*------------------------END Security operator----------------*/

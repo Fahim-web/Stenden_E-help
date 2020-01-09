@@ -55,29 +55,37 @@ session_start();
             if (mysqli_stmt_num_rows($stmt_select) == 0) {
                 echo 'No customers have been registered';
             } else {
-                echo '<form action="security_operator.php" method="post">
-                        <p><input type="number" name="customerid"></p>
-                        <p><input type="submit" name="submit" value="submit"></p>
+                echo '<form class="security_form" action="security_operator.php" method="post">
+                            <p class="notification">Register new Operator<p>
+                            <p>Choose customer id <input class="input_security" placeholder="Enter the id of the user" type="number" name="customerid"></p>
+                            <p><input class="submit_security_operator" type="submit" name="submit" value="submit"></p>
+                        
                     </form>';
                 while (mysqli_stmt_fetch($stmt_select)) {
                     // $_SESSION['customerid'] = $customerid;
                     echo '<div class="security_general">
                         <div class="security_div">
+                        <p>CustomerID</p>
                         <p><a class="link" href="#">' . $customerid . '</a></p>
                     </div>
                     <div class="security_div">
+                         <p>CompanyID</p>
                         <p>' . $companyid . '</p>
                     </div>
                     <div class="security_div">
+                        <p>Username</p>
                         <p>' . $username . '</p>
                     </div>
                     <div class="security_div">
+                        <p>Customer Name</p>
                         <p>' . $customer_name . '</p>
                     </div>
                     <div class="security_div">
+                        <p>Phone Nr.</p>
                         <p>' . $phone . '</p>
                     </div>
                     <div class="security_div">
+                        <p>Email</p>
                         <p>' . $email . '</p>
                     </div>
                 </div>';
