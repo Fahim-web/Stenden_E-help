@@ -509,6 +509,13 @@ border-radius: 10px;
   padding: 20px 0;
   width: 100%;
   background-color: #eee8fc;
+  
+}
+
+.response {
+	margin: 0 auto;
+	width:  800px;
+	height: 430px;
 }
 	
 .dropbtn {
@@ -528,7 +535,6 @@ border-radius: 10px;
 .dropdown {
   display: inline-block;
   width: 800px;
-  margin-left: 360px;
 }
 
 
@@ -567,3 +573,5 @@ border-radius: 10px;
 .dropdown:hover .dropbtn {
   background-color: #2B89BD;
 }
+
+
