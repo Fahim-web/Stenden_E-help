@@ -77,7 +77,7 @@ li a:hover{
 
 #menu{
 	width:100%;
-	height:550px;
+	height:1350px;
 	
 	
 	
@@ -126,6 +126,16 @@ li a:hover{
 	background-color:white;
 	padding:5%;
 	border-radius:0px 25px 0px 0px;
+}
+.notification3{
+	width:100%;
+	height:10%;
+	float:left;
+	border:3px solid #eee8fc;
+	background-color:white;
+	padding:5%;
+	border-radius:0px 25px 0px 0px;
+	
 }
 .header{
 	text-align:center;
@@ -247,4 +257,99 @@ footer{
   float:left;
   border-left: 0;
   border-top: 0;
+}
+.infotable{
+	margin-top:15px;
+
+	margin:0 auto;
+	width:55%;
+	height:355px;
+	margin-top:50px;
+	background-color:white;
+	border-radius:25px;
+	 box-shadow: 1px 3px #888888;
+	
+}
+.id{
+	float:left;
+	width:20%;
+	height:65px;
+	background-color:white;
+	border:3px solid #eee8fc;
+	border-radius:25px;
+}
+.cusname{
+	float:left;
+	width:20%;
+	height:65px;
+	background-color:white;
+	border:3px solid #eee8fc;
+	border-radius:25px;
+	
+}
+.username{
+	float:left;
+	width:20%;
+	height:65px;
+	background-color:white;
+	border-radius:25px;
+	border:3px solid #eee8fc;
+}
+.email{
+	float:left;
+	width:20%;
+	height:65px;
+	background-color:white;
+	border:3px solid #eee8fc;
+	
+	border-radius:25px;
+}
+
+.cusname{
+	float:left;
+	width:20%;
+	height:65px;
+	background-color:white;
+	border:3px solid #eee8fc;
+	border-radius:25px;
+}
+
+.phone{
+	float:left;
+	width:20%;
+	height:65px;
+	background-color:white;
+	border:3px solid #eee8fc;
+	border-radius:25px;
+}
+.email{
+	
+	float:left;
+	width:20%;
+	height:65px;
+	background-color:white;
+	border:3px solid #eee8fc;
+	border-radius:25px;
+}
+.info{
+	
+	float:left;
+	width:20%;
+	height:222px;
+	background-color:white;
+	border-radius:25px;
+	border:3px solid #eee8fc;
+}
+.operators{
+	margin-top:15px;
+
+	margin:0 auto;
+	width:55%;
+	height:355px;
+	margin-top:50px;
+	background-color:white;
+	border-radius:25px;
+	 box-shadow: 1px 3px #888888;
+	
+	
 }
