@@ -11,7 +11,7 @@
         $description=  htmlentities($_POST['description']);
         $frequency=  htmlentities($_POST['freq']);
         $user='user';
-        $status='opened';
+        $status='3';
         $registered_by='customer';
         $date=date('Y-m-d');
 //        $customerid='1';
@@ -19,7 +19,7 @@
             header('Location:../ticket.php?error=EmptyForm');
             exit();
         }        
-        $sql_select="SELECT t.typeid, s.statusid, f.frequencyid FROM type as t, status as s,frequency as f WHERE t.description=? AND s.description=? AND f.description=? ;";
+        $sql_select="SELECT t.typeid, s.statusid, f.frequencyid FROM type as t, status as s,frequency as f WHERE t.description=? AND s.statusid=? AND f.description=? ;";
         if($stmt_select=  mysqli_prepare($connect, $sql_select)){
             mysqli_stmt_bind_param($stmt_select,'sss',$type,$status,$frequency);
             $execute_select=mysqli_stmt_execute($stmt_select);
@@ -38,17 +38,21 @@
                 // $sql_insert='INSERT INTO incident VALUES(NULL,NULL,?,NULL,?,NULL,?,?,?,?,?,?,NULL);';
 //                With customer
 $customerid=2;
-               $sql_insert='INSERT INTO incident VALUES(NULL,NULL,?,NULL,?,?,?,?,?,?,?,?,NULL);';
+               $sql_insert='INSERT INTO incident VALUES(NULL,NULL,?,?,?,?,?,?,?,?,?,?,NULL);';
                 
                 while(mysqli_stmt_fetch($stmt_select)){                   
-                    echo$typeid;
-                    echo$statusid;
-                    echo$frequencyid;
+                    // echo$typeid;
+                    // echo$statusid;
+                    // echo$frequencyid;
+                    
+                    // Since no operator is assigned when we submit ticket mysqli_stmt_num_rows on line 33 will be executed because no operator name will be found
+                    //  That is why we create additional operator in database
+                    $operatorid='3';
                     if($stmt_insert=mysqli_prepare($connect,$sql_insert)){
                         // mysqli_stmt_bind_param($stmt_insert,'iiississ',$typeid,$statusid,
                         //         $frequencyid,$topic,$description,$frequencyid,$registered_by,$date);
 //                        with customer
-                       mysqli_stmt_bind_param($stmt_insert,'iiiississ',$typeid,$statusid,$customerid,
+                       mysqli_stmt_bind_param($stmt_insert,'iiiiississ',$typeid,$operatorid,$statusid,$customerid,
                                $frequencyid,$topic,$description,$frequencyid,$registered_by,$date);
 
                         $execute_insert=mysqli_stmt_execute($stmt_insert);
