@@ -55,6 +55,7 @@
             <div class="maintain_client_text">
                 <!--IF TEXT APPEARS PUT TEXT INTO A .bubble_response(different color bubble with different dirrextion of a tail)-->
                 <div class="bubble_response">
+                    
                     <p>Loren, aliquam rhoncus velit. In et placerat nibh. Maecenas tincidunt leo id metus
                          congue cursus. Donec aliquam leo eu lectus egestas, sit amet imperdiet eros efficitur.
                           Phasellus dignissim ut elit in commodo. Integer in elementum sapien, in dapibus risus.
@@ -66,31 +67,27 @@
             </div>
         </div>
     </div>
+    <!--START OF THE OPERATOR INPUT-->
     <div class="maintain_client_anwserBar">
         <div class="maintain_client_anwserBar_wrap clearfix">
             <div class="maintain_client_anwserBar_text">
-                <form action="#" method="POST">
+                <form id="maintain_form" action="#" method="POST">
                     <textarea id="textarea" name="response" placeholder="Write your response">
                     </textarea>
             </div>
-            <div class="maintain_client_anwserBar_buttons">
-                <div class="dropdown">
-                    <button class="dropbtn">Set Ticket Status</button>
-                    <div class="dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
-                    </div>
-                </div>
-                <button class="submitbtn" type="submit" name="submit">Submit</button>
-            </form>
+                    <div class="maintain_client_anwserBar_buttons">
+                        <input type="checkbox" id="status" name="status" value="5">
+                        <label for="status"><h4>TICKET IS READY FOR TL's REVIEW</h4></label>
+                    <button class="submitbtn" type="submit" name="submit">Submit</button>
+                </form>
             </div>
         </div>
     </div>
+    <!--END OF OPERATOR INPUT-->
 </div>
 <footer>
     <div class="container clearfix">
-        <div class="footer_logo"><img src="img/logo.png" alt="">
+        <div class="footer_logo"><img src="img/logo.png" alt="logo">
         </div>
         <div class="footer_contacts clearfix">
             <h3>Contacts</h3>
