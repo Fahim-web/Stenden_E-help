@@ -29,23 +29,24 @@
             <div class="container">
                 <div class="login_form">
                     <img src="img/login_img.png" alt="">
-                    <form action="">
+                    <form action="signup_action.php" method="POST">
                         <h2>Become a part of our community!</h2>
                         <h3>Please register</h3>
 
-                        <input type="text" placeholder="User name">
-                        <input type="text" placeholder="maintenance license">
-                        <input type="text" placeholder="Phone Nr">
-                        <input type="text" placeholder="Email">
-                        <input type="password" placeholder="user password">
-                        <input type="password" placeholder="repass">
-                        <input type="submit" value="Register">
+                        <input type="text" name="user" placeholder="User name">
+                        <input type="text" name="cust_name" placeholder="Customer name">
+                        <input type="text" name="phone" placeholder="Phone Nr">
+                        <input type="email" name="email" placeholder="Email">
+                        <input type="password" name="pass" placeholder="user password">
+                        <input type="password" name="repass" placeholder="repeat password">
+
+                        <input type="submit" name="submit" value="Register">
                     </form>
                 </div>
             </div>
         </div>	
 
-    
+
     <footer>
         <div class="container clearfix">
             <div class="footer_logo"><img src="img/logo.png" alt=""></div>

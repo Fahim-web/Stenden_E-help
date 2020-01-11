@@ -29,22 +29,21 @@
             <div class="container">
                 <div class="login_form">
                     <img src="img/login_img.png" alt="">
-                    <form action="">
-                        <h2>Become a part of our community!</h2>
-                        <h3>Please register</h3>
+                    <form action="" method="POST">
+                        <h2>Long time no see!</h2>
+                        <h3>Please write your login and password</h3>
 
-                        <input type="text" placeholder="User name">
-                        <input type="text" placeholder="maintenance license">
-                        <input type="text" placeholder="Phone Nr">
-                        <input type="text" placeholder="Email">
-                        <input type="password" placeholder="user password">
-                        <input type="password" placeholder="repass">
-                        <input type="submit" value="Register">
+                        <input type="text" name="user" placeholder="User name">
+                        <input type="password" name="pass" placeholder="user password">
+                        <input type="submit" value="Log in" name="submit">
+                        <a href="register_page.php">Still not registered? Click here!</a>
                     </form>
+                    <?php
+					include "include/login.php";
+				?>
                 </div>
             </div>
         </div>	
-
     
     <footer>
         <div class="container clearfix">
