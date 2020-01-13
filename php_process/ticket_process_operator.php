@@ -17,28 +17,29 @@ if (isset($_POST['submit'])) {
     $date = date('Y-m-d');
     //        $customerid='1';
     if (empty($topic) || empty($description)) {
-        header('Location:../ticket.php?error=EmptyForm');
+        header('Location:../ticket_operator.php?error=EmptyForm');
         exit();
     }
-    $sql_select = "SELECT t.typeid, s.statusid, f.frequencyid FROM type as t, status as s,frequency as f WHERE t.description=? AND s.statusid=? AND f.description=? ;";
+    //We check if customer username exists in our database. We also select type, status and frequency of incident that we selected in previous page 
+    $sql_select = "SELECT c.customerid,t.typeid, s.statusid, f.frequencyid FROM customer as c,type as t, status as s,frequency as f WHERE c.username=? AND t.description=? AND s.statusid=? AND f.description=? ;";
     if ($stmt_select =  mysqli_prepare($connect, $sql_select)) {
-        mysqli_stmt_bind_param($stmt_select, 'sss', $type, $status, $frequency);
+        mysqli_stmt_bind_param($stmt_select, 'ssss', $client_username, $type, $status, $frequency);
         $execute_select = mysqli_stmt_execute($stmt_select);
         if ($execute_select == FALSE) {
             //                echo mysqli_error($connect);
-            header('Location:../ticket.php?error=SelectIssue');
+            header('Location:../ticket_operator.php?error=SelectIssue');
             exit();
         }
-        mysqli_stmt_bind_result($stmt_select, $typeid, $statusid, $frequencyid);
+        // We bind results from above query
+        mysqli_stmt_bind_result($stmt_select, $customerid, $typeid, $statusid, $frequencyid);
         mysqli_stmt_store_result($stmt_select);
         if (mysqli_stmt_num_rows($stmt_select) == 0) {
             //                echo mysqli_error($connect);
-            header('Location:../ticket.php?error=NoRowsFound');
+            header('Location:../ticket_operator.php?error=NoRowsFound');
             exit();
         } else {
-            // $sql_insert='INSERT INTO incident VALUES(NULL,NULL,?,NULL,?,NULL,?,?,?,?,?,?,NULL);';
-            //                With customer
-            $customerid = 2;
+            // We insert into incident all of the values that we called in previous query and other values from form in previous page.
+            // Those are: description of ticket,day it was registered,Topic of ticket etc.
             $sql_insert = 'INSERT INTO incident VALUES(NULL,NULL,?,?,?,?,?,?,?,?,?,NULL);';
 
             while (mysqli_stmt_fetch($stmt_select)) {
@@ -69,12 +70,12 @@ if (isset($_POST['submit'])) {
 
                     $execute_insert = mysqli_stmt_execute($stmt_insert);
                     if ($execute_insert == FALSE) {
-                        //                                          echo mysqli_error($connect);
+                        // echo mysqli_error($connect);
                         header('Location:../ticket.php?error=InsertIssue');
                         exit();
                     }
                     mysqli_stmt_close($stmt_insert);
-                    header('Location:../ticket.php?Success=TicketSubmited');
+                    header('Location:../ticket_operator.php?Success=TicketSubmited');
                     exit();
                 }
             }
