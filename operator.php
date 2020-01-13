@@ -42,15 +42,15 @@
         <?php
         
         require('php_process/connect.php');
-        $sql = 'SELECT I.IncidentID,I.Topic,I.Description,I.RegisteredBy,I.resolution_date,I.StatusID,O.Operator_name,T.Description FROM incident as I
-    INNER JOIN operator as O ON I.OperatorID=O.OperatorID 
-    INNER JOIN type as T ON I.typeID=T.typeID';
+        $sql = 'SELECT i.incidentid,i.RegisteredBy,i.description,i.report_date,i.topic,o.operator_name,li.description,t.description,s.StatusID
+            FROM incident as i, operator as o, customer as c, type as t, status as s,company as cmp, license as li WHERE i.operatorid=o.operatorid AND i.typeID=t.typeID and i.StatusID=s.StatusID and 
+            i.customerID=c.customerID and cmp.companyID=c.companyID AND cmp.LicenseID=li.LicenseID';
         if ($stmt_select = mysqli_prepare($connect, $sql)) {
             $execute_select = mysqli_stmt_execute($stmt_select);
             if ($execute_select == FALSE) {
-                echo mysqli_error($conenct);
+                echo mysqli_error($connect);
             }
-            mysqli_stmt_bind_result($stmt_select, $incidentID, $topic, $description, $registered_by, $resolution_date,$status, $operatorName, $typeDesc);
+            mysqli_stmt_bind_result($stmt_select, $incidentID,$registered_by, $description, $rep_date, $topic, $operatorName,$license, $typeDesc, $status);
             mysqli_stmt_store_result($stmt_select);
             
             
@@ -90,13 +90,13 @@
                    <p>Registered by:<br><br>'.$registered_by.'</p>
                 </div>
                 <div class="ticket_box_bottom_priority">
-                   <p>Priority:<br><br>GOLD</p>
+                   <p>Priority:<br><br>'.$license.'</p>
                 </div>
                 <div class="ticket_box_bottom_category">
                   <p>Category:<br><br>'.$typeDesc.'</p>
                 </div>
                 <div class="ticket_box_bottom_duedate">
-                <p>Due Date:<br><br>'.$resolution_date.'</p>
+                <p>Due Date:<br><br>'.$rep_date.'</p>
                 </div>
                 <div class="ticket_box_bottom_status">
                     <img id="statusLight" src="'.$srcpic.'" alt="Status of the Ticket"/>
