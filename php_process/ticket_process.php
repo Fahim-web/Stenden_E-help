@@ -54,7 +54,7 @@ if (isset($_POST['submit'])) {
                     //                        with customer
                     mysqli_stmt_bind_param(
                         $stmt_insert,
-                        'iiiississ',
+                        'iiiisssss',
                         $typeid,
                         $operatorid,
                         $statusid,
