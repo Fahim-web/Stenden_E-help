@@ -38,7 +38,7 @@ if (isset($_POST['submit'])){
                                 session_start();
 
                                 $_SESSION['loggedIn'] = true;
-                                $_SESSION['id'] = $operatorid;
+                                $_SESSION['$operatorid'] = $id;
                                 $_SESSION['username'] = $username;
 
                                 header("location: index.html");
