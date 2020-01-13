@@ -181,7 +181,6 @@ ul li a {
 }
 
 
-
 #profilePic{
 margin: 20px 20px 0 0;
 width:124px;
@@ -550,6 +549,7 @@ float:left;
 }
 
 
+
 /* ------------------CHANGES------------------ */
 .view_legend {
   width: 60%;
@@ -728,6 +728,7 @@ footer {
   font-size: 15px;
 }
 
+
 /* ---------------------TICKET--------------------- */
 main {
   width: 100%;
@@ -771,6 +772,7 @@ main {
   resize: none;
 }
 /* ------------------------------------------ */
+
 
 @media screen and (max-width: 860px) {
   .right_image img {
@@ -1010,10 +1012,6 @@ main {
         padding: 10px 15px !important; } }
 
 
-
-
-/*-------------- LOGIN--------------*/
-	
 .login_bg{
   background-image: url(../img/bglogo_register.jpg);
   background-repeat: no-repeat;
@@ -1088,6 +1086,7 @@ main {
   margin-top: 5px;
   text-align: center;
 }
+
 
 
 /*-------------- FAQ--------------*/

@@ -9,6 +9,7 @@ if (!empty($_POST['user']) && ($_POST['cust_name']) && ($_POST['phone']) && ($_P
         $pass =  $_POST['pass'];
         $email = filter_input(INPUT_POST,'email', FILTER_SANITIZE_EMAIL);
         $phone = filter_input(INPUT_POST,'phone', FILTER_SANITIZE_STRING);
+        $imgPath = "userImg/" . $_FILES['picture_input']['name'];
         $repass = $_POST['repass'];
         $TbName = "customer";
 
@@ -38,13 +39,18 @@ if (!empty($_POST['user']) && ($_POST['cust_name']) && ($_POST['phone']) && ($_P
 
                             $password = trim($_POST['pass']);
 
-                            $qr = "INSERT INTO $TbName (CustomerID, CompanyID, username, customer_name, phone, email, password) VALUES (NULL, NULL, ?, ?, ?, ?, ?);";
+                            $qr = "INSERT INTO $TbName (CustomerID, username, customer_name, phone, email, password, filepath) VALUES (NULL, ?, ?, ?, ?, ?, ?);";
                             if ($stmt = mysqli_prepare($con, $qr)){
-                                mysqli_stmt_bind_param($stmt,'sssss', $username, $custName, $phone, $email, $pass_param);
-                                //hashing pass
+                                mysqli_stmt_bind_param($stmt,'ssssss', $username, $custName, $phone, $email, $pass_param, $imgPath);
+                                
+                                 
+                                 //hashing pass
                                 $pass_param = password_hash($pass, PASSWORD_DEFAULT);
+                               
                                 if (mysqli_stmt_execute($stmt)){
+                                    
                                     //file upload include
+                                    include 'include/picture_upload.php';
                                    
                                     
                                     echo "<span> Account successfully created!</span><br>
