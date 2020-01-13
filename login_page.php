@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,60 +13,37 @@
 <body>
   
     <header>
-        <div class="container"> 
+        <div class="container">
         <a href="index.html" ><img class="logo" src="img/logo.png"></a>
         <div class="menu-btn not-active"><span></span>
             </div>
         <ul class="menu"><li><a href="#">faq</a></li>
                 <li><a href="#">contact us</a></li>
-                <li><a href="login">login/register</a></li>
+                <li><a href="login.html">login/register</a></li>
                 <li><a href="#"></a></li>
         </ul>
         </div>
     </header>
+        
+        <div class="login_bg">
+            <div class="container">
+                <div class="login_form">
+                    <img src="img/login_img.png" alt="">
+                    <form action="" method="POST">
+                        <h2>Long time no see!</h2>
+                        <h3>Please write your login and password</h3>
 
-    <div class="banner">
-        <div class="container">
-            <div class="banner_text">
-                <p>We are here to help you</p>
+                        <input type="text" name="user" placeholder="User name">
+                        <input type="password" name="pass" placeholder="user password">
+                        <input type="submit" value="Log in" name="submit">
+                        <a href="register_page.php">Still not registered? Click here!</a>
+                    </form>
+                    <?php
+					include "include/login.php";
+				?>
+                </div>
             </div>
-        </div>
-    </div>
-    
-
-    
-    <div class="right_image clearfix">
-        <div class="container clearfix">
-        <p>FIND THE RIGHT <b>SOLUTION</b> 
-FOR YOUR <b>PROBLEM</b></p>
-        <img src="img/right_img.png"  alt="">
-    </div>
-</div>
-
-    <div class="left_image clearfix">
-        <div class="container clearfix">
-        <p>BUY A MAINTENACE LICENSE 
-AND <b>BECOME THE PART</b>
-OF OUR COMMUNITY</p>
-        <img src="img/left_img.png" alt="">
-        
-        
-    </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        </div>	
     
     <footer>
         <div class="container clearfix">
@@ -83,5 +59,4 @@ OF OUR COMMUNITY</p>
     <script src="vendor/jquery/jquery-3.2.0.min.js"></script>
     <script src="js/core.js"></script>
 </body>
-
 </html>

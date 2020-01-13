@@ -52,7 +52,7 @@ body {
   min-width: 320px; }
 
 .container {
-  min-width: 320px;
+  min-width: 450px;
   max-width: 1200px;
   padding: 0 15px;
   margin: 0 auto; }
@@ -483,10 +483,92 @@ border-radius: 10px;
         text-align: center;
         margin: 0 !important;
         padding: 10px 15px !important; } }
-		
+
+
+
+
+/*-------------- LOGIN--------------*/
+	
+.login_bg{
+  background-image: url(../img/bglogo_register.jpg);
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+
+
+.login_form{
+  width: 400px;
+  margin: 0 auto;
+  padding-top: 120px;
+  text-align: center;
+  color: #fff;
+  padding-bottom: 100px;
+}
+
+@media screen and (max-width: 500px) {
+  .login_form{
+  width: 320px;
+}
+}
+
+.login_form img{
+  width: 120px;
+  
+}
+
+.login_form input{
+  width: 100%;
+  height: 35px;
+  border: none;
+  background-color: rgba(255,255,255, 0.5);
+  padding: 5px 5px 5px 38px;
+  margin: 10px;
+}
+
+.login_form input[type=text]{
+  background-image: url(../img/user_img.png);
+  -webkit-background-size: 30px;
+  background-position: 8px 7px;
+  background-size: 20px;
+  background-repeat: no-repeat;
+}
+.login_form input[type=email]{
+     background-image: url(../img/email_img.png);
+  -webkit-background-size: 24px;
+    background-position: 6px 5px;
+    background-size: 24px;
+  background-repeat: no-repeat;
+}
+
+.login_form input[type=password]{
+  background-image: url(../img/password_img.png);
+  -webkit-background-size: 30px;
+  background-position: 8px 4px;
+  background-size: 20px;
+  background-repeat: no-repeat;
+}
+
+.login_form input[type=submit]{
+  padding: 5px;
+  color: #fff;
+  background-color: #035e7b;
+}
+
+.login_form a{
+  color: #fefefe;
+  text-decoration: none;
+  font-size: 12px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+
 /*-------------- FAQ--------------*/
 
-	
+
+
 .invite {
   height: 130px;
   width: 100%;
@@ -573,5 +655,81 @@ border-radius: 10px;
 .dropdown:hover .dropbtn {
   background-color: #2B89BD;
 }
+
+.login_bg{
+  background-image: url(../img/bglogo_register.jpg);
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+
+
+.login_form{
+  width: 400px;
+  margin: 0 auto;
+  padding-top: 120px;
+  text-align: center;
+  color: #fff;
+  padding-bottom: 100px;
+}
+
+@media screen and (max-width: 500px) {
+  .login_form{
+  width: 320px;
+}
+}
+
+.login_form img{
+  width: 120px;
+  
+}
+
+.login_form input{
+  width: 100%;
+  height: 35px;
+  border: none;
+  background-color: rgba(255,255,255, 0.5);
+  padding: 5px 5px 5px 38px;
+  margin: 10px;
+}
+
+.login_form input[type=text]{
+  background-image: url(../img/user_img.png);
+  -webkit-background-size: 30px;
+  background-position: 8px 7px;
+  background-size: 20px;
+  background-repeat: no-repeat;
+}
+.login_form input[type=email]{
+     background-image: url(../img/email_img.png);
+  -webkit-background-size: 24px;
+    background-position: 6px 5px;
+    background-size: 24px;
+  background-repeat: no-repeat;
+}
+
+.login_form input[type=password]{
+  background-image: url(../img/password_img.png);
+  -webkit-background-size: 30px;
+  background-position: 8px 4px;
+  background-size: 20px;
+  background-repeat: no-repeat;
+}
+
+.login_form input[type=submit]{
+  padding: 5px;
+  color: #fff;
+  background-color: #035e7b;
+}
+
+.login_form a{
+  color: #fefefe;
+  text-decoration: none;
+  font-size: 12px;
+  margin-top: 5px;
+  text-align: center;
+}
+
 
 
