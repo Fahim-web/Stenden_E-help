@@ -42,14 +42,16 @@
         <?php
         
         require('php_process/connect.php');
-        $sql = 'SELECT *  FROM incident';
-        //$sql .= 'SELECT Operator_name from operator where OperatorID = (SELECT OperatorID from incident where IncidentID = $IncidentID) ';
+        $sql = 'SELECT I.IncidentID,I.Topic,I.Description,I.RegisteredBy,I.resolution_date,O.Operator_name,T.Description FROM incident as I
+    INNER JOIN operator as O ON I.OperatorID=O.OperatorID 
+    INNER JOIN type as T ON I.typeID=T.typeID';
+        //$sql .= 'SELECT  ';
         if ($stmt_select = mysqli_prepare($connect, $sql)) {
             $execute_select = mysqli_stmt_execute($stmt_select);
             if ($execute_select == FALSE) {
                 echo mysqli_error($conenct);
             }
-            mysqli_stmt_bind_result($stmt_select, $IncidentID, $SolutionID, $TypeID, $OperatorID, $StatusID, $CustomerID, $FrequencyID, $Topic, $Description, $RegisteredBy, $report_date, $resolution_date);
+            mysqli_stmt_bind_result($stmt_select, $incidentID, $topic, $description, $registered_by, $resolution_date, $operatorName, $typeDesc);
             mysqli_stmt_store_result($stmt_select);
             
             if (mysqli_stmt_num_rows($stmt_select) == 0) {
@@ -60,14 +62,14 @@
                     echo '<div class="ticket_box">
             <div class="ticket_box_top">
                 <div class="ticket_box_id">
-                    <p>ID#'.$IncidentID.'</p>
+                    <p>ID#'.$incidentID.'</p>
                 </div>
                 <div class="ticket_box_content">
                     <div class="ticket_box_content_title">
-                        <h3>'.$Topic.'</h3>
+                        <h3>'.$topic.'</h3>
                     </div>
                     <div class="ticket_box_content_body">
-                        <p>'.$Description.'</p>
+                        <p>'.$description.'</p>
                     </div>
                 </div>
             </div>
@@ -77,7 +79,7 @@
                   <a href="#"><img id="ticket_box_assign_pic" src="https://i.ibb.co/881QtG6/open-a-ticket.png" alt="Assign a Ticket"/>
                 </a></div>
                 <div class="ticket_box_bottom_assignedTo">
-                   <p>Assigned to:<br><br>INSERT NAME</p>
+                   <p>Assigned to:<br><br>'.$operatorName.'</p>
                 </div>
                 <div class="ticket_box_bottom_raisedBy">
                    <p>'.$RegisteredBy.'<br><br></p>
@@ -86,7 +88,7 @@
                    <p>Priority:<br><br>GOLD</p>
                 </div>
                 <div class="ticket_box_bottom_category">
-                  <p>Category:<br><br>INSERT CAT</p>
+                  <p>Category:<br><br>'.$typeDesc.'</p>
                 </div>
                 <div class="ticket_box_bottom_duedate">
                 <p>Due Date:<br><br>'.$resolution_date.'</p>
