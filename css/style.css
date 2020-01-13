@@ -181,10 +181,12 @@ ul li a {
 }
 
 
+
 #profilePic{
 margin: 20px 20px 0 0;
 width:124px;
 height: 124px;
+
 }
 
 .user_banner {
@@ -537,9 +539,17 @@ float:left;
 }
 
 
-#ticket_box_assign_pic{
+#ticket_box_assign_pic {
+  float: left;
   margin: 1px 55px;
 }
+
+#statusLight {
+  float: left;
+  margin: 16px 18px;
+}
+
+
 /* ------------------CHANGES------------------ */
 .view_legend {
   width: 60%;
@@ -576,6 +586,7 @@ float:left;
   text-align: left;
   float: left;
 }
+
 #none_submitted {
   width: 40%;
   height: 75px;
@@ -683,6 +694,7 @@ border-radius: 25px;
 /*------------------------END Security operator----------------*/
 
 /* ------------------------End changes-------------------- */
+
 .left_image p {
   font-size: 45px;
   margin-top: 55px;
@@ -857,6 +869,128 @@ main {
     padding: 10px 15px !important;
   }
 }
+/*start assign page*/
+.assign_ticket_box {
+  width: 1000px;
+  height: 200px;
+  background-color: #ffffff;
+  border-radius: 17px;
+  box-shadow: 2px 5px 5px #000000;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+/*end assign page*/
+/*start "assign" buttons*/
+.button {
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #dcdcdc;
+  display: inline-block;
+  cursor: pointer;
+  color: #2598c5;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 35px;
+  margin-left: 15px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #ffffff;
+}
+.button:hover {
+  background: linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+  background-color: #f6f6f6;
+}
+.button:active {
+  position: relative;
+  top: 1px;
+}
+.assign {
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #dcdcdc;
+  display: inline-block;
+  cursor: pointer;
+  color: #2598c5;
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 3px 20px;
+  margin-left: 96px;
+  margin-top: 2.5px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #ffffff;
+}
+.assign:hover {
+  background: linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+  background-color: #f6f6f6;
+}
+.assign:active {
+  position: relative;
+  top: 1px;
+}
+/*end "assign" buttons*/
+/*start assigning boxes*/
+.operator_assign {
+  width: 300px;
+  height: 200px;
+  background-color: #ffffff;
+  border-radius: 17px;
+  box-shadow: 2px 5px 5px #000000;
+  margin-bottom: 15px;
+  float: left;
+}
+.operator_assign_top {
+  width: 100%;
+  height: 70%;
+  border-radius: 17px 17px 0 0;
+  float: left;
+}
+.operator_assign_id {
+  width: 145px;
+  height: 100%;
+  float: left;
+  border-radius: 17px 0 0;
+  border: solid #eee8fc 2px;
+}
+.operator_assign_content {
+  height: 100%;
+  border-radius: 0px 17px 0 0;
+  border: solid #eee8fc 2px;
+  width: 51.5%;
+  float: left;
+  border-left: 0;
+}
+.operator_box_assign {
+  width: 300px;
+  height: 100%;
+  border-radius: 0 0 0 17px;
+  float: left;
+  border-top: 0;
+}
+/*end assigning boxes*/
+/*start responsive*/
+.responsive_assign {
+  margin: 0 auto;
+  width: 1000px;
+  height: 1000px;
+}
+.operator_assign_middle {
+  width: 300px;
+  height: 200px;
+  background-color: #ffffff;
+  border-radius: 17px;
+  box-shadow: 2px 5px 5px #000000;
+  margin-right: 50px;
+  margin-left: 50px;
+  margin-bottom: 15px;
+  float: left;
+}
+/*end responsive*/
+
 
 
     @media screen and (max-width: 870px) {
@@ -1121,7 +1255,5 @@ main {
   margin-top: 5px;
   text-align: center;
 }
-
-
 
 
