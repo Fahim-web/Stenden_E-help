@@ -49,9 +49,9 @@ session_start();
             if ($execute_select == FALSE) {
                 echo mysqli_error($conenct);
             }
-            mysqli_stmt_bind_result($stmt_select, $customerid, $companyid, $username, $customer_name, $phone, $email, $pwd,$filepath);
+            mysqli_stmt_bind_result($stmt_select, $customerid, $companyid, $username, $customer_name, $phone, $email, $pwd, $filepath);
             mysqli_stmt_store_result($stmt_select);
-            
+            // echo 'chuj';
             if (mysqli_stmt_num_rows($stmt_select) == 0) {
                 echo 'No customers have been registered';
             } else {
@@ -92,7 +92,7 @@ session_start();
                         </div>
                         <div class="security_div">
                             <div><p>Email</p></div>
-                            <div><img src="profileimages/'.$filepath.'"></img></div>
+                            <div><img src="profileimages/' . $filepath . '"></img></div>
                         </div>
                     </div>';
                 }
