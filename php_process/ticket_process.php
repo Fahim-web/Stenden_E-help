@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) {
             // $sql_insert='INSERT INTO incident VALUES(NULL,NULL,?,NULL,?,NULL,?,?,?,?,?,?,NULL);';
             //                With customer
             $customerid = 2;
-            $sql_insert = 'INSERT INTO incident VALUES(NULL,NULL,?,?,?,?,?,?,?,?,?,NULL);';
+            $sql_insert = 'INSERT INTO incident VALUES(NULL,NULL,?,NULL,?,?,?,?,?,?,?,NULL);';
 
             while (mysqli_stmt_fetch($stmt_select)) {
                 // echo$typeid;
@@ -54,9 +54,9 @@ if (isset($_POST['submit'])) {
                     //                        with customer
                     mysqli_stmt_bind_param(
                         $stmt_insert,
-                        'iiiisssss',
+                        'iiisssss',
                         $typeid,
-                        $operatorid,
+
                         $statusid,
                         $customerid,
                         $frequencyid,
