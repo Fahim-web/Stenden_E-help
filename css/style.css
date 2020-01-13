@@ -183,6 +183,8 @@ ul li a {
 
 #profilePic{
 margin: 20px 20px 0 0;
+width:124px;
+height: 124px;
 }
 
 .user_banner {
@@ -203,11 +205,207 @@ margin: 20px 20px 0 0;
   width: fit-content;
 }
 
+
 .content_wrapper {
   padding: 20px 0;
   width: 100%;
   background-color: #eee8fc;
+  overflow: auto;
 }
+
+/*--------------------Ticket Maintainance page-----------------*/
+
+.maintain_wrapper{
+  width: 1500px;
+  margin: 0px auto;
+}
+
+.maintain_client{
+  width: 90%;
+  float:left;
+  background-color: #e4d9ff;
+
+}
+
+.maintain_client_info{
+  width: 20%;
+  background-color: #eee8fc;
+  padding:15px 60px;
+  float:left;
+}
+
+.maintain_client_text{
+  width:80%;
+  float:left;
+
+}
+
+.bubble {
+	position: relative;
+	background: #6f72ff;
+  border-radius: .4em;
+  padding: .2em 2em 1em 2em;
+  float:left;
+  margin: 20px 20px 20px 0;
+
+}
+
+.bubble:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-right-color: #6f72ff;
+	border-left: 0;
+	border-top: 0;
+  margin-top: -5%;
+	margin-left: -20px;
+}
+
+.bubble_response {
+	position: relative;
+	background: #6aff4d;
+  border-radius: .4em;
+  padding: .2em 2em 1em 2em;
+  margin: 20px 0 20px 20px;
+
+}
+
+.bubble_response:after {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-left-color: #6aff4d;
+	border-right: 0;
+	border-bottom: 0;
+	margin-top: -10px;
+	margin-right: -20px;
+}
+
+
+.dropbtn, .submitbtn{
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  margin: 5px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  float:right;
+}
+
+input[type=checkbox] + label {
+  display: block;
+  margin: 0.2em;
+  cursor: pointer;
+  padding: 0.2em;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+input[type=checkbox] + label:before {
+  content: "\2714";
+  border: 0.1em solid #000;
+  border-radius: 0.2em;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  padding-left: 0.2em;
+  padding-bottom: 0.3em;
+  margin-right: 0.2em;
+  vertical-align: bottom;
+  color: transparent;
+  transition: .2s;
+}
+
+input[type=checkbox] + label:active:before {
+  transform: scale(0);
+}
+
+input[type=checkbox]:checked + label:before {
+  background-color: MediumSeaGreen;
+  border-color: MediumSeaGreen;
+  color: #fff;
+}
+
+input[type=checkbox]:disabled + label:before {
+  transform: scale(1);
+  border-color: #aaa;
+}
+
+input[type=checkbox]:checked:disabled + label:before {
+  transform: scale(1);
+  background-color: #bfb;
+  border-color: #bfb;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+.maintain_client_anwserBar{
+  width: 100%;
+  background-color: #035e7b;
+  float:left;
+  margin: 0 auto;
+}
+
+.maintain_client_anwserBar_wrap{
+  width: 51%;
+  margin: 0 auto;
+}
+.clearfix::after {
+  clear: both;
+  content: "";
+  display: table; }
+
+textarea{
+  width: 100%;
+  height: 200px;
+  border: none;
+  margin: 10px;
+  padding: 20px;
+  resize: none;
+  border-radius: 10px;
+}
+
+.maintain_client_anwserBar_text{
+  width: 75%;
+  margin: 10px auto;
+  float: left;
+}
+
+.maintain_client_anwserBar_buttons{
+  width:20%;
+  float:right;
+  margin: 20px;
+  background-color: #b4b7b871;
+  padding: 2%;
+  border-radius: 10px;
+  height: 200px;
+}
+
+.dropdown{
+float:left;
+}
+
+
+/*_____________________________________________________________*/
 
 /* TicketBox beginning */
 
