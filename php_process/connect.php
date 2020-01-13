@@ -1,6 +1,10 @@
 <?php
-    $connect=mysqli_connect('localhost', 'root','','ssd');
-    if($connect==FALSE){
-        echo mysqli_connect_error();
+    $con = mysqli_connect("localhost","root","");
+    if (!$con){
+        echo "error";
+    }else{
+        $dbName = "ssd";
+        mysqli_select_db($con, $dbName);
+        global $con;
     }
 ?>
