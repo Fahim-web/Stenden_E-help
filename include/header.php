@@ -25,17 +25,61 @@ echo "
         <ul class='menu'><li><a href='#'>faq</a></li>
         ";
         if (isset($_SESSION['operatorID'])){
-            $sql = 'SELECT Clearance FROM operator WHERE OperatorID = ?;';
+            $sql = 'SELECT Clearance FROM operator WHERE OperatorID = '$id';';
+            if ($prep_sql = mysqli_prepare($con, $sql)){
+                $exec_sql = mysqli_stmt_execute($prep_sql);
+                if ($exec_sql == FALSE){
+                    echo mysqli_error($exec_sql);
+                }
+                mysqli_stmt_bind_result($prep_sql, $clearance);
+                mysqli_stmt_store_result($prep_sql);
+                while (mysqli_stmt_fetch($prep_sql)){
+                    echo $clearance;
+                    if ($clearance == 1){
+                        echo "
+                        <li><a href='#'>View Registered tickets</a></li>
+                        <li><a href='#'>Add a Phone Ticket</a></li>
+                        " 
+                        
+                        include ('header_log_button.php');
+                        "
+                       
+                            </ul>
+                            </div>
+                        </header>";
+
+
+                    }elseif ($clearance == 2){
+                        echo 
+                        
+                        include ('header_log_button.php');
+                        "
+                            </ul>
+                            </div>
+                        </header>";
+                    }elseif ($clearance == 3){
+                        echo "
+                        <li><a href='#'>View Registered tickets</a></li>
+                        <li><a href='#'>Add a Phone Ticket</a></li>
+                        " 
+                        
+                        include ('header_log_button.php');
+                        "
+                       
+                            </ul>
+                            </div>
+                        </header>";
+                    }
+                }
+
+            }
+
+        }else{
+            $sql = 'SELECT Clearance FROM customer WHERE CustomerID = '$id';';
         }
         
         
-        echo "
-                <li><a href='#'>contact us</a></li>
-                <li><a href='login'>login/register</a></li>
-                <li><a href='#'></a></li>
-        </ul>
-        </div>
-    </header>
+        
 
 
 ";
