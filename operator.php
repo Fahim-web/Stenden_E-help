@@ -42,18 +42,23 @@
         <?php
         
         require('php_process/connect.php');
-        $sql = 'SELECT I.IncidentID,I.Topic,I.Description,I.RegisteredBy,I.resolution_date,O.Operator_name,T.Description FROM incident as I
+        $sql = 'SELECT I.IncidentID,I.Topic,I.Description,I.RegisteredBy,I.resolution_date,I.StatusID,O.Operator_name,T.Description FROM incident as I
     INNER JOIN operator as O ON I.OperatorID=O.OperatorID 
     INNER JOIN type as T ON I.typeID=T.typeID';
-        //$sql .= 'SELECT  ';
         if ($stmt_select = mysqli_prepare($connect, $sql)) {
             $execute_select = mysqli_stmt_execute($stmt_select);
             if ($execute_select == FALSE) {
                 echo mysqli_error($conenct);
             }
-            mysqli_stmt_bind_result($stmt_select, $incidentID, $topic, $description, $registered_by, $resolution_date, $operatorName, $typeDesc);
+            mysqli_stmt_bind_result($stmt_select, $incidentID, $topic, $description, $registered_by, $resolution_date,$status, $operatorName, $typeDesc);
             mysqli_stmt_store_result($stmt_select);
             
+            
+            if($status == 1){
+                $srcpic='https://i.ibb.co/g7W2LcZ/red.png';
+            }else{
+                $srcpic='https://i.ibb.co/3y0gwdH/green.png';
+            }
             if (mysqli_stmt_num_rows($stmt_select) == 0) {
                 echo 'There is no open incidents';
             } else {
@@ -82,7 +87,7 @@
                    <p>Assigned to:<br><br>'.$operatorName.'</p>
                 </div>
                 <div class="ticket_box_bottom_raisedBy">
-                   <p>'.$registered_by.'<br><br></p>
+                   <p>Registered by:<br><br>'.$registered_by.'</p>
                 </div>
                 <div class="ticket_box_bottom_priority">
                    <p>Priority:<br><br>GOLD</p>
@@ -94,7 +99,7 @@
                 <p>Due Date:<br><br>'.$resolution_date.'</p>
                 </div>
                 <div class="ticket_box_bottom_status">
-                    <img id="statusLight" src="https://i.ibb.co/g7W2LcZ/red.png" alt="Status of the Ticket"/>
+                    <img id="statusLight" src="'.$srcpic.'" alt="Status of the Ticket"/>
                 </div>
             </div>
         </div>';
