@@ -1,1 +1,0 @@
-1)CHANGE IN CSS #statusLight TO .statusLight
