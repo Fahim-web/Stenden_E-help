@@ -1,8 +1,8 @@
 <?php
 
 
-include "include/connect.php";
-include "include/session.php";
+include "php_process/connect.php";
+include "php_process/session.php";
 //if logged in -> index.php
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     header("location: login_page.php");
