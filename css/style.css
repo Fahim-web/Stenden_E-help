@@ -106,7 +106,7 @@ body {
 }
 
 .container {
-  min-width: 320px;
+  min-width: 450px;
   max-width: 1200px;
   padding: 0 15px;
   margin: 0 auto;
@@ -180,8 +180,13 @@ ul li a {
   width: 40%;
 }
 
-#profilePic {
-  margin: 20px auto 0;
+
+
+#profilePic{
+margin: 20px 20px 0 0;
+width:124px;
+height: 124px;
+
 }
 
 .user_banner {
@@ -202,11 +207,207 @@ ul li a {
   width: fit-content;
 }
 
+
 .content_wrapper {
   padding: 20px 0;
   width: 100%;
   background-color: #eee8fc;
+  overflow: auto;
 }
+
+/*--------------------Ticket Maintainance page-----------------*/
+
+.maintain_wrapper{
+  width: 1500px;
+  margin: 0px auto;
+}
+
+.maintain_client{
+  width: 90%;
+  float:left;
+  background-color: #e4d9ff;
+
+}
+
+.maintain_client_info{
+  width: 20%;
+  background-color: #eee8fc;
+  padding:15px 60px;
+  float:left;
+}
+
+.maintain_client_text{
+  width:80%;
+  float:left;
+
+}
+
+.bubble {
+	position: relative;
+	background: #6f72ff;
+  border-radius: .4em;
+  padding: .2em 2em 1em 2em;
+  float:left;
+  margin: 20px 20px 20px 0;
+
+}
+
+.bubble:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-right-color: #6f72ff;
+	border-left: 0;
+	border-top: 0;
+  margin-top: -5%;
+	margin-left: -20px;
+}
+
+.bubble_response {
+	position: relative;
+	background: #6aff4d;
+  border-radius: .4em;
+  padding: .2em 2em 1em 2em;
+  margin: 20px 0 20px 20px;
+
+}
+
+.bubble_response:after {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-left-color: #6aff4d;
+	border-right: 0;
+	border-bottom: 0;
+	margin-top: -10px;
+	margin-right: -20px;
+}
+
+
+.dropbtn, .submitbtn{
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  margin: 5px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  float:right;
+}
+
+input[type=checkbox] + label {
+  display: block;
+  margin: 0.2em;
+  cursor: pointer;
+  padding: 0.2em;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+input[type=checkbox] + label:before {
+  content: "\2714";
+  border: 0.1em solid #000;
+  border-radius: 0.2em;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  padding-left: 0.2em;
+  padding-bottom: 0.3em;
+  margin-right: 0.2em;
+  vertical-align: bottom;
+  color: transparent;
+  transition: .2s;
+}
+
+input[type=checkbox] + label:active:before {
+  transform: scale(0);
+}
+
+input[type=checkbox]:checked + label:before {
+  background-color: MediumSeaGreen;
+  border-color: MediumSeaGreen;
+  color: #fff;
+}
+
+input[type=checkbox]:disabled + label:before {
+  transform: scale(1);
+  border-color: #aaa;
+}
+
+input[type=checkbox]:checked:disabled + label:before {
+  transform: scale(1);
+  background-color: #bfb;
+  border-color: #bfb;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+.maintain_client_anwserBar{
+  width: 100%;
+  background-color: #035e7b;
+  float:left;
+  margin: 0 auto;
+}
+
+.maintain_client_anwserBar_wrap{
+  width: 51%;
+  margin: 0 auto;
+}
+.clearfix::after {
+  clear: both;
+  content: "";
+  display: table; }
+
+textarea{
+  width: 100%;
+  height: 200px;
+  border: none;
+  margin: 10px;
+  padding: 20px;
+  resize: none;
+  border-radius: 10px;
+}
+
+.maintain_client_anwserBar_text{
+  width: 75%;
+  margin: 10px auto;
+  float: left;
+}
+
+.maintain_client_anwserBar_buttons{
+  width:20%;
+  float:right;
+  margin: 20px;
+  background-color: #b4b7b871;
+  padding: 2%;
+  border-radius: 10px;
+  height: 200px;
+}
+
+.dropdown{
+float:left;
+}
+
+
+/*_____________________________________________________________*/
 
 /* TicketBox beginning */
 
@@ -328,11 +529,15 @@ ul li a {
   height: 100%;
   width: 59px;
   float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 0 0 17px 0;
   border: solid #eee8fc 2px;
   border-left: 0;
   border-top: 0;
 }
+
 
 #ticket_box_assign_pic {
   float: left;
@@ -344,6 +549,36 @@ ul li a {
   margin: 16px 18px;
 }
 
+
+/* ------------------CHANGES------------------ */
+.view_legend {
+  width: 60%;
+  height: 150px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+.legend_Lvl_1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.legendlight {
+  width: 30px;
+  height: 30px;
+  margin-right: 15px;
+}
+.statusLight {
+  float: left;
+  margin: 16px 18px;
+}
+.light {
+  float: left;
+  width: 20px;
+  height: 20px;
+}
+
 .right_image p {
   font-size: 45px;
   margin-top: 120px;
@@ -351,6 +586,114 @@ ul li a {
   text-align: left;
   float: left;
 }
+
+#none_submitted {
+  width: 40%;
+  height: 75px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: seashell;
+}
+/*------------------------Security operator----------------*/
+.main_security_wrapper{
+  width:100%;
+  height:700px;
+  /* background-color: grey; */
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* overflow: scroll; */
+  /* flex-grow: 1; */
+  /* flex-basis: 0; */
+}
+#security_wrap{
+  overflow: scroll;
+  width: 60%;
+  margin-top: 10px;
+}
+#security_wrap::-webkit-scrollbar {
+  display: none;
+}
+.security_div{
+  flex-grow: 1;
+  /* margin:10px; */
+  box-sizing: border-box;
+  /* border:2px solid blue; */
+  display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+}
+.security_general{
+  display:flex;
+  /* flex-direction: column; */
+  /* width:100%; */
+  /* height:100%; */
+  flex-grow: 1;
+  /* width: 60%; */
+  margin-top:10px;
+  border:1px solid red;
+  -webkit-border-radius: 15px;
+-moz-border-radius: 15px;
+border-radius: 15px;
+}
+.notification{
+  box-shadow: 1px 3px #888888;
+  border-radius:25px;
+  background-color:white;
+  /* width:40%; */
+  text-align:center;
+}
+.security_form{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-weight: bold;
+  width:40%;
+  height: 200px;
+  box-shadow: 1px 3px #888888;
+  background-color:white;
+  -webkit-border-radius: 15px;
+-moz-border-radius: 15px;
+border-radius: 15px;
+  /* font-size */
+}
+.security_inside_form{
+  margin-top:20px;
+}
+.security_inside_form_top{
+  width:40%;
+  margin-top:10px;
+  
+}
+.submit_security_operator{
+  -webkit-border-radius: 25px;
+-moz-border-radius: 25px;
+border-radius: 25px;
+	border:none;
+	outline:none;
+	background-color:#eee8fc;
+	cursor:pointer;
+}
+.input_security{
+  border:none;
+	outline:none;
+	background-color:#035e7b;
+  color:white;
+  border-radius:25px 0 0 25px;
+}
+.submit_security_operator:hover{
+	background-color:#035e7b;
+	color:white;
+}
+
+/*------------------------END Security operator----------------*/
+
+/* ------------------------End changes-------------------- */
 
 .left_image p {
   font-size: 45px;
@@ -508,6 +851,7 @@ main {
   display: block;
 }
 
+
 @media screen and (max-width: 870px) {
   header ul.menu {
     display: none;
@@ -646,3 +990,270 @@ main {
   float: left;
 }
 /*end responsive*/
+
+
+
+    @media screen and (max-width: 870px) {
+      header ul.menu {
+        display: none;
+        font-size: 16px;
+        z-index: 499;
+        background: #035e7b;
+        width: 200px;
+        height: auto;
+        position: absolute;
+        top: 130px;
+        right: 0px;
+        display: none;
+        text-align: center;
+        margin: 0 !important;
+        padding: 10px 15px !important; } }
+
+
+
+
+/*-------------- LOGIN--------------*/
+	
+.login_bg{
+  background-image: url(../img/bglogo_register.jpg);
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+
+
+.login_form{
+  width: 400px;
+  margin: 0 auto;
+  padding-top: 120px;
+  text-align: center;
+  color: #fff;
+  padding-bottom: 100px;
+}
+
+@media screen and (max-width: 500px) {
+  .login_form{
+  width: 320px;
+}
+}
+
+.login_form img{
+  width: 120px;
+  
+}
+
+.login_form input{
+  width: 100%;
+  height: 35px;
+  border: none;
+  background-color: rgba(255,255,255, 0.5);
+  padding: 5px 5px 5px 38px;
+  margin: 10px;
+}
+
+.login_form input[type=text]{
+  background-image: url(../img/user_img.png);
+  -webkit-background-size: 30px;
+  background-position: 8px 7px;
+  background-size: 20px;
+  background-repeat: no-repeat;
+}
+.login_form input[type=email]{
+     background-image: url(../img/email_img.png);
+  -webkit-background-size: 24px;
+    background-position: 6px 5px;
+    background-size: 24px;
+  background-repeat: no-repeat;
+}
+
+.login_form input[type=password]{
+  background-image: url(../img/password_img.png);
+  -webkit-background-size: 30px;
+  background-position: 8px 4px;
+  background-size: 20px;
+  background-repeat: no-repeat;
+}
+
+.login_form input[type=submit]{
+  padding: 5px;
+  color: #fff;
+  background-color: #035e7b;
+}
+
+.login_form a{
+  color: #fefefe;
+  text-decoration: none;
+  font-size: 12px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+
+/*-------------- FAQ--------------*/
+
+
+
+.invite {
+  height: 130px;
+  width: 100%;
+  background-color: #f4f4fe;	
+  font-size: 20px;
+}
+
+.invite_wrapper{
+  margin: 0 auto;
+  width: 500px;
+  height: 270px;
+}
+
+.invite_wrapper_msg{
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.content_wrapper{
+  padding: 20px 0;
+  width: 100%;
+  background-color: #eee8fc;
+  
+}
+
+.response {
+	margin: 0 auto;
+	width:  800px;
+	height: 430px;
+}
+	
+.dropbtn {
+  background-color: #2B89BD;
+  color: white;
+  padding:  12px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  width: 800px;
+  margin-top: 10px;
+  border-radius: 10px;
+  text-align: left;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  display: inline-block;
+  width: 800px;
+}
+
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  float: left;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  width: 800px;
+  border-radius: 10px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+	background-color: #f1f1f1;
+	border-radius: 10px;
+	}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #2B89BD;
+}
+
+.login_bg{
+  background-image: url(../img/bglogo_register.jpg);
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+}
+
+
+
+.login_form{
+  width: 400px;
+  margin: 0 auto;
+  padding-top: 120px;
+  text-align: center;
+  color: #fff;
+  padding-bottom: 100px;
+}
+
+@media screen and (max-width: 500px) {
+  .login_form{
+  width: 320px;
+}
+}
+
+.login_form img{
+  width: 120px;
+  
+}
+
+.login_form input{
+  width: 100%;
+  height: 35px;
+  border: none;
+  background-color: rgba(255,255,255, 0.5);
+  padding: 5px 5px 5px 38px;
+  margin: 10px;
+}
+
+.login_form input[type=text]{
+  background-image: url(../img/user_img.png);
+  -webkit-background-size: 30px;
+  background-position: 8px 7px;
+  background-size: 20px;
+  background-repeat: no-repeat;
+}
+.login_form input[type=email]{
+     background-image: url(../img/email_img.png);
+  -webkit-background-size: 24px;
+    background-position: 6px 5px;
+    background-size: 24px;
+  background-repeat: no-repeat;
+}
+
+.login_form input[type=password]{
+  background-image: url(../img/password_img.png);
+  -webkit-background-size: 30px;
+  background-position: 8px 4px;
+  background-size: 20px;
+  background-repeat: no-repeat;
+}
+
+.login_form input[type=submit]{
+  padding: 5px;
+  color: #fff;
+  background-color: #035e7b;
+}
+
+.login_form a{
+  color: #fefefe;
+  text-decoration: none;
+  font-size: 12px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+
