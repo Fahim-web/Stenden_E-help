@@ -82,7 +82,7 @@
                    <p>Assigned to:<br><br>'.$operatorName.'</p>
                 </div>
                 <div class="ticket_box_bottom_raisedBy">
-                   <p>'.$RegisteredBy.'<br><br></p>
+                   <p>'.$registered_by.'<br><br></p>
                 </div>
                 <div class="ticket_box_bottom_priority">
                    <p>Priority:<br><br>GOLD</p>
