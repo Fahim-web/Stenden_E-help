@@ -29,7 +29,7 @@
       <h1>Please fill out the form</h1>
       <div class="form_div">
         <h3>Client Username</h3>
-        <p><input class="inp_bord" type="text" name="client_username"></p>
+        <p><input  type="text" name="client_username"></p>
       </div>
       <div class="form_div">
         <h3>Type of the incident</h3>

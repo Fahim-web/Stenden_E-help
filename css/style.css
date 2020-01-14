@@ -1091,7 +1091,6 @@ main {
 
 /*-------------- FAQ--------------*/
 
-<<<<<<< HEAD
 @media screen and (max-width: 550px) {
       .invite {
     font-size: 20px;
@@ -1106,10 +1105,7 @@ main {
 }
 
 	
-=======
 
-
->>>>>>> e80abf91a42ea75402a97f0158aa2127dca1aa64
 .invite {
   height: 130px;
   width: 100%;
@@ -1236,6 +1232,16 @@ main {
   padding: 5px 5px 5px 38px;
   margin: 10px;
 }
+
+.ticket input[type=text]{
+  width: 100%;
+  height: 35px;
+  border: none;
+  background-color: rgba(255,255,255, 0.5);
+  padding: 5px 5px 5px 38px;
+  margin: 10px;
+}
+
 
 .login_form input[type=text]{
   background-image: url(../img/user_img.png);
