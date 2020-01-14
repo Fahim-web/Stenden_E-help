@@ -8,18 +8,9 @@
     
 </head>
 
-<header>
-    <div class="container">
-        <a href="index.html" ><img class="logo" src="img/logo.png"></a>
-        <div class="menu-btn not-active"><span></span>
-            </div>
-        <ul class="menu"><li><a href="#">FAQ</a></li>
-            <li><a href="#">View Registered Tickets</a></li>
-            <li><a href="#">Log Out</a></li>
-            <li><a href="#"></a></li>
-        </ul>
-    </div>
-</header>
+    <?php
+    include ('php_process/header.php');
+    ?>  
 
 <div class="content_wrapper">
     <div class="maintain_wrapper">

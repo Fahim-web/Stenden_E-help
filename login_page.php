@@ -12,18 +12,9 @@
 
 <body>
   
-    <header>
-        <div class="container">
-        <a href="index.html" ><img class="logo" src="img/logo.png"></a>
-        <div class="menu-btn not-active"><span></span>
-            </div>
-        <ul class="menu"><li><a href="#">faq</a></li>
-                <li><a href="#">contact us</a></li>
-                <li><a href="login.html">login/register</a></li>
-                <li><a href="#"></a></li>
-        </ul>
-        </div>
-    </header>
+<?php
+    include ('php_process/header.php');
+?>
         
         <div class="login_bg">
             <div class="container">
@@ -32,14 +23,15 @@
                     <form action="" method="POST">
                         <h2>Long time no see!</h2>
                         <h3>Please write your login and password</h3>
-
+                        
                         <input type="text" name="user" placeholder="User name">
                         <input type="password" name="pass" placeholder="user password">
                         <input type="submit" value="Log in" name="submit">
                         <a href="register_page.php">Still not registered? Click here!</a>
+                        <p> <a href="login_operator_page.php">Login as operator</a></p>
                     </form>
                     <?php
-					include "include/login.php";
+					include "php_process/login.php";
 				?>
                 </div>
             </div>

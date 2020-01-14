@@ -13,18 +13,9 @@
 
 <body>
   
-    <header>
-        <div class="container">
-            <a href="index.html" ><img class="logo" src="img/logo.png"></a>
-            <div class="menu-btn not-active"><span></span>
-                </div>
-            <ul class="menu"><li><a href="#">FAQ</a></li>
-                <li><a href="#">View Registered Tickets</a></li>
-                <li><a href="#">Log Out</a></li>
-                <li><a href="#"></a></li>
-            </ul>
-        </div>
-    </header>
+    <?php
+    include ('php_process/header.php');
+    ?>
 
     <div class="user_banner">
         <div class="user_banner_wrapper">
@@ -58,8 +49,8 @@
                   <a href="#"><img id="ticket_box_assign_pic" src="https://i.ibb.co/881QtG6/open-a-ticket.png" alt="Assign a Ticket"/>
                 </a></div>
                 <div class="ticket_box_bottom_assignedTo">
-                   <p>Assigned to:<br><br>INSERT NAME</p>
-                </div>
+                    <p>Assigned to:<br><a href="assign.html" class="button">Assign</a></p>
+                 </div>
                 <div class="ticket_box_bottom_raisedBy">
                    <p>Registered by:<br><br>INSERT NAME</p>
                 </div>
@@ -98,7 +89,7 @@
                   <a href="#"><img id="ticket_box_assign_pic" src="https://i.ibb.co/881QtG6/open-a-ticket.png" alt="Assign a Ticket"/>
                 </a></div>
                 <div class="ticket_box_bottom_assignedTo">
-                   <p>Assigned to:<br><br>INSERT NAME</p>
+                   <p>Assigned to:<br><a href="assign.html" class="button">Assign</a></p>
                 </div>
                 <div class="ticket_box_bottom_raisedBy">
                    <p>Registered by:<br><br>INSERT NAME</p>
@@ -138,8 +129,8 @@
                   <a href="#"><img id="ticket_box_assign_pic" src="https://i.ibb.co/881QtG6/open-a-ticket.png" alt="Assign a Ticket"/>
                 </a></div>
                 <div class="ticket_box_bottom_assignedTo">
-                   <p>Assigned to:<br><br>INSERT NAME</p>
-                </div>
+                    <p>Assigned to:<br><a href="assign.html" class="button">Assign</a></p>
+                 </div>
                 <div class="ticket_box_bottom_raisedBy">
                    <p>Registered by:<br><br>INSERT NAME</p>
                 </div>
@@ -178,8 +169,8 @@
                   <a href="#"><img id="ticket_box_assign_pic" src="https://i.ibb.co/881QtG6/open-a-ticket.png" alt="Assign a Ticket"/>
                 </a></div>
                 <div class="ticket_box_bottom_assignedTo">
-                   <p>Assigned to:<br><br>INSERT NAME</p>
-                </div>
+                    <p>Assigned to:<br><a href="assign.html" class="button">Assign</a></p>
+                 </div>
                 <div class="ticket_box_bottom_raisedBy">
                    <p>Registered by:<br><br>INSERT NAME</p>
                 </div>
@@ -218,8 +209,8 @@
                   <a href="#"><img id="ticket_box_assign_pic" src="https://i.ibb.co/881QtG6/open-a-ticket.png" alt="Assign a Ticket"/>
                 </a></div>
                 <div class="ticket_box_bottom_assignedTo">
-                   <p>Assigned to:<br><br>INSERT NAME</p>
-                </div>
+                    <p>Assigned to:<br><a href="assign.html" class="button">Assign</a></p>
+                 </div>
                 <div class="ticket_box_bottom_raisedBy">
                    <p>Registered by:<br><br>INSERT NAME</p>
                 </div>
@@ -238,7 +229,6 @@
             </div>
         </div>
         <!--Additional "fake" boxes-->
-
     </div>
     <footer>
         <div class="container clearfix">
