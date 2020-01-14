@@ -37,7 +37,7 @@ session_start();
         if ($stmt_select = mysqli_prepare($connect, $sql_select)) {
             $execute_select = mysqli_stmt_execute($stmt_select);
             if ($execute_select == FALSE) {
-                echo mysqli_error($conenct);
+                echo mysqli_error($connect);
             }
             mysqli_stmt_bind_result($stmt_select, $customerid, $companyid, $username, $customer_name, $phone, $email, $pwd, $filepath);
             mysqli_stmt_store_result($stmt_select);
