@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<?php
-require('php_process/connect.php');
-session_start();
-?>
+
 <html lang="en">
 
 <head>
@@ -17,9 +14,10 @@ session_start();
 
 <body>
 
-<?php
-    include ('php_process/header.php');
-?>
+    <?php
+    require('php_process/connect_mar.php');
+    include('php_process/header.php');
+    ?>
 
     <div class="user_banner">
         <div class="user_banner_wrapper">

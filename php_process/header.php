@@ -12,7 +12,7 @@
         <div class='menu-btn not-active'><span></span>
             </div>
 
-        <ul class='menu'><li><a href='./Faq.html'>faq</a></li>
+        <ul class='menu'><li><a href='./Faq.php'>faq</a></li>
 
 <?php
 

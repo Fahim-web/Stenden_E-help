@@ -1,5 +1,5 @@
 <?php
-require('connect.php');
+require('connect_mar.php');
 
 if (isset($_POST['submit'])) {
     //        TABLES
