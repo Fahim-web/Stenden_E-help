@@ -13,17 +13,11 @@
 
 <body>	
 
-	    <header>
-        <div class="container">
-        <a href="index.html" ><img class="logo" src="img/logo.png" alt="logo"></a>
-        <div class="menu-btn not-active"><span></span>
-            </div>
-        <ul class="menu">
-				<li style="padding-right: 0px; margin-right: 100px;"><a href="#">faq</a></li>
-                <li style="margin-right: 250px;"><a href="#">contact us</a></li>
-        </ul>
-        </div>
-		</header>
+	<?php
+    include ('php_process/header.php');
+    ?>
+
+
 		<div class="invite">
         <div class="invite_wrapper">
             <div class="invite_wrapper_msg">
