@@ -1,5 +1,5 @@
 <?php
-    include ('html/head.html');
+  //  include ('html/head.html');
     include ('connect.php');
     include ('session.php');
 ?>
