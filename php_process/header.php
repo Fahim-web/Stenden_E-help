@@ -6,26 +6,23 @@
 
 <body>
 
+<header>
+        <div class='container'> 
+        <a href='index.html' ><img class='logo' src='./img/logo.png'></a>
+        <div class='menu-btn not-active'><span></span>
+            </div>
+
+        <ul class='menu'><li><a href='./Faq.html'>faq</a></li>
+
 <?php
 
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 
-    echo $_SESSION['operatorID'];
-    echo $_SESSION['customerID'];
+    echo $_SESSION['operatorid'];
+    echo $_SESSION['customerid'];
 
-
-echo "
-
-<header>
-        <div class='container'> 
-        <a href='index.html' ><img class='logo' src='.../img/logo.png'></a>
-        <div class='menu-btn not-active'><span></span>
-            </div>
-
-        <ul class='menu'><li><a href='#'>faq</a></li>
-        ";
-        if (isset($_SESSION['operatorID'])){
-            $sql = 'SELECT Clearance FROM operator WHERE OperatorID = '$id';';
+        if (isset($_SESSION['operatorid'])){
+            $sql = 'SELECT Clearance FROM operator WHERE operatorid = ' . $_SESSION['operatorid'] . ';';
             if ($prep_sql = mysqli_prepare($con, $sql)){
                 $exec_sql = mysqli_stmt_execute($prep_sql);
                 if ($exec_sql == FALSE){
@@ -41,7 +38,7 @@ echo "
                         <li><a href='#'>Add a Phone Ticket</a></li>
                         " 
                         
-                        include ('header_log_button.php');
+                         . include ('header_log_button.php') .
                         "
                        
                             </ul>
@@ -52,7 +49,7 @@ echo "
                     }elseif ($clearance == 2){
                         echo 
                         
-                        include ('header_log_button.php');
+                         include ('header_log_button.php') .
                         "
                             </ul>
                             </div>
@@ -63,7 +60,7 @@ echo "
                         <li><a href='#'>Add a Phone Ticket</a></li>
                         " 
                         
-                        include ('header_log_button.php');
+                        . include ('header_log_button.php') .
                         "
                        
                             </ul>
@@ -75,16 +72,14 @@ echo "
             }
 
         }else{
-            $sql = 'SELECT Clearance FROM customer WHERE CustomerID = '$id';';
+            $sql = 'SELECT Clearance FROM customer WHERE customerid = ' . $_SESSION['customerid'] . ';';
         }
-        
-        
-        
-
-
-";
+}else{
+    include ('header_log_button.php');
 }
-
 ?>
-  
+ 
+ </ul>
+                            </div>
+                        </header>
     
