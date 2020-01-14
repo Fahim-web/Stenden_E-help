@@ -1,5 +1,5 @@
 <?php
-require('php_process/connect.php');
+require('php_process/connect_mar.php');
 if (isset($_POST['submit'])) {
     $Selcustomerid = htmlentities($_POST['customerid']);
 
