@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,16 +10,27 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
-  <body>
-  <?php
-    include ('php_process/header.php');
-  ?>
+<body>
+  <header>
+    <div class="container">
+      <a href="index.html"><img class="logo" src="img/logo.png" /></a>
+      <div class="menu-btn not-active"><span></span></div>
+      <ul class="menu">
+        <li><a href="#">faq</a></li>
+        <li><a href="#">contact us</a></li>
+        <li><a href="#">login/register</a></li>
+        <li><a href="#"></a></li>
+      </ul>
+    </div>
+  </header>
+  <main>
 
-    <main>
-
-
-    <form class="ticket" action="php_process/ticket_process.php" method="post">
+    <form class="ticket" action="php_process/ticket_process_operator.php" method="post">
       <h1>Please fill out the form</h1>
+      <div class="form_div">
+        <h3>Client Username</h3>
+        <p><input class="inp_bord" type="text" name="client_username"></p>
+      </div>
       <div class="form_div">
         <h3>Type of the incident</h3>
         <select class="inp_bord" name="type">
