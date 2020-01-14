@@ -41,7 +41,7 @@ if (isset($_POST['submit'])){
                                 $_SESSION['customerId'] = $id;
                                 $_SESSION['username'] = $username;
 
-                                header("location: index.html");
+                                header("location: index.php");
                             }else{
                                 echo $passwrd;
                                 echo $hashed_pass;

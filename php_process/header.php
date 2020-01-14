@@ -1,5 +1,5 @@
 <?php
-    include ('./html/head.html');
+    include ('html/head.html');
     include ('connect.php');
     include ('session.php');
 ?>
@@ -18,11 +18,11 @@
 
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 
-    echo $_SESSION['operatorid'];
-    echo $_SESSION['customerid'];
+    echo $_SESSION['operatorId'];
+    echo $_SESSION['customerId'];
 
-        if (isset($_SESSION['operatorid'])){
-            $sql = 'SELECT Clearance FROM operator WHERE operatorid = ' . $_SESSION['operatorid'] . ';';
+        if (isset($_SESSION['operatorId'])){
+            $sql = 'SELECT Clearance FROM operator WHERE operatorId = ' . $_SESSION['operatorId'] . ';';
             if ($prep_sql = mysqli_prepare($con, $sql)){
                 $exec_sql = mysqli_stmt_execute($prep_sql);
                 if ($exec_sql == FALSE){
@@ -71,8 +71,9 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
 
             }
 
-        }else{
-            $sql = 'SELECT Clearance FROM customer WHERE customerid = ' . $_SESSION['customerid'] . ';';
+        }elseif (isset($_SESSION['customerId'])){
+            
+            
         }
 }else{
     include ('header_log_button.php');

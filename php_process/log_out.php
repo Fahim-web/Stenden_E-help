@@ -6,11 +6,13 @@ session_start();
 $_SESSION = array();
 unset($_SESSION['loggedIn']);
 unset($_SESSION['username']);
+unset($_SESSION['operatorId']);
+unset($_SESSION['customerId']);
  
 // Destroy the session.
 session_destroy();
  
 // Redirect to login page
-header("location: ../index.html");
+header("location: ../index.php");
 exit;
 ?>
