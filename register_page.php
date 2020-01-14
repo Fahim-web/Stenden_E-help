@@ -46,7 +46,7 @@
                     <div class="disclaimer">
 							<?php
 							echo "<br><br>";
-								include 'signup_action.php';
+								include 'php_process/signup_action.php';
 
 							?>
                 </div>
