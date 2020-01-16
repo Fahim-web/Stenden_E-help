@@ -64,8 +64,8 @@ require('connect_mar.php');
                             <div><p>' . $email . '</p></div>
                         </div>
                         <div class="security_div">
-                            <div><p>Email</p></div>
-                            <div><img src="profileimages/' . $filepath . '"></img></div>
+                            
+                            <div><img class="security_user_img" src="' . $filepath . '"></img></div>
                         </div>
                     </div>';
             }
