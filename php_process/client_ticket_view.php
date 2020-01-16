@@ -46,12 +46,12 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
             </div>
         </div>
     </div>
-
+    <!---BOX WID TIKET IN IT-->
     <?php
-    $customerid = 2;
+    $customerid = 8;
     // We select all the tickets that this customer has asubmitted
 
-    $sql_select = "SELECT i.incidentid,i.description,i.report_date,i.topic,o.operator_name,c.customer_name,li.description,t.description,s.StatusID
+    $sql_select = "SELECT i.incidentid,i.description,i.report_date,i.topic,o.operator_name,c.customer_name,li.description,t.description,s.StatusID,i.resolution_date
             FROM incident as i, operator as o, customer as c, type as t, status as s,company as cmp, license as li WHERE i.operatorid=o.operatorid AND i.typeID=t.typeID and i.StatusID=s.StatusID and 
             i.customerID=c.customerID and cmp.companyID=c.companyID AND cmp.LicenseID=li.LicenseID AND c.customerid=? ORDER BY i.incidentid DESC;";
     if ($stmt_select = mysqli_prepare($connect, $sql_select)) {
@@ -61,7 +61,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
             header('Location:client_ticket_view.php?error=Execute_Select');
             exit();
         }
-        mysqli_stmt_bind_result($stmt_select, $incID, $incDescription, $incReportDate, $incTopic, $opeName, $CustName, $CompLicense, $TypeDescription, $Statusid);
+        mysqli_stmt_bind_result($stmt_select, $incID, $incDescription, $incReportDate, $incTopic, $opeName, $CustName, $CompLicense, $TypeDescription, $Statusid, $resolution_date);
         mysqli_stmt_store_result($stmt_select);
 
         if (mysqli_stmt_num_rows($stmt_select) == 0) {
@@ -76,7 +76,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
             echo ' <div class="ticket_box">
                     <div class="ticket_box_top">
                         <div class="ticket_box_id">
-                            <p>TicketID#' . $incID . '</p>
+                            <p>TicketID' . $incID . '</p>
                         </div>
                         <div class="ticket_box_content">
                             <div class="ticket_box_content_title">
@@ -104,7 +104,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
                           <p>Category:<br><br>' . $TypeDescription . '</p>
                         </div>
                         <div class="ticket_box_bottom_duedate">
-                        <p>Due Date:<br><br>' . $incReportDate . '</p>
+                        <p>Due Date:<br><br>' . $resolution_date . '</p>
                         </div>
                         <div class="ticket_box_bottom_status">';
             if ($Statusid == '1') {
@@ -119,6 +119,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
                     </div>
                 </div>';
         }
+        mysqli_stmt_close($stmt_select);
     }
     ?>
 
@@ -127,4 +128,5 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 <?php
 require("../html/footer.html");
+mysqli_close($connect);
 ?>

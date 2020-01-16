@@ -1,0 +1,2 @@
+1.Create solution page
+2.Create if(isset($_SESSION)) in all of the pages in php_process

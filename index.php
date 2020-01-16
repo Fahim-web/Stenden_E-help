@@ -13,9 +13,9 @@
 
 <body>
 
-<?php
-header("location: php_process/index.php");
-?>
+    <?php
+    header("location: php_process/index.php");
+    ?>
 
 
 </html>
