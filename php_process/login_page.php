@@ -96,7 +96,7 @@ include('header.php');
         </div>
     </div>
 </div>
-
 <?php
-require("../html/footer.html");
+    require("../html/footer.html");
 ?>
+
