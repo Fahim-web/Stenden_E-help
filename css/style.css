@@ -755,7 +755,7 @@ main {
   border-radius: 15px;
 }
 .form_div {
-  margin: 10px;
+  /* margin: 10px; */
   width: 100%;
 }
 .inp_bord {
