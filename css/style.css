@@ -1096,7 +1096,13 @@ main {
   margin-top: 5px;
   text-align: center;
 }
+/*-------------------TEAM LEADER-----------------*/
+.operator_profile_img{
+  width: 130px;
+  height: 130px;
+}
 
+/*-------------------END TEAM LEADER-----------------*/
 
 
 /*-------------- FAQ--------------*/
