@@ -25,8 +25,8 @@ include('header.php');
             </form>
             <div class="disclaimer">
                 <?php
-                echo "<br><br>";
-                include 'signup_action.php';
+                // echo "<br><br>";
+                // include 'signup_action.php';
 
                 ?>
             </div>

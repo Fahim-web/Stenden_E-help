@@ -49,8 +49,14 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     <!---BOX WID TIKET IN IT-->
     <?php
     $customerid = 2;
+<<<<<<< Updated upstream
     // incidentid, incident description, operator_name, customer_name, LicenseID, type description, report_date,status description;
     $sql_select = "SELECT i.incidentid,i.description,i.report_date,i.topic,o.operator_name,c.customer_name,li.description,t.description,s.StatusID
+=======
+    // We select all the tickets that this customer has asubmitted
+
+    $sql_select = "SELECT i.incidentid,i.description,i.report_date,i.topic,o.operator_name,c.customer_name,li.description,t.description,s.StatusID,i.resolution_date
+>>>>>>> Stashed changes
             FROM incident as i, operator as o, customer as c, type as t, status as s,company as cmp, license as li WHERE i.operatorid=o.operatorid AND i.typeID=t.typeID and i.StatusID=s.StatusID and 
             i.customerID=c.customerID and cmp.companyID=c.companyID AND cmp.LicenseID=li.LicenseID AND c.customerid=? AND o.operatorid=3 ;";
     if ($stmt_select = mysqli_prepare($connect, $sql_select)) {
@@ -60,7 +66,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
             header('Location:client_ticket_view.php?error=Execute_Select');
             exit();
         }
-        mysqli_stmt_bind_result($stmt_select, $incID, $incDescription, $incReportDate, $incTopic, $opeName, $CustName, $CompLicense, $TypeDescription, $Statusid);
+        mysqli_stmt_bind_result($stmt_select, $incID, $incDescription, $incReportDate, $incTopic, $opeName, $CustName, $CompLicense, $TypeDescription, $Statusid, $resolution_date);
         mysqli_stmt_store_result($stmt_select);
 
         if (mysqli_stmt_num_rows($stmt_select) == 0) {
@@ -104,7 +110,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
                           <p>Category:<br><br>' . $TypeDescription . '</p>
                         </div>
                         <div class="ticket_box_bottom_duedate">
-                        <p>Due Date:<br><br>' . $incReportDate . '</p>
+                        <p>Due Date:<br><br>' . $resolution_date . '</p>
                         </div>
                         <div class="ticket_box_bottom_status">';
             if ($Statusid == '1') {
@@ -119,6 +125,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
                     </div>
                 </div>';
         }
+        mysqli_stmt_close($stmt_select);
     }
     ?>
 
@@ -127,4 +134,5 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 <?php
 require("../html/footer.html");
+mysqli_close($connect);
 ?>

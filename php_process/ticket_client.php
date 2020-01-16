@@ -5,7 +5,7 @@ include('header.php');
 <main>
 
 
-  <form class="ticket" action="ticket_process.php" method="post">
+  <form class="ticket" action="ticket_process_client.php" method="post">
     <h1>Please fill out the form</h1>
     <div class="form_div">
       <h3>Type of the incident</h3>
@@ -38,5 +38,12 @@ include('header.php');
   </form>
 </main>
 <?php
+
+$Date = date('Y-m-d');
+$license = date('Y-m-d', strtotime($Date . ' + 1 days'));
+$r = date('Y-m-d', strtotime($Date . ' + 2 days'));
+echo $license;
+echo $r;
+
 require("../html/footer.html");
 ?>
