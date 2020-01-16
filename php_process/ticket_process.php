@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
     $date = date('Y-m-d');
     //        $customerid='1';
     if (empty($topic) || empty($description)) {
-        header('Location:../ticket.php?error=EmptyForm');
+        header('Location:ticket.php?error=EmptyForm');
         exit();
     }
     $sql_select = "SELECT t.typeid, s.statusid, f.frequencyid FROM type as t, status as s,frequency as f WHERE t.description=? AND s.statusid=? AND f.description=? ;";
@@ -25,14 +25,14 @@ if (isset($_POST['submit'])) {
         $execute_select = mysqli_stmt_execute($stmt_select);
         if ($execute_select == FALSE) {
             //                echo mysqli_error($connect);
-            header('Location:../ticket.php?error=SelectIssue');
+            header('Location:ticket.php?error=SelectIssue');
             exit();
         }
         mysqli_stmt_bind_result($stmt_select, $typeid, $statusid, $frequencyid);
         mysqli_stmt_store_result($stmt_select);
         if (mysqli_stmt_num_rows($stmt_select) == 0) {
             //                echo mysqli_error($connect);
-            header('Location:../ticket.php?error=NoRowsFound');
+            header('Location:ticket.php?error=NoRowsFound');
             exit();
         } else {
             // $sql_insert='INSERT INTO incident VALUES(NULL,NULL,?,NULL,?,NULL,?,?,?,?,?,?,NULL);';
@@ -69,11 +69,11 @@ if (isset($_POST['submit'])) {
                     $execute_insert = mysqli_stmt_execute($stmt_insert);
                     if ($execute_insert == FALSE) {
                         //                                          echo mysqli_error($connect);
-                        header('Location:../ticket.php?error=InsertIssue');
+                        header('Location:ticket.php?error=InsertIssue');
                         exit();
                     }
                     mysqli_stmt_close($stmt_insert);
-                    header('Location:../ticket.php?Success=TicketSubmited');
+                    header('Location:ticket.php?Success=TicketSubmited');
                     exit();
                 }
             }
@@ -81,7 +81,7 @@ if (isset($_POST['submit'])) {
         mysqli_stmt_close($stmt_select);
     }
 } else {
-    header('Location:../ticket.php?error=IllegalEntrance');
+    header('Location:ticket.php?error=IllegalEntrance');
     exit();
 }
 mysqli_close($connect);

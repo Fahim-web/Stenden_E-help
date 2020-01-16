@@ -1,16 +1,6 @@
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operator Page</title>
-    <link rel="stylesheet" href="vendor/Slick/slick.css">
-    <link rel="stylesheet" href="fonts/fonts.css">
-    <link rel="stylesheet" href="css/style.css">
-    
-</head>
-
-    <?php
-    include ('php_process/header.php');
-    ?>  
+<?php
+include('header.php');
+?>
 
 <div class="content_wrapper">
     <div class="maintain_wrapper">
@@ -46,13 +36,13 @@
             <div class="maintain_client_text">
                 <!--IF TEXT APPEARS PUT TEXT INTO A .bubble_response(different color bubble with different dirrextion of a tail)-->
                 <div class="bubble_response">
-                    
+
                     <p>Loren, aliquam rhoncus velit. In et placerat nibh. Maecenas tincidunt leo id metus
-                         congue cursus. Donec aliquam leo eu lectus egestas, sit amet imperdiet eros efficitur.
-                          Phasellus dignissim ut elit in commodo. Integer in elementum sapien, in dapibus risus.
-                           Suspendisse vel magna vehicula, ornare neque in, gravida velit. Sed cursus est eget libero fringilla,
-                            a consectetur enim consequat. Curabitur sit amet nisi magna. Donec malesuada felis nec dictum hendrerit
-                            . Aliquam in aliquet arcu, condimentum eleif
+                        congue cursus. Donec aliquam leo eu lectus egestas, sit amet imperdiet eros efficitur.
+                        Phasellus dignissim ut elit in commodo. Integer in elementum sapien, in dapibus risus.
+                        Suspendisse vel magna vehicula, ornare neque in, gravida velit. Sed cursus est eget libero fringilla,
+                        a consectetur enim consequat. Curabitur sit amet nisi magna. Donec malesuada felis nec dictum hendrerit
+                        . Aliquam in aliquet arcu, condimentum eleif
                         end felis. Mauris urna lorem, vestibulum non orci vitae, susci</p>
                 </div>
             </div>
@@ -66,24 +56,18 @@
                     <textarea id="textarea" name="response" placeholder="Write your response">
                     </textarea>
             </div>
-                    <div class="maintain_client_anwserBar_buttons">
-                        <input type="checkbox" id="status" name="status" value="5">
-                        <label for="status"><h4>TICKET IS READY FOR TL's REVIEW</h4></label>
-                    <button class="submitbtn" type="submit" name="submit">Submit</button>
+            <div class="maintain_client_anwserBar_buttons">
+                <input type="checkbox" id="status" name="status" value="5">
+                <label for="status">
+                    <h4>TICKET IS READY FOR TL's REVIEW</h4>
+                </label>
+                <button class="submitbtn" type="submit" name="submit">Submit</button>
                 </form>
             </div>
         </div>
     </div>
     <!--END OF OPERATOR INPUT-->
 </div>
-<footer>
-    <div class="container clearfix">
-        <div class="footer_logo"><img src="img/logo.png" alt="logo">
-        </div>
-        <div class="footer_contacts clearfix">
-            <h3>Contacts</h3>
-            <p>supportdesk@info.com</p>
-            <p>+1234567890</p>
-        </div>
-    </div>
-</footer>
+<?php
+require("../html/footer.html");
+?>
