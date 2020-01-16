@@ -50,7 +50,7 @@ include('header.php');
 
     $sql_select = "SELECT i.incidentid,i.description,i.report_date,i.topic,o.operator_name,c.customer_name,li.description,t.description,s.StatusID,o.operatorID
             FROM incident as i, operator as o, customer as c, type as t, status as s,company as cmp, license as li WHERE i.operatorid=o.operatorid AND i.typeID=t.typeID and i.StatusID=s.StatusID and 
-            i.customerID=c.customerID and cmp.companyID=c.companyID AND cmp.LicenseID=li.LicenseID ;";
+            i.customerID=c.customerID and cmp.companyID=c.companyID AND cmp.LicenseID=li.LicenseID ORDER BY i.incidentid DESC ;";
     if ($stmt_select = mysqli_prepare($connect, $sql_select)) {
         $execute = mysqli_stmt_execute($stmt_select);
         if ($execute == FALSE) {
