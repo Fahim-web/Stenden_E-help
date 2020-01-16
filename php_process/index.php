@@ -32,7 +32,7 @@ include('header.php');
         <div class="container clearfix">
             <p>FIND THE RIGHT <b>SOLUTION</b>
                 FOR YOUR <b>PROBLEM</b></p>
-            <img src="img/right_img.png" alt="">
+            <img src="../img/right_img.png" alt="">
         </div>
     </div>
 
@@ -41,7 +41,7 @@ include('header.php');
             <p>BUY A MAINTENACE LICENSE
                 AND <b>BECOME THE PART</b>
                 OF OUR COMMUNITY</p>
-            <img src="img/left_img.png" alt="">
+            <img src="../img/left_img.png" alt="">
 
 
         </div>

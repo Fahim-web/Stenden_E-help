@@ -23,10 +23,7 @@ include('header.php');
 
             //start
 
-            if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-                header("location: login_page.php");
-                exit;
-            }
+            
             if (isset($_POST['submit'])) {
                 if (empty(trim($_POST['user']))) {
                     echo "Please fill in your username";
@@ -56,10 +53,11 @@ include('header.php');
                                         if (password_verify($passwrd, $hashed_pass)) {
 
                                             $_SESSION['loggedIn'] = true;
+                                            $_SESSION['loggedInCustomer'] = true;
                                             $_SESSION['customerId'] = $id;
                                             $_SESSION['username'] = $username;
 
-                                            header("location: index.php");
+                                            header("location: ../index.php");
                                         } else {
                                             echo $passwrd;
                                             echo $hashed_pass;

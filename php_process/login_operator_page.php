@@ -16,6 +16,7 @@ include('header.php');
                 <input type="submit" value="Log in" name="submit">
             </form>
             <?php
+
             //if logged in -> index.php
             if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
                 header("location: login_page.php");
@@ -63,7 +64,7 @@ include('header.php');
                                         echo "didnt fetch";
                                     }
                                 } else {
-                                    echo "mysqli_stmt_num_rows($stmt)!";
+                                    echo "fail";
                                 }
                             } else {
                                 echo "failed to exec";
