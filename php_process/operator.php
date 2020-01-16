@@ -18,9 +18,10 @@ include('header.php');
     <?php
 
     require('connect_mar.php');
-    $sql = 'SELECT i.incidentid,i.RegisteredBy,i.description,i.report_date,i.topic,o.operator_name,li.description,t.description,s.StatusID
-            FROM incident as i, operator as o, customer as c, type as t, status as s,company as cmp, license as li WHERE i.operatorid=o.operatorid AND i.typeID=t.typeID and i.StatusID=s.StatusID and 
-            i.customerID=c.customerID and cmp.companyID=c.companyID AND cmp.LicenseID=li.LicenseID';
+    $sql = 'SELECT i.incidentid,i.RegisteredBy,i.description,i.report_date,i.topic,o.operator_name,li.description,t.description,s.StatusID 
+    FROM incident as i, operator as o, customer as c, type as t, status as s,company as cmp, license as li 
+    WHERE i.operatorid=o.operatorid AND i.typeID=t.typeID AND i.StatusID=s.StatusID AND i.customerID=c.customerID AND cmp.companyID=c.companyID AND cmp.LicenseID=li.LicenseID 
+    AND not(i.StatusID = "3,2")';
     if ($stmt_select = mysqli_prepare($connect, $sql)) {
         $execute_select = mysqli_stmt_execute($stmt_select);
         if ($execute_select == FALSE) {
@@ -30,16 +31,22 @@ include('header.php');
         mysqli_stmt_store_result($stmt_select);
 
 
-        if ($status == 1) {
-            $srcpic = 'https://i.ibb.co/g7W2LcZ/red.png';
-        } else {
-            $srcpic = 'https://i.ibb.co/3y0gwdH/green.png';
-        }
+        
+
         if (mysqli_stmt_num_rows($stmt_select) == 0) {
             echo 'There is no open incidents';
         } else {
 
             while (mysqli_stmt_fetch($stmt_select)) {
+
+                if ($status == 1) {
+                    $srcpic = "https://i.ibb.co/g7W2LcZ/red.png";
+                } elseif ($status == 2) {
+                    $srcpic = "https://i.ibb.co/L1XbrZG/green.png";
+                } elseif ($status == 3) {
+                    $srcpic = "https://i.ibb.co/VHDmxhC/orange.png";
+                }
+
                 echo '<div class="ticket_box">
             <div class="ticket_box_top">
                 <div class="ticket_box_id">

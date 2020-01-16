@@ -2,6 +2,10 @@
 include('header.php');
 ?>
 
+
+
+
+
 <div class="content_wrapper">
     <div class="maintain_wrapper">
         <div class="maintain_client">
@@ -49,25 +53,32 @@ include('header.php');
         </div>
     </div>
     <!--START OF THE OPERATOR INPUT-->
-    <div class="maintain_client_anwserBar">
-        <div class="maintain_client_anwserBar_wrap clearfix">
-            <div class="maintain_client_anwserBar_text">
-                <form id="maintain_form" action="#" method="POST">
-                    <textarea id="textarea" name="response" placeholder="Write your response">
-                    </textarea>
+
+    <?php
+    if ($clearance = 1){
+            echo "
+            <div class='maintain_client_anwserBar'>
+                <div class='maintain_client_anwserBar_wrap clearfix'>
+                    <div class='maintain_client_anwserBar_text'>
+                        <form id='maintain_form' action='#' method='POST'>
+                            <textarea id='textarea' name='response' placeholder='Write your response'>
+                            </textarea>
+                    </div>
+                    <div class='maintain_client_anwserBar_buttons'>
+                        <input type='checkbox' id='status' name='status' value='5'>
+                        <label for='status'>
+                            <h4>TICKET IS READY FOR TL's REVIEW</h4>
+                        </label>
+                        <button class='submitbtn' type='submit' name='submit'>Submit</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="maintain_client_anwserBar_buttons">
-                <input type="checkbox" id="status" name="status" value="5">
-                <label for="status">
-                    <h4>TICKET IS READY FOR TL's REVIEW</h4>
-                </label>
-                <button class="submitbtn" type="submit" name="submit">Submit</button>
-                </form>
-            </div>
-        </div>
+            ";
+        }
+        ?>
+            <!--END OF OPERATOR INPUT-->
     </div>
-    <!--END OF OPERATOR INPUT-->
-</div>
 <?php
 require("../html/footer.html");
 ?>
