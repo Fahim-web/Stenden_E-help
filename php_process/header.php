@@ -9,7 +9,7 @@ include('session.php');
 
     <header>
         <div class='container'>
-            <a href='../index.html'><img class='logo' src='../img/logo.png'></a>
+            <a href='../php_process/index.php'><img class='logo' src='../img/logo.png'></a>
             <div class='menu-btn not-active'><span></span>
             </div>
 
@@ -19,9 +19,6 @@ include('session.php');
                 <?php
 
                 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-
-                    echo $_SESSION['operatorid'];
-                    echo $_SESSION['customerid'];
 
                     if (isset($_SESSION['operatorid'])) {
                         $sql = 'SELECT Clearance FROM operator WHERE operatorid = ' . $_SESSION['operatorid'] . ';';
@@ -70,7 +67,7 @@ include('session.php');
                             }
                         }
                     } else {
-                        $sql = 'SELECT Clearance FROM customer WHERE customerid = ' . $_SESSION['customerid'] . ';';
+                        include('header_log_button.php');
                     }
                 } else {
                     include('header_log_button.php');

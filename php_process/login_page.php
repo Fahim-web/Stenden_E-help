@@ -1,4 +1,5 @@
 <?php
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 include('header.php');
 ?>
 
@@ -53,13 +54,12 @@ include('header.php');
 
                                     if (mysqli_stmt_fetch($stmt)) {
                                         if (password_verify($passwrd, $hashed_pass)) {
-                                            session_start();
 
                                             $_SESSION['loggedIn'] = true;
                                             $_SESSION['customerId'] = $id;
                                             $_SESSION['username'] = $username;
 
-                                            header("location: index.html");
+                                            header("location: index.php");
                                         } else {
                                             echo $passwrd;
                                             echo $hashed_pass;
@@ -69,7 +69,7 @@ include('header.php');
                                         echo "didnt fetch";
                                     }
                                 } else {
-                                    echo "mysqli_stmt_num_rows($stmt)";
+                                    echo "fail";
                                 }
                             } else {
                                 echo "failed to exec";

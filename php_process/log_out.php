@@ -11,6 +11,6 @@ unset($_SESSION['username']);
 session_destroy();
  
 // Redirect to login page
-header("location: ../index.html");
+header("location: ../php_process/index.php");
 exit;
 ?>
