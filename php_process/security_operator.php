@@ -48,4 +48,7 @@ if (isset($_POST['submit'])) {
         }
         mysqli_stmt_close($stmt_security);
     }
+} else {
+    header('Location:security_view_operator.php?error=IllegalEntrance');
+    exit();
 }
