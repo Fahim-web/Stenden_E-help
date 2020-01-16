@@ -46,13 +46,14 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
             </div>
         </div>
     </div>
-    <!---BOX WID TIKET IN IT-->
+
     <?php
     $customerid = 2;
-    // incidentid, incident description, operator_name, customer_name, LicenseID, type description, report_date,status description;
+    // We select all the tickets that this customer has asubmitted
+
     $sql_select = "SELECT i.incidentid,i.description,i.report_date,i.topic,o.operator_name,c.customer_name,li.description,t.description,s.StatusID
             FROM incident as i, operator as o, customer as c, type as t, status as s,company as cmp, license as li WHERE i.operatorid=o.operatorid AND i.typeID=t.typeID and i.StatusID=s.StatusID and 
-            i.customerID=c.customerID and cmp.companyID=c.companyID AND cmp.LicenseID=li.LicenseID AND c.customerid=? AND o.operatorid=3 ;";
+            i.customerID=c.customerID and cmp.companyID=c.companyID AND cmp.LicenseID=li.LicenseID AND c.customerid=? ORDER BY i.incidentid DESC;";
     if ($stmt_select = mysqli_prepare($connect, $sql_select)) {
         mysqli_stmt_bind_param($stmt_select, 'i', $customerid);
         $execute = mysqli_stmt_execute($stmt_select);
@@ -75,7 +76,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
             echo ' <div class="ticket_box">
                     <div class="ticket_box_top">
                         <div class="ticket_box_id">
-                            <p>ID# 002</p>
+                            <p>TicketID#' . $incID . '</p>
                         </div>
                         <div class="ticket_box_content">
                             <div class="ticket_box_content_title">
@@ -89,8 +90,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
               
                     <div class="ticket_box_bottom">
                         <div class="ticket_box_assign">
-                          <a href="#"><img id="ticket_box_assign_pic" src="https://i.ibb.co/881QtG6/open-a-ticket.png" alt="Assign a Ticket"/>
-                        </a></div>
+                          </div>
                         <div class="ticket_box_bottom_assignedTo">
                            <p>Assigned to:<br><br>' . $opeName . '</p>
                         </div>
