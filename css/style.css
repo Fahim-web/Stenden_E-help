@@ -448,7 +448,29 @@ float:left;
   width: 85.5%;
   float: left;
   border-left: 0;
+  transition: 0.5s;
 }
+
+.ticket_box_content:hover{
+  background-color: #3796b3fa;
+  text-decoration: none;
+  color:white;
+}
+
+.ticket_box_content a{
+  text-decoration: none;
+}
+
+.ticket_box_content:hover h3{
+  transition: 0.5s;
+  color:white;
+} 
+
+.ticket_box_content:hover p{
+  transition: 0.5s;
+  color: white;
+}
+
 
 .ticket_box_content_title {
   margin: 10px;

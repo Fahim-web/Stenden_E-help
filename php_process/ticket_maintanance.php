@@ -3,7 +3,10 @@ include('header.php');
 ?>
 
 
+<?php
 
+
+?>
 
 
 <div class="content_wrapper">

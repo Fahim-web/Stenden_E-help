@@ -21,7 +21,7 @@ include('header.php');
     $sql = 'SELECT i.incidentid,i.RegisteredBy,i.description,i.report_date,i.topic,o.operator_name,li.description,t.description,s.StatusID 
     FROM incident as i, operator as o, customer as c, type as t, status as s,company as cmp, license as li 
     WHERE i.operatorid=o.operatorid AND i.typeID=t.typeID AND i.StatusID=s.StatusID AND i.customerID=c.customerID AND cmp.companyID=c.companyID AND cmp.LicenseID=li.LicenseID 
-    AND s.StatusID=1';
+    AND s.StatusID=3';
     if ($stmt_select = mysqli_prepare($connect, $sql)) {
         $execute_select = mysqli_stmt_execute($stmt_select);
         if ($execute_select == FALSE) {
@@ -29,9 +29,6 @@ include('header.php');
         }
         mysqli_stmt_bind_result($stmt_select, $incidentID, $registered_by, $description, $rep_date, $topic, $operatorName, $license, $typeDesc, $status);
         mysqli_stmt_store_result($stmt_select);
-
-
-
 
         if (mysqli_stmt_num_rows($stmt_select) == 0) {
             echo 'There is no open incidents';
@@ -52,6 +49,9 @@ include('header.php');
                 <div class="ticket_box_id">
                     <p>ID#' . $incidentID . '</p>
                 </div>
+
+                <a href="ticket_maintanance.php">
+
                 <div class="ticket_box_content">
                     <div class="ticket_box_content_title">
                         <h3>' . $topic . '</h3>
@@ -59,6 +59,7 @@ include('header.php');
                     <div class="ticket_box_content_body">
                         <p>' . $description . '</p>
                     </div>
+                    </a>
                 </div>
             </div>
       
