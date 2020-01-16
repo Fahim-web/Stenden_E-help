@@ -1,23 +1,24 @@
 <?php
 include('header.php');
 require('connect_mar.php');
+if (isset($_GET['TicketID'])) {
 ?>
 
 
-<div class="user_banner">
-    <div class="user_banner_wrapper">
-        <div class="user_banner_wrapper_pic">
-            <img id="profilePic" src="https://i.ibb.co/VtWkjpZ/profile.png" alt="Profile picture">
-        </div>
-        <div class="user_banner_wrapper_msg">
-            <h3>Welcome back *INSERT NAME*! Ready to work?</h3>
+    <div class="user_banner">
+        <div class="user_banner_wrapper">
+            <div class="user_banner_wrapper_pic">
+                <img id="profilePic" src="https://i.ibb.co/VtWkjpZ/profile.png" alt="Profile picture">
+            </div>
+            <div class="user_banner_wrapper_msg">
+                <h3>Welcome back *INSERT NAME*! Ready to work?</h3>
+            </div>
         </div>
     </div>
-</div>
-<div class="content_wrapper">
-    <div class="responsive_assign">
-        <?php
-        if (isset($_GET['TicketID'])) {
+    <div class="content_wrapper">
+        <div class="responsive_assign">
+            <?php
+
             $sql_select = "SELECT o.operatorID,o.username,o.filepath FROM operator as o where o.operatorid!=3;";
             if ($stmt = mysqli_prepare($connect, $sql_select)) {
                 $execute = mysqli_stmt_execute($stmt);
@@ -52,11 +53,15 @@ require('connect_mar.php');
                 </div>';
                 }
             }
-        }
 
-        ?>
+
+            ?>
+        </div>
     </div>
-</div>
 <?php
+} else {
+    header('Location:team_leader_view_ticket.php?error=IllegalEntrance');
+    exit();
+}
 require("../html/footer.html");
 ?>
