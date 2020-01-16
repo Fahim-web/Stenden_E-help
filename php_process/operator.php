@@ -28,15 +28,15 @@ if (isset($_SESSION['operatorId'])) {
             </div>
             <div class="legend_Lvl_1">
                 <div>
-                    <img class="legendlight" src="../img/orange_dot.jpg" alt="Status of the Ticket" />
+                    <img class="legendlight" src="../img/orange.png" alt="Status of the Ticket" />
                 </div>
                 <div>
-                    <p>Awaits to be approved</p>
+                    <p>Awaits to be completed or approved</p>
                 </div>
             </div>
             <div class="legend_Lvl_1">
                 <div>
-                    <img class="legendlight" src="../img/green_dot.jpg" alt="Status of the Ticket" />
+                    <img class="legendlight" src="../img/green.png" alt="Status of the Ticket" />
                 </div>
                 <div>
                     <p>Done</p>

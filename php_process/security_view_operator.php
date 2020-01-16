@@ -10,7 +10,7 @@ require('connect_mar.php');
             <img id="profilePic" src="https://i.ibb.co/VtWkjpZ/profile.png" alt="Profile picture">
         </div>
         <div class="user_banner_wrapper_msg">
-            <h3>Welcome back *INSERT NAME*! Ready to work?</h3>
+            <h3>Welcome back <?php echo $_SESSION['username_ope'] ?> Ready to work?</h3>
         </div>
     </div>
 </div>
@@ -28,7 +28,7 @@ require('connect_mar.php');
         if (mysqli_stmt_num_rows($stmt_select) == 0) {
             echo 'No customers have been registered';
         } else {
-            echo '<form class="security_form" action="security_operator.php" method="post">
+            echo '<form class="security_form" action="security_operator_process.php" method="post">
                             <div class="security_inside_form_top"><p class="notification">Register new Operator</p></div>
                             <div class="security_inside_form">Choose customer id <input class="input_security" placeholder="Enter the id of the user" type="number" name="customerid"></div>
                             <div class="security_inside_form"><input class="submit_security_operator" type="submit" name="submit" value="submit"></div>
