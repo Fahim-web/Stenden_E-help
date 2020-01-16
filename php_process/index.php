@@ -1,4 +1,3 @@
-
 <?php
 include('header.php');
 ?>
@@ -32,13 +31,9 @@ include('header.php');
             OF OUR COMMUNITY</p>
         <img src="../img/left_img.png" alt="">
 
-
-
-
-            <img src="../img/left_img.png" alt="">
-        </div>
-
     </div>
+
+</div>
 </div>
 
 
