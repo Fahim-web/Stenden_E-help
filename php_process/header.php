@@ -42,13 +42,19 @@ include('session.php');
                             </ul>
                             </div>
                         </header>";
-                                } if ($clearance = 2){
+                                } elseif ($clearance = 2){
                                     echo "
                                     <li><a href='security_view_operator.php'>GIVE PRIVELDGE</a></li>
                                     ";
                                     require('header_log_button.php');
 
+                                } elseif ($clearance = 3){
+                                    echo "
+                                    <li><a href='#'>Review Tickets</a></li>
+                                    <li><a href='team_leader_view_ticket.php'>View all Tickets</a></li>
+                                    ";
                                 }
+
                             }
                         }
                     } else {
