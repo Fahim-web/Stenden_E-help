@@ -2,6 +2,7 @@
 include('../html/head.html');
 include('connect.php');
 include('session.php');
+
 ?>
 
 <body>
