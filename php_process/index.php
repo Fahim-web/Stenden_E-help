@@ -13,19 +13,10 @@
 
 <body>
 
-    <header>
-        <div class="container">
-            <a href="index.html"><img class="logo" src="img/logo.png"></a>
-            <div class="menu-btn not-active"><span></span>
-            </div>
-            <ul class="menu">
-                <li><a href="Faq.php">faq</a></li>
-                <li><a href="#">contact us</a></li>
-                <li><a href="php_process/login_page.php">login/register</a></li>
-                <li><a href="#"></a></li>
-            </ul>
-        </div>
-    </header>
+<?php
+include('header.php');
+?>
+
 
     <div class="banner">
         <div class="container">
@@ -70,17 +61,9 @@
 
 
 
-    <footer>
-        <div class="container clearfix">
-            <div class="footer_logo"><img src="img/logo.png" alt=""></div>
-            <div class="footer_contacts clearfix">
-                <h3>Contacts</h3>
-                <p>supportdesk@info.com</p>
-                <p>+1234567890</p>
-            </div>
-
-        </div>
-    </footer>
+    <?php
+require("../html/footer.html");
+    ?>
     <script src="vendor/jquery/jquery-3.2.0.min.js"></script>
     <script src="js/core.js"></script>
 </body>

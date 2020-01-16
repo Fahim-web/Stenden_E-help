@@ -48,13 +48,12 @@ include('header.php');
 
                                     if (mysqli_stmt_fetch($stmt)) {
                                         // if(password_verify($passwrd, $hashed_pass)){
-                                        session_start();
 
                                         $_SESSION['loggedIn'] = true;
                                         $_SESSION['operatorId'] = $id;
                                         $_SESSION['username'] = $username;
 
-                                        header("location: ../index.html");
+                                        header("location: ../index.php");
                                         // }else{
                                         //     echo $passwrd;
                                         //    echo $hashed_pass;
