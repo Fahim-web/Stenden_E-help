@@ -32,14 +32,13 @@ include('header.php');
                     } else {
                         $passwrd = trim($_POST['pass']);
                         $TbNameU = "operator";
-                        $param_username = $_POST['operatorname'];
                         $check_user_qr = "SELECT OperatorID, username, password 
             FROM $TbNameU 
             WHERE username = ?";
 
                         if ($stmt = mysqli_prepare($con, $check_user_qr)) {
                             mysqli_stmt_bind_param($stmt, 's', $param_username);
-
+                            $param_username = $username;
                             //execute sql
                             if (mysqli_stmt_execute($stmt)) {
                                 mysqli_stmt_store_result($stmt);
@@ -47,17 +46,13 @@ include('header.php');
                                 if (mysqli_stmt_num_rows($stmt) == 1) {
                                     //bind result vars
                                     mysqli_stmt_bind_result($stmt, $id, $username, $hashed_pass);
-                                    mysqli_stmt_store_result($stmt);
-
-                                    // We verify the password
-                                    password_verify($_POST['pass'], $hashed_pass);
 
                                     if (mysqli_stmt_fetch($stmt)) {
                                         // if(password_verify($passwrd, $hashed_pass)){
 
                                         $_SESSION['loggedIn'] = true;
                                         $_SESSION['operatorId'] = $id;
-                                        $_SESSION['username_ope'] = $username;
+                                        $_SESSION['username'] = $username;
 
                                         header("location: ../index.php");
                                         // }else{

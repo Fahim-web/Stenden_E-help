@@ -1,8 +1,6 @@
 <?php
 require('connect_mar.php');
-require('session.php');
-echo mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 if (isset($_POST['submit'])) {
     //        TABLES
     $incident = 'incident';
@@ -12,8 +10,10 @@ if (isset($_POST['submit'])) {
     $topic =  htmlentities($_POST['topic']);
     $description =  htmlentities($_POST['description']);
     $frequency =  htmlentities($_POST['freq']);
+    $user = 'user';
     $statusid = 1;
     $registered_by = 'customer';
+    $customerid = 8;
     $Date = date('Y-m-d');
 
     if (empty($topic) || empty($description)) {
@@ -25,7 +25,7 @@ if (isset($_POST['submit'])) {
 
     // $sql_select = "SELECT t.typeid, f.frequencyid FROM type as t, status as s,frequency as f WHERE t.description=? AND f.description=? ;";
     if ($stmt_select =  mysqli_prepare($connect, $sql_select)) {
-        mysqli_stmt_bind_param($stmt_select, 'ssi', $type, $frequency,  $_SESSION['customerId']);
+        mysqli_stmt_bind_param($stmt_select, 'ssi', $type, $frequency, $customerid);
         $execute_select = mysqli_stmt_execute($stmt_select);
         if ($execute_select == FALSE) {
             //                echo mysqli_error($connect);
@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
         mysqli_stmt_bind_result($stmt_select, $licenseid, $typeid, $frequencyid);
         mysqli_stmt_store_result($stmt_select);
         if (mysqli_stmt_num_rows($stmt_select) == 0) {
-            // echo mysqli_error($connect);
+            //                echo mysqli_error($connect);
             header('Location:ticket_client.php?error=NoRowsFound');
             exit();
         } else {
@@ -67,7 +67,7 @@ if (isset($_POST['submit'])) {
                         $typeid,
                         $operatorid,
                         $statusid,
-                        $_SESSION['customerId'],
+                        $customerid,
                         $frequencyid,
                         $topic,
                         $description,

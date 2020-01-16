@@ -47,7 +47,7 @@ if (isset($_GET['TicketID'])) {
                     </div>
                     <div class="ticket_box_bottom">
                         <div class="operator_box_assign">
-                            <a href="team_leader_update_ticket.php?assign=' . $opeID . ':' . $_GET['TicketID'] . '"><img src="../img/greentick.png" class="assign"  ></img></a>
+                            <a href="team_leader_view_ticket.php?assign=' . $opeID . ':' . $_GET['TicketID'] . '"><img src="../img/greentick.png" class="assign"  ></img></a>
                         </div>
                     </div>
                 </div>';

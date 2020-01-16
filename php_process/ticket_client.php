@@ -39,5 +39,11 @@ include('header.php');
 </main>
 <?php
 
+$Date = date('Y-m-d');
+$license = date('Y-m-d', strtotime($Date . ' + 1 days'));
+$r = date('Y-m-d', strtotime($Date . ' + 2 days'));
+echo $license;
+echo $r;
+
 require("../html/footer.html");
 ?>
