@@ -48,14 +48,14 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     </div>
     <!---BOX WID TIKET IN IT-->
     <?php
-    $customerid = 8;
+
     // We select all the tickets that this customer has asubmitted
 
     $sql_select = "SELECT i.incidentid,i.description,i.report_date,i.topic,o.operator_name,c.customer_name,li.description,t.description,s.StatusID,i.resolution_date
             FROM incident as i, operator as o, customer as c, type as t, status as s,company as cmp, license as li WHERE i.operatorid=o.operatorid AND i.typeID=t.typeID and i.StatusID=s.StatusID and 
             i.customerID=c.customerID and cmp.companyID=c.companyID AND cmp.LicenseID=li.LicenseID AND c.customerid=? ORDER BY i.incidentid DESC;";
     if ($stmt_select = mysqli_prepare($connect, $sql_select)) {
-        mysqli_stmt_bind_param($stmt_select, 'i', $customerid);
+        mysqli_stmt_bind_param($stmt_select, 'i', $_SESSION['customerId']);
         $execute = mysqli_stmt_execute($stmt_select);
         if ($execute == FALSE) {
             header('Location:client_ticket_view.php?error=Execute_Select');

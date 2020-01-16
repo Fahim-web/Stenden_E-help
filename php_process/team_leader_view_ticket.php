@@ -4,7 +4,8 @@ require('connect_mar.php');
 
 
 <?php
-include('header.php');
+require('header.php');
+
 ?>
 
 <div class="user_banner">
@@ -13,7 +14,7 @@ include('header.php');
             <img id="profilePic" src="https://i.ibb.co/VtWkjpZ/profile.png" alt="Profile picture">
         </div>
         <div class="user_banner_wrapper_msg">
-            <h3>Welcome back *INSERT NAME*! Ready to work?</h3>
+            <h3>Welcome back <?php echo $_SESSION['username_ope']; ?> Ready to work?</h3>
         </div>
     </div>
 </div>
@@ -29,15 +30,15 @@ include('header.php');
         </div>
         <div class="legend_Lvl_1">
             <div>
-                <img class="legendlight" src="../img/orange_dot.jpg" alt="Status of the Ticket" />
+                <img class="legendlight" src="../img/orange.png" alt="Status of the Ticket" />
             </div>
             <div>
-                <p>Awaits to be approved</p>
+                <p>Awaits to be completed or approved</p>
             </div>
         </div>
         <div class="legend_Lvl_1">
             <div>
-                <img class="legendlight" src="../img/green_dot.jpg" alt="Status of the Ticket" />
+                <img class="legendlight" src="../img/green.png" alt="Status of the Ticket" />
             </div>
             <div>
                 <p>Done</p>
@@ -48,16 +49,16 @@ include('header.php');
     $customerid = 2;
     // We select all the submited tickets by customers from database
 
-    $sql_select = "SELECT i.incidentid,i.description,i.report_date,i.topic,o.operator_name,c.customer_name,li.description,t.description,s.StatusID,o.operatorID
+    $sql_select = "SELECT i.incidentid,i.description,i.report_date,i.topic,o.operator_name,c.customer_name,li.description,t.description,s.StatusID,o.operatorID,c.username
             FROM incident as i, operator as o, customer as c, type as t, status as s,company as cmp, license as li WHERE i.operatorid=o.operatorid AND i.typeID=t.typeID and i.StatusID=s.StatusID and 
-            i.customerID=c.customerID and cmp.companyID=c.companyID AND cmp.LicenseID=li.LicenseID ORDER BY i.incidentid DESC ;";
+            i.customerID=c.customerID and cmp.companyID=c.companyID AND cmp.LicenseID=li.LicenseID AND (i.statusid=1 or i.statusid=3 )ORDER BY i.incidentid DESC ;";
     if ($stmt_select = mysqli_prepare($connect, $sql_select)) {
         $execute = mysqli_stmt_execute($stmt_select);
         if ($execute == FALSE) {
             header('Location:client_ticket_view.php?error=Execute_Select');
             exit();
         }
-        mysqli_stmt_bind_result($stmt_select, $incID, $incDescription, $incReportDate, $incTopic, $opeName, $CustName, $CompLicense, $TypeDescription, $Statusid, $opeID);
+        mysqli_stmt_bind_result($stmt_select, $incID, $incDescription, $incReportDate, $incTopic, $opeName, $CustName, $CompLicense, $TypeDescription, $Statusid, $opeID, $customer_username);
         mysqli_stmt_store_result($stmt_select);
         if (mysqli_stmt_num_rows($stmt_select) == 0) {
             echo '<div id="none_submitted">
@@ -125,6 +126,9 @@ include('header.php');
                         <div class="ticket_box_bottom_category">
                           <p>Category:<br><br>' . $TypeDescription . '</p>
                         </div>
+                        <div class="ticket_box_bottom_category">
+                  <p>Category:<br><br>' . $customer_username . '</p>
+                </div>
                         <div class="ticket_box_bottom_duedate">
                         <p>Due Date:<br><br>' . $incReportDate . '</p>
                         </div>
@@ -132,9 +136,9 @@ include('header.php');
             if ($Statusid == '1') {
                 echo '<img class="statusLight" src="https://i.ibb.co/g7W2LcZ/red.png" alt="Status of the Ticket"/>';
             } elseif ($Statusid == '2') {
-                echo  '<img class="light" src="../img/green_dot.jpg" alt="Status of the Ticket"/>';
+                echo  '<img class="light" src="../img/green.png" alt="Status of the Ticket"/>';
             } elseif ($Statusid == '3') {
-                echo  '<img class="light" src="../img/orange_dot.jpg" alt="Status of the Ticket"/>';
+                echo  '<img class="light" src="../img/orange.png" alt="Status of the Ticket"/>';
             }
             echo '                                                                
                         </div>
