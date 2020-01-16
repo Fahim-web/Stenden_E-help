@@ -1,6 +1,6 @@
 <?php
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-require('php_process/connect_mar.php');
+require('connect_mar.php');
 if (isset($_POST['submit'])) {
     $Selcustomerid = htmlentities($_POST['customerid']);
 

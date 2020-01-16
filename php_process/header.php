@@ -1,5 +1,5 @@
 <?php
-// include('../html/head.html');
+include('../html/head.html');
 include('connect.php');
 include('session.php');
 ?>
@@ -8,12 +8,12 @@ include('session.php');
 
     <header>
         <div class='container'>
-            <a href='index.html'><img class='logo' src='./img/logo.png'></a>
+            <a href='../index.html'><img class='logo' src='../img/logo.png'></a>
             <div class='menu-btn not-active'><span></span>
             </div>
 
             <ul class='menu'>
-                <li><a href='./Faq.php'>faq</a></li>
+                <li><a href='Faq.php'>faq</a></li>
 
                 <?php
 
