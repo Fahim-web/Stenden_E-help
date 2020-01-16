@@ -32,16 +32,11 @@ include('session.php');
                             while (mysqli_stmt_fetch($prep_sql)) {
                                 if ($clearance = 1) {
                                     echo "
-                        <li><a href='#'>View Registered tickets</a></li>
-                        <li><a href='#'>Add a Phone Ticket</a></li>
-                        ";
-
-                        require('header_log_button.php');
-                        
-                       echo"
-                            </ul>
-                            </div>
-                        </header>";
+                                <li><a href='operator.php'>View tickets</a></li>
+                                <li><a href='ticket_operator.php'>Add a Phone Ticket</a></li>
+                                ";
+                                    require('header_log_button.php');
+            
                                 } elseif ($clearance = 2){
                                     echo "
                                     <li><a href='security_view_operator.php'>GIVE PRIVELDGE</a></li>
