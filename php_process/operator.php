@@ -8,10 +8,10 @@ if (isset($_SESSION['operatorId'])) {
     <div class="user_banner">
         <div class="user_banner_wrapper">
             <div class="user_banner_wrapper_pic">
-                <img id="profilePic" src="https://i.ibb.co/VtWkjpZ/profile.png" alt="Profile picture">
+                <?php echo '<img id="profilePic" src="' . $_SESSION['ope_filepath'] . '" alt="Profile picture">'; ?>
             </div>
             <div class="user_banner_wrapper_msg">
-                <h3>Welcome back <?php  ?> Ready to work?</h3>
+                <h3>Welcome back <?php echo  $_SESSION['username_ope'] . '.';  ?> Ready to work?</h3>
             </div>
         </div>
     </div>
@@ -49,8 +49,7 @@ if (isset($_SESSION['operatorId'])) {
         $sql = 'SELECT i.incidentid,i.RegisteredBy,i.description,i.report_date,i.topic,o.operator_name,li.description,t.description,s.StatusID,o.operatorid,i.resolution_date,c.username 
     FROM incident as i, operator as o, customer as c, type as t, status as s,company as cmp, license as li 
     WHERE i.operatorid=o.operatorid AND i.typeID=t.typeID AND i.StatusID=s.StatusID AND i.customerID=c.customerID AND cmp.companyID=c.companyID AND cmp.LicenseID=li.LicenseID 
-
-    AND o.operatorid=3 AND i.StatusID=1';
+    AND (s.StatusID=1 OR s.StatusID=3) AND (o.operatorid=3 OR o.operatorid=?) ORDER BY i.incidentid ASC;';
 
         if ($stmt_select = mysqli_prepare($connect, $sql)) {
             mysqli_stmt_bind_param($stmt_select, 'i', $_SESSION['operatorId']);
@@ -84,8 +83,6 @@ if (isset($_SESSION['operatorId'])) {
                 <div class="ticket_box_id">
                     <p>ID#' . $incidentID . '</p>
                 </div>
-
-                <a href="ticket_maintanance.php?maintain=' . $incidentID . ':' . $_SESSION['operatorId'] . '">
                 <div class="ticket_box_content">
                     <div class="ticket_box_content_title">
                         <h3>' . $topic . '</h3>
@@ -93,7 +90,6 @@ if (isset($_SESSION['operatorId'])) {
                     <div class="ticket_box_content_body">
                         <p>' . $description . '</p>
                     </div>
-                    </a>
                 </div>
             </div>
       
