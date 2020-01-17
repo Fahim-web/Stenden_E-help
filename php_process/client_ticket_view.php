@@ -15,7 +15,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
             <img id="profilePic" src="https://i.ibb.co/VtWkjpZ/profile.png" alt="Profile picture">
         </div>
         <div class="user_banner_wrapper_msg">
-            <h3>Welcome back *INSERT NAME*! Ready to work?</h3>
+            <h3>Welcome back <?php echo $_SESSION['username']; ?> .Ready to work?</h3>
         </div>
     </div>
 </div>
@@ -31,7 +31,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         </div>
         <div class="legend_Lvl_1">
             <div>
-                <img class="legendlight" src="../img/orange_dot.jpg" alt="Status of the Ticket" />
+                <img class="legendlight" src="../img/orange.png" alt="Status of the Ticket" />
             </div>
             <div>
                 <p>Awaits to be approved</p>
@@ -39,7 +39,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         </div>
         <div class="legend_Lvl_1">
             <div>
-                <img class="legendlight" src="../img/green_dot.jpg" alt="Status of the Ticket" />
+                <img class="legendlight" src="../img/green.png" alt="Status of the Ticket" />
             </div>
             <div>
                 <p>Done</p>
@@ -110,9 +110,9 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
             if ($Statusid == '1') {
                 echo '<img class="statusLight" src="https://i.ibb.co/g7W2LcZ/red.png" alt="Status of the Ticket"/>';
             } elseif ($Statusid == '2') {
-                echo  '<img class="light" src="../img/green_dot.jpg" alt="Status of the Ticket"/>';
+                echo  '<img class="light" src="../img/green.png" alt="Status of the Ticket"/>';
             } elseif ($Statusid == '3') {
-                echo  '<img class="light" src="../img/orange_dot.jpg" alt="Status of the Ticket"/>';
+                echo  '<img class="light" src="../img/orange.png" alt="Status of the Ticket"/>';
             }
             echo '                                                                
                         </div>

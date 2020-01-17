@@ -11,7 +11,7 @@ if (isset($_SESSION['operatorId'])) {
                 <img id="profilePic" src="https://i.ibb.co/VtWkjpZ/profile.png" alt="Profile picture">
             </div>
             <div class="user_banner_wrapper_msg">
-                <h3>Welcome back <?php  ?> Ready to work?</h3>
+                <h3>Welcome back <?php echo $_SESSION['username_ope'];  ?>. Ready to work?</h3>
             </div>
         </div>
     </div>
