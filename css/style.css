@@ -185,7 +185,7 @@ ul li a {
 margin: 20px 20px 0 0;
 width:124px;
 height: 124px;
-
+border-radius: 50%;
 }
 
 .user_banner {
@@ -246,7 +246,6 @@ height: 124px;
 	background: #6f72ff;
   border-radius: .4em;
   padding: .2em 2em 1em 2em;
-  float:left;
   margin: 20px 20px 20px 0;
 
 }
@@ -262,7 +261,7 @@ height: 124px;
 	border-right-color: #6f72ff;
 	border-left: 0;
 	border-top: 0;
-  margin-top: -5%;
+  margin-top: 0%;
 	margin-left: -20px;
 }
 
@@ -448,7 +447,27 @@ float:left;
   width: 87.5%;
   float: left;
   border-left: 0;
+  transition: 0.5s;
 }
+
+.ticket_box_content:hover{
+  background-color: #3796b3fa;
+  text-decoration: none;
+  color:white;
+}
+
+.ticket_box_content a, .ticket_box_content a:link, ticket_box_content a:visited{
+  text-decoration: none;
+  color: black;
+}
+ 
+
+.ticket_box_content:hover p, .ticket_box_content:hover h3{
+  text-decoration: none;
+  transition: 0.5s;
+  color: white;
+}
+
 
 .ticket_box_content_title {
   margin: 10px;
@@ -1106,6 +1125,7 @@ main {
 .operator_profile_img{
   width: 130px;
   height: 130px;
+  border-radius: 50%;
 }
 
 /*-------------------END TEAM LEADER-----------------*/

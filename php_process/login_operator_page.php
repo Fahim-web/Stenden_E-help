@@ -34,8 +34,8 @@ include('header.php');
                         $TbNameU = "operator";
                         $param_username = $_POST['operatorname'];
                         $check_user_qr = "SELECT OperatorID, username, password 
-            FROM $TbNameU 
-            WHERE username = ?";
+                        FROM $TbNameU 
+                        WHERE username = ?";
 
                         if ($stmt = mysqli_prepare($con, $check_user_qr)) {
                             mysqli_stmt_bind_param($stmt, 's', $param_username);
@@ -56,6 +56,7 @@ include('header.php');
                                         // if(password_verify($passwrd, $hashed_pass)){
 
                                         $_SESSION['loggedIn'] = true;
+                                        $_SESSION['OperatorLoggedIn'] = true;
                                         $_SESSION['operatorId'] = $id;
                                         $_SESSION['username_ope'] = $username;
 

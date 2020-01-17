@@ -3,25 +3,53 @@ include('header.php');
 ?>
 
 
+<?php
 
+if (isset($_GET['maintain'])) {
+    $exp = explode(":", $_GET['maintain']);
+    if (isset($_SESSION['OperatorLoggedIn']) && $_SESSION['OperatorLoggedIn'] = true){
 
+        $sql = "SELECT i.incidentid,i.RegisteredBy,i.description,i.report_date, i.resolution_date, i.topic,o.operator_name,li.description,t.description,s.StatusID,o.operatorid, cmp.name, o.filepath, c.filepath, c.username, c.email, sol.SolutionID, sol.Description, f.description
+        FROM incident as i, operator as o, customer as c, type as t, status as s,company as cmp, license as li , solution as sol, frequency as f
+        WHERE i.operatorid=o.operatorid AND i.typeID=t.typeID AND i.StatusID=s.StatusID AND i.customerID=c.customerID AND cmp.companyID=c.companyID AND cmp.LicenseID=li.LicenseID AND i.SolutionID=sol.SolutionID AND i.FrequencyID=f.FrequencyID
+        AND i.operatorid= " . $exp[1] . " AND i.incidentid = " . $exp[0] . ";";
+    }else{
+        $sql = "SELECT i.incidentid,i.RegisteredBy,i.description,i.report_date, i.resolution_date, i.topic,o.operator_name,li.description,t.description,s.StatusID,o.operatorid, cmp.name, o.filepath, c.filepath, c.username, c.email, sol.SolutionID, sol.Description, f.description
+        FROM incident as i, operator as o, customer as c, type as t, status as s,company as cmp, license as li , solution as sol, frequency as f
+        WHERE i.operatorid=o.operatorid AND i.typeID=t.typeID AND i.StatusID=s.StatusID AND i.customerID=c.customerID AND cmp.companyID=c.companyID AND cmp.LicenseID=li.LicenseID AND i.SolutionID=sol.SolutionID AND i.FrequencyID=f.FrequencyID
+        AND i.customerID= " . $exp[1] . " AND i.incidentid = " . $exp[0] . " ;";
+    }
+    if ($stmt = mysqli_prepare($con, $sql)) {
+        $execute = mysqli_stmt_execute($stmt);
+        if ($execute == FALSE) {
+            header('Location:ticket_maintanance.php?error=ExecuteIssue');
+            exit();
+        }
+        //header('Location:ticket_maintanance.php?maintain=');
+        mysqli_stmt_bind_result($stmt, $incidentID, $registered_by, $description, $rep_date, $res_date, $topic, $operatorName,
+        $license, $typeDesc, $status, $opeID, $companyName, $opPic, $custPic, $custUsername, $custEmail, $solID, $solution, $frequency);
+        mysqli_stmt_store_result($stmt);
 
-<div class="content_wrapper">
+        while (mysqli_stmt_fetch($stmt)) {
+     echo
+     '
+     <body>
+     <div class="content_wrapper">
     <div class="maintain_wrapper">
         <div class="maintain_client">
             <div class="maintain_client_info">
-                <img id="profilePic" src="https://i.ibb.co/VtWkjpZ/profile.png" alt="Profile picture">
+                <img id="profilePic" src="' . $custPic . '" alt="Profile picture">
                 <div class="maintain_client_info_text">
-                    <h4>INSERT USERNAME</h4>
-                    <h4>INSERT COMPANY NAME</h4>
-                    <h4>INSERT EMAIL</h4>
+                    <h4>Name: ' . $custUsername . '</h4>
+                    <h4>Comapny: '. $companyName .'</h4>
+                    <h4>Email: ' . $custEmail . '</h4>
                     <h4>INSERT EMAIL</h4>
                 </div>
             </div>
             <div class="maintain_client_text">
                 <div class="bubble">
-                    <h2>TITLE</h2>
-                    <p>Loren, aliquam rhoncus velit. In et placerat nibh. Maecenas tincidunt leo id metus congue cursus. Donec aliquam leo eu lectus egestas, sit amet imperdiet eros efficitur. Phasellus dignissim ut elit in commodo. Integer in elementum sapien, in dapibus risus. Suspendisse vel magna vehicula, ornare neque in, gravida velit. Sed cursus est eget libero fringilla, a consectetur enim consequat. Curabitur sit amet nisi magna. Donec malesuada felis nec dictum hendrerit. Aliquam in aliquet arcu, condimentum eleifend felis. Mauris urna lorem, vestibulum non orci vitae, susci</p>
+                    <h2>' . $topic . '</h2>
+                    <p>' . $description . '</p>
                 </div>
             </div>
         </div>
@@ -30,39 +58,54 @@ include('header.php');
     <div class="maintain_wrapper">
         <div class="maintain_client">
             <div class="maintain_client_info">
-                <p>INFO of ticket</p>
-                <p>INFO of ticket</p>
-                <p>INFO of ticket</p>
-                <p>INFO of ticket</p>
-                <p>INFO of ticket</p>
-                <p>INFO of ticket</p>
-            </div>
+                <p>Date Reported: '.$rep_date.'</p>
+                <p>Deadline Date: '.$res_date.'</p>
+                <p>Registered By: '.$registered_by.'</p>
+                <p>Type: '.$typeDesc.'</p>
+                <p>Frequency: '.$frequency.'</p>
+            </div>';
+
+            if ($solID !== 5){
+                echo '
             <div class="maintain_client_text">
                 <!--IF TEXT APPEARS PUT TEXT INTO A .bubble_response(different color bubble with different dirrextion of a tail)-->
-                <div class="bubble_response">
+                <div class="bubble_response">';
 
-                    <p>Loren, aliquam rhoncus velit. In et placerat nibh. Maecenas tincidunt leo id metus
-                        congue cursus. Donec aliquam leo eu lectus egestas, sit amet imperdiet eros efficitur.
-                        Phasellus dignissim ut elit in commodo. Integer in elementum sapien, in dapibus risus.
-                        Suspendisse vel magna vehicula, ornare neque in, gravida velit. Sed cursus est eget libero fringilla,
-                        a consectetur enim consequat. Curabitur sit amet nisi magna. Donec malesuada felis nec dictum hendrerit
-                        . Aliquam in aliquet arcu, condimentum eleif
-                        end felis. Mauris urna lorem, vestibulum non orci vitae, susci</p>
+                    echo '<p>'.$solution.'</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!--START OF THE OPERATOR INPUT-->
+        </div>
+            ';
+                }
+                echo '
+                </div>
+        </div>
+        <form id="maintain_form" action="" method="POST">
+        ';
 
-    <?php
-    if ($clearance = 1){
+
+
+
+        }
+    }
+} else {
+    header('Location:ticket_maintanance.php?error=Illegal_entrance');
+    exit();
+}
+
+
+
+    //<!--START OF THE OPERATOR INPUT-->
+
+
+    if (isset($clearance) && $solID == '5'){
             echo "
             <div class='maintain_client_anwserBar'>
                 <div class='maintain_client_anwserBar_wrap clearfix'>
                     <div class='maintain_client_anwserBar_text'>
-                        <form id='maintain_form' action='#' method='POST'>
-                            <textarea id='textarea' name='response' placeholder='Write your response'>
-                            </textarea>
+                            <textarea id='textarea' name='response' placeholder='Write your response'></textarea>
                     </div>
                     <div class='maintain_client_anwserBar_buttons'>
                         <input type='checkbox' id='status' name='status' value='5'>
@@ -70,15 +113,71 @@ include('header.php');
                             <h4>TICKET IS READY FOR TL's REVIEW</h4>
                         </label>
                         <button class='submitbtn' type='submit' name='submit'>Submit</button>
-                        </form>
                     </div>
                 </div>
             </div>
             ";
-        }
-        ?>
-            <!--END OF OPERATOR INPUT-->
-    </div>
-<?php
+
+            
+            $response = htmlentities($_POST['response']);
+            if(!empty($response) && isset($_POST['status'])){
+                if (isset($_POST['status'])){
+                     $status = 3;
+                 }
+                 $sql_insert_solution = 'INSERT INTO solution VALUES(NULL, ?)';
+
+                if ($stmt_insert = mysqli_prepare($con, $sql_insert_solution)){
+                     mysqli_stmt_bind_param(
+                         $stmt_insert,
+                         's',
+                         $response
+                     );
+                    $exec_insert = mysqli_stmt_execute($stmt_insert);
+                    if ($exec_insert == FALSE) {
+                        header('Location:ticket_client.php?error=SelectIssue');
+                        exit();
+                    }
+                    mysqli_stmt_close($stmt_insert);
+                }
+
+                    $sql_select_solutionID = 'SELECT SolutionID FROM solution WHERE Description = ?';
+                    if($stmt_select = mysqli_prepare($con, $sql_select_solutionID)){
+                        mysqli_stmt_bind_param($stmt_select, 's', $response);
+                        $exec_select = mysqli_stmt_execute($stmt_select);
+                        mysqli_stmt_bind_result($stmt_select, $response);
+                        mysqli_stmt_store_result($stmt_select);
+                        if (mysqli_stmt_num_rows($stmt_select) == 0) {
+                            header('Location:ticket_client.php?error=NoRowsFound');
+                            exit();
+                        } else {
+                            $sql_update_incident = 'UPDATE incident SET StatusID = ?, SolutionID = ? WHERE IncidentID ='.$incidentID.';';
+                            while(mysqli_stmt_fetch($stmt_select)){
+                                if ($stmt_update = mysqli_prepare($con, $sql_update_incident)){
+                                    mysqli_stmt_bind_param($stmt_update, 'is', $status, $response);
+                                    $exec_update = mysqli_stmt_execute($stmt_update);
+                                    header('Location:ticket_maintanance.php?maintain=' . $incidentID . ':' . $_SESSION['operatorId'] . '');
+                                    if ($exec_update == FALSE) {
+                                        echo "pizda";
+                                    }
+                                    mysqli_stmt_close($stmt_update);
+                                }
+                            }
+                        }
+                        mysqli_stmt_close($stmt_select);
+                    
+                    }else{
+                        echo "fill in the fields";
+                    }         
+                }
+            }
+        
+
+
+            //<!--END OF OPERATOR INPUT-->
+    echo "
+    </form>
+
+    </div>";
+
 require("../html/footer.html");
 ?>
