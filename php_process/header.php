@@ -33,7 +33,7 @@ include('session.php');
                                 if ($clearance = 1) {
                                     echo "
                                 <li><a href='operator.php'>View tickets</a></li>
-                                <li><a href='ticket_operator.php'>Add a Phone Ticket</a></li>
+                                <li><a href='operator_view_assigned_tickets.php'>Viewassigned</a></li>
                                 ";
                                     require('header_log_button.php');
             
@@ -53,8 +53,8 @@ include('session.php');
                             }
                         }
                     } else {
-                        echo "<li><a href='#'>View tickets</a></li>
-                        <li><a href='#'>Submit a Ticket</a></li>";
+                        echo "<li><a href='client_ticket_view.php'>View tickets</a></li>
+                        <li><a href='ticket_client.php'>Submit a Ticket</a></li>";
                         require('header_log_button.php');
                     }
                 } else {

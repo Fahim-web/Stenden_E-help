@@ -6,17 +6,38 @@ require('connect_mar.php');
 
 <?php
 include('header.php');
+$customerid = $_SESSION['customerId'];
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 ?>
 
 <div class="user_banner">
     <div class="user_banner_wrapper">
         <div class="user_banner_wrapper_pic">
-            <img id="profilePic" src="https://i.ibb.co/VtWkjpZ/profile.png" alt="Profile picture">
+            <?php
+        $mysqli = new mysqli("localhost", "root", "", "ssd");
+        if ($stmt = $mysqli->prepare('SELECT filepath, customer_name FROM customer WHERE customerid = ?')) {
+            /* bind parameters for markers */
+            $stmt->bind_param('i', $customerid);
+            /* execute query */
+            $stmt->execute();
+    
+            /* bind result variables */
+            $stmt->bind_result($filepath, $customer);
+    
+            /* fetch value */
+            $stmt->fetch();
+    
+            $stmt->close();
+        }
+
+            echo '
+            <img id="profilePic" src="'.$filepath.'" alt="Profile picture">
         </div>
         <div class="user_banner_wrapper_msg">
-            <h3>Welcome back *INSERT NAME*! Ready to work?</h3>
+            <h3>Welcome back <b>'.$customer. '</b></h3>
         </div>
+        ';
+        ?>
     </div>
 </div>
 <div class="content_wrapper">
@@ -31,7 +52,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         </div>
         <div class="legend_Lvl_1">
             <div>
-                <img class="legendlight" src="../img/orange_dot.jpg" alt="Status of the Ticket" />
+                <img class="legendlight" src="https://i.ibb.co/VHDmxhC/orange.png" alt="Status of the Ticket" />
             </div>
             <div>
                 <p>Awaits to be approved</p>
@@ -39,7 +60,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         </div>
         <div class="legend_Lvl_1">
             <div>
-                <img class="legendlight" src="../img/green_dot.jpg" alt="Status of the Ticket" />
+                <img class="legendlight" src="https://i.ibb.co/L1XbrZG/green.png" alt="Status of the Ticket" />
             </div>
             <div>
                 <p>Done</p>
@@ -48,7 +69,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     </div>
     <!---BOX WID TIKET IN IT-->
     <?php
-    $customerid = 8;
+   
     // We select all the tickets that this customer has asubmitted
 
     $sql_select = "SELECT i.incidentid,i.description,i.report_date,i.topic,o.operator_name,c.customer_name,li.description,t.description,s.StatusID,i.resolution_date
@@ -73,11 +94,21 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         }
 
         while (mysqli_stmt_fetch($stmt_select)) {
+
+            if ($Statusid == 1) {
+                $srcpic = "https://i.ibb.co/g7W2LcZ/red.png";
+            } elseif ($Statusid == 2) {
+                $srcpic = "https://i.ibb.co/L1XbrZG/green.png";
+            } elseif ($Statusid == 3) {
+                $srcpic = "https://i.ibb.co/VHDmxhC/orange.png";
+            }
+
             echo ' <div class="ticket_box">
                     <div class="ticket_box_top">
                         <div class="ticket_box_id">
-                            <p>TicketID' . $incID . '</p>
+                            <p>ID#' . $incID . '</p>
                         </div>
+                        <a href="ticket_maintanance.php?maintain=' . $incID . ':' . $customerid . '">
                         <div class="ticket_box_content">
                             <div class="ticket_box_content_title">
                                 <h3>' . $incTopic . '</h3>
@@ -85,6 +116,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
                             <div class="ticket_box_content_body">
                                 <p>' . $incDescription . '</p>
                             </div>
+                            </a>
                         </div>
                     </div>
               
@@ -106,15 +138,9 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
                         <div class="ticket_box_bottom_duedate">
                         <p>Due Date:<br><br>' . $resolution_date . '</p>
                         </div>
-                        <div class="ticket_box_bottom_status">';
-            if ($Statusid == '1') {
-                echo '<img class="statusLight" src="https://i.ibb.co/g7W2LcZ/red.png" alt="Status of the Ticket"/>';
-            } elseif ($Statusid == '2') {
-                echo  '<img class="light" src="../img/green_dot.jpg" alt="Status of the Ticket"/>';
-            } elseif ($Statusid == '3') {
-                echo  '<img class="light" src="../img/orange_dot.jpg" alt="Status of the Ticket"/>';
-            }
-            echo '                                                                
+                        <div class="ticket_box_bottom_status">
+                        <img id="statusLight" src="' . $srcpic . '" alt="Status of the Ticket"/>
+                                                                         
                         </div>
                     </div>
                 </div>';

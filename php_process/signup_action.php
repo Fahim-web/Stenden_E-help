@@ -56,7 +56,7 @@ if (isset($_POST['submit'])) {
                                         include 'picture_upload.php';
 
 
-                                        header("Location:register_page.php?Works=Account_created");
+                                        header("Location:login_page.php?Works=Account_created");
                                         exit();
                                     } else {
                                         echo "Error creating account!";
