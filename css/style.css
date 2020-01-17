@@ -410,7 +410,7 @@ float:left;
 /* TicketBox beginning */
 
 .ticket_box {
-  width: 1000px;
+  width: 1160px;
   height: 200px;
   background-color: #ffffff;
   border-radius: 17px;
@@ -444,7 +444,7 @@ float:left;
   height: 100%;
   border-radius: 0px 17px 0 0;
   border: solid #eee8fc 2px;
-  width: 85.5%;
+  width: 87.5%;
   float: left;
   border-left: 0;
   transition: 0.5s;
@@ -557,9 +557,11 @@ float:left;
 }
 
 
-#ticket_box_assign_pic {
+.ticket_box_assign_pic {
   float: left;
   margin: 1px 55px;
+  width:70px;
+  height:70px;
 }
 
 #statusLight {
@@ -708,6 +710,10 @@ border-radius: 25px;
 .submit_security_operator:hover{
 	background-color:#035e7b;
 	color:white;
+}
+.security_user_img{
+  width:50px;
+  height:50px;
 }
 
 /*------------------------END Security operator----------------*/

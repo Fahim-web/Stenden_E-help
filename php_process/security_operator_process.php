@@ -39,8 +39,8 @@ if (isset($_POST['submit'])) {
                     if ($execute_delete == FALSE) {
                         echo mysqli_error($connect);
                     } else {
-                        // echo 'success';
-                        $execute_delete = mysqli_stmt_execute($stmt_delete);
+                        header('Location:security_view_operator.php?works=Privlage_given');
+                        exit();
                     }
                     mysqli_stmt_close($stmt_delete);
                 }

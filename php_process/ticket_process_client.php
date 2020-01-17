@@ -1,7 +1,9 @@
 <?php
 require('connect_mar.php');
+
 require('header.php');
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
 if (isset($_POST['submit'])) {
     //        TABLES
     $incident = 'incident';
@@ -11,7 +13,6 @@ if (isset($_POST['submit'])) {
     $topic =  htmlentities($_POST['topic']);
     $description =  htmlentities($_POST['description']);
     $frequency =  htmlentities($_POST['freq']);
-    $user = 'user';
     $statusid = 1;
     $registered_by = 'customer';
     $customerid = $_SESSION['customerId'];
@@ -77,6 +78,7 @@ if (isset($_POST['submit'])) {
         if (mysqli_stmt_num_rows($stmt_select) == 0) {
             //                echo mysqli_error($connect);
             header('Location:ticket_client.php?error=NoLicenseKey');
+
             exit();
         } else {
 
@@ -108,7 +110,7 @@ if (isset($_POST['submit'])) {
                         $solutionid,
                         $operatorid,
                         $statusid,
-                        $customerid,
+                        $_SESSION['customerId'],
                         $frequencyid,
                         $topic,
                         $description,
