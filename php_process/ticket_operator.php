@@ -4,10 +4,10 @@ include('header.php');
 <main>
 
   <form class="ticket" action="ticket_process_operator.php" method="post">
-    <h1>Please fill out the form</h1>
+    <h1>Please fill out the form to add new customer</h1>
     <div class="form_div">
       <h3>Client Username</h3>
-      <p><input type="text" name="client_username"></p>
+      <p><input type="text" name="client_username" placeholder="client username"></p>
     </div>
     <div class="form_div">
       <h3>Type of the incident</h3>

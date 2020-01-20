@@ -33,7 +33,8 @@ include('session.php');
                                 if ($clearance == '1') {
                                     echo "
                                 <li><a href='operator.php'>View tickets</a></li>
-                                <li><a href='operator_view_assigned_tickets.php'>Viewassigned</a></li>
+                                <li><a href='operator_view_assigned_tickets.php'>View assigned tickets</a></li>
+                                <li><a href='ticket_process_operator.php'>Add phone ticket</a></li>
                                 ";
                                     require('header_log_button.php');
                                 } elseif ($clearance == '2') {
