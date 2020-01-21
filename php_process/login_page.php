@@ -59,15 +59,13 @@ include('header.php');
 
                                             header("location: ../index.php");
                                         } else {
-                                            echo $passwrd;
-                                            echo $hashed_pass;
                                             echo "Password incorrect!<br>";
                                         }
                                     } else {
                                         echo "didnt fetch";
                                     }
                                 } else {
-                                    echo "fail";
+                                    echo "No such username";
                                 }
                             } else {
                                 echo "failed to exec";

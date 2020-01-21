@@ -9,6 +9,7 @@ if (isset($_POST['submit'])) {
     $incident = 'incident';
     $type_tb = 'type';
     //        TICKET
+    $solutionid = 5;
     $type = htmlentities($_POST['type']);
     $topic =  htmlentities($_POST['topic']);
     $description =  htmlentities($_POST['description']);
@@ -99,15 +100,15 @@ if (isset($_POST['submit'])) {
 
                 // Since no operator is assigned when we submit ticket mysqli_stmt_num_rows on line 33 will be executed because no operator name will be found
                 //  That is why we create additional operator in database
-                $solutionid = '5';
+
                 $operatorid = '3';
                 if ($stmt_insert = mysqli_prepare($connect, $sql_insert)) {
 
                     mysqli_stmt_bind_param(
                         $stmt_insert,
                         'iiiisssssss',
-                        $typeid,
                         $solutionid,
+                        $typeid,
                         $operatorid,
                         $statusid,
                         $_SESSION['customerId'],

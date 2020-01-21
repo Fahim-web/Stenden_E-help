@@ -7,18 +7,12 @@ include('header.php');
 
 if (isset($_GET['maintain'])) {
     $exp = explode(":", $_GET['maintain']);
-    if (isset($_SESSION['OperatorLoggedIn']) && $_SESSION['OperatorLoggedIn'] = true){
 
         $sql = "SELECT i.incidentid,i.RegisteredBy,i.description,i.report_date, i.resolution_date, i.topic,o.operator_name,li.description,t.description,s.StatusID,o.operatorid, cmp.name, o.filepath, c.filepath, c.username, c.email, sol.SolutionID, sol.Description, f.description
         FROM incident as i, operator as o, customer as c, type as t, status as s,company as cmp, license as li , solution as sol, frequency as f
         WHERE i.operatorid=o.operatorid AND i.typeID=t.typeID AND i.StatusID=s.StatusID AND i.customerID=c.customerID AND cmp.companyID=c.companyID AND cmp.LicenseID=li.LicenseID AND i.SolutionID=sol.SolutionID AND i.FrequencyID=f.FrequencyID
-        AND i.operatorid= " . $exp[1] . " AND i.incidentid = " . $exp[0] . ";";
-    }else{
-        $sql = "SELECT i.incidentid,i.RegisteredBy,i.description,i.report_date, i.resolution_date, i.topic,o.operator_name,li.description,t.description,s.StatusID,o.operatorid, cmp.name, o.filepath, c.filepath, c.username, c.email, sol.SolutionID, sol.Description, f.description
-        FROM incident as i, operator as o, customer as c, type as t, status as s,company as cmp, license as li , solution as sol, frequency as f
-        WHERE i.operatorid=o.operatorid AND i.typeID=t.typeID AND i.StatusID=s.StatusID AND i.customerID=c.customerID AND cmp.companyID=c.companyID AND cmp.LicenseID=li.LicenseID AND i.SolutionID=sol.SolutionID AND i.FrequencyID=f.FrequencyID
-        AND i.customerID= " . $exp[1] . " AND i.incidentid = " . $exp[0] . " ;";
-    }
+        AND i.customerID= " . $exp[1] . " AND i.incidentid = " . $exp[0] . ";";
+
     if ($stmt = mysqli_prepare($con, $sql)) {
         $execute = mysqli_stmt_execute($stmt);
         if ($execute == FALSE) {
@@ -43,7 +37,6 @@ if (isset($_GET['maintain'])) {
                     <h4>Name: ' . $custUsername . '</h4>
                     <h4>Comapny: '. $companyName .'</h4>
                     <h4>Email: ' . $custEmail . '</h4>
-                    <h4>INSERT EMAIL</h4>
                 </div>
             </div>
             <div class="maintain_client_text">
@@ -100,12 +93,12 @@ if (isset($_GET['maintain'])) {
     //<!--START OF THE OPERATOR INPUT-->
 
 
-    if (isset($clearance) && $solID == '5'){
+    if (isset($clearance) && $solID == '5'  && $opeID == $_SESSION['operatorId']){
             echo "
             <div class='maintain_client_anwserBar'>
                 <div class='maintain_client_anwserBar_wrap clearfix'>
                     <div class='maintain_client_anwserBar_text'>
-                            <textarea id='textarea' name='response' placeholder='Write your response'></textarea>
+                            <textarea id='textarea' id='response' name='response' placeholder='Write your response'></textarea>
                     </div>
                     <div class='maintain_client_anwserBar_buttons'>
                         <input type='checkbox' id='status' name='status' value='5'>
@@ -135,9 +128,10 @@ if (isset($_GET['maintain'])) {
                     $exec_insert = mysqli_stmt_execute($stmt_insert);
                     if ($exec_insert == FALSE) {
                         header('Location:ticket_client.php?error=SelectIssue');
-                        exit();
+                        
                     }
                     mysqli_stmt_close($stmt_insert);
+
                 }
 
                     $sql_select_solutionID = 'SELECT SolutionID FROM solution WHERE Description = ?';
@@ -155,22 +149,26 @@ if (isset($_GET['maintain'])) {
                                 if ($stmt_update = mysqli_prepare($con, $sql_update_incident)){
                                     mysqli_stmt_bind_param($stmt_update, 'is', $status, $response);
                                     $exec_update = mysqli_stmt_execute($stmt_update);
-                                    header('Location:ticket_maintanance.php?maintain=' . $incidentID . ':' . $_SESSION['operatorId'] . '');
+                                    header('Location:ticket_maintanance.php?maintain=' . $incidentID . ':' . $exp[1] . '');
+                                    
                                     if ($exec_update == FALSE) {
                                         echo "pizda";
+                                        exit();
                                     }
                                     mysqli_stmt_close($stmt_update);
+                                    exit();
+                                    
                                 }
                             }
                         }
+
                         mysqli_stmt_close($stmt_select);
-                    
                     }else{
                         echo "fill in the fields";
                     }         
                 }
             }
-        
+            unset($response);
 
 
             //<!--END OF OPERATOR INPUT-->

@@ -8,12 +8,32 @@ if (isset($_GET['TicketID'])) {
     <div class="user_banner">
         <div class="user_banner_wrapper">
             <div class="user_banner_wrapper_pic">
-                <img id="profilePic" src="https://i.ibb.co/VtWkjpZ/profile.png" alt="Profile picture">
-            </div>
-            <div class="user_banner_wrapper_msg">
-                <h3>Welcome back *INSERT NAME*! Ready to work?</h3>
-            </div>
+            <?php
+        $operatorid = $_SESSION['operatorId'];
+        $mysqli = new mysqli("localhost", "root", "", "ssd");
+        if ($stmt = $mysqli->prepare('SELECT filepath, Operator_name FROM operator WHERE OperatorID = ?')) {
+            /* bind parameters for markers */
+            $stmt->bind_param('i', $operatorid);
+            /* execute query */
+            $stmt->execute();
+    
+            /* bind result variables */
+            $stmt->bind_result($filepath, $customer);
+    
+            /* fetch value */
+            $stmt->fetch();
+    
+            $stmt->close();
+        }
+
+            echo '
+            <img id="profilePic" src="'.$filepath.'" alt="Profile picture">
         </div>
+        <div class="user_banner_wrapper_msg">
+            <h3>Welcome back <b>'.$customer. '</b></h3>
+        </div>
+        ';
+        ?>
     </div>
     <div class="content_wrapper">
         <div class="responsive_assign">

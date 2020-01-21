@@ -5,13 +5,32 @@ if (isset($_SESSION['operatorId'])) {
 
     <div class="user_banner">
         <div class="user_banner_wrapper">
-            <div class="user_banner_wrapper_pic">
-                <img id="profilePic" src="https://i.ibb.co/VtWkjpZ/profile.png" alt="Profile picture">
-            </div>
-            <div class="user_banner_wrapper_msg">
-                <h3>Welcome back <?php  ?> Ready to work?</h3>
-            </div>
+        <?php
+        $operatorid = $_SESSION['operatorId'];
+        $mysqli = new mysqli("localhost", "root", "", "ssd");
+        if ($stmt = $mysqli->prepare('SELECT filepath, Operator_name FROM operator WHERE OperatorID = ?')) {
+            /* bind parameters for markers */
+            $stmt->bind_param('i', $operatorid);
+            /* execute query */
+            $stmt->execute();
+    
+            /* bind result variables */
+            $stmt->bind_result($filepath, $customer);
+    
+            /* fetch value */
+            $stmt->fetch();
+    
+            $stmt->close();
+        }
+
+            echo '
+            <img id="profilePic" src="'.$filepath.'" alt="Profile picture">
         </div>
+        <div class="user_banner_wrapper_msg">
+            <h3>Welcome back <b>'.$customer. '</b></h3>
+        </div>
+        ';
+        ?>
     </div>
     <div class="content_wrapper">
         <!---BOX WID TIKET IN IT-->
@@ -20,7 +39,7 @@ if (isset($_SESSION['operatorId'])) {
 
 
         require('connect_mar.php');
-        $sql = 'SELECT i.incidentid,i.RegisteredBy,i.description,i.report_date,i.topic,o.operator_name,li.description,t.description,s.StatusID,o.operatorid 
+        $sql = 'SELECT i.incidentid,i.RegisteredBy,i.description,i.report_date,i.topic,o.operator_name,li.description,t.description,s.StatusID,o.operatorid,c.customerid,c.username
     FROM incident as i, operator as o, customer as c, type as t, status as s,company as cmp, license as li 
     WHERE i.operatorid=o.operatorid AND i.typeID=t.typeID AND i.StatusID=s.StatusID AND i.customerID=c.customerID AND cmp.companyID=c.companyID AND cmp.LicenseID=li.LicenseID 
     AND i.operatorid= "' . $_SESSION['operatorId'] . '"';
@@ -29,7 +48,7 @@ if (isset($_SESSION['operatorId'])) {
             if ($execute_select == FALSE) {
                 echo mysqli_error($connect);
             }
-            mysqli_stmt_bind_result($stmt_select, $incidentID, $registered_by, $description, $rep_date, $topic, $operatorName, $license, $typeDesc, $status, $opeID);
+            mysqli_stmt_bind_result($stmt_select, $incidentID, $registered_by, $description, $rep_date, $topic, $operatorName, $license, $typeDesc, $status, $opeID, $customerid, $customer_username);
             mysqli_stmt_store_result($stmt_select);
 
 
@@ -55,7 +74,7 @@ if (isset($_SESSION['operatorId'])) {
                     <p>ID#' . $incidentID . '</p>
                 </div>
 
-                <a href="ticket_maintanance.php?maintain=' . $incidentID . ':' . $_SESSION['operatorId'] . '">
+                <a href="ticket_maintanance.php?maintain=' . $incidentID . ':' . $customerid . '">
                 <div class="ticket_box_content">
                     <div class="ticket_box_content_title">
                         <h3>' . $topic . '</h3>
@@ -90,6 +109,9 @@ if (isset($_SESSION['operatorId'])) {
                 </div>
                 <div class="ticket_box_bottom_category">
                   <p>Category:<br><br>' . $typeDesc . '</p>
+                </div>
+                <div class="ticket_box_bottom_category">
+                  <p>Customer:<br><br>' . $customer_username . '</p>
                 </div>
                 <div class="ticket_box_bottom_duedate">
                 <p>Due Date:<br><br>' . $rep_date . '</p>
