@@ -35,7 +35,7 @@ if (isset($_GET['maintain'])) {
     <div class="maintain_wrapper">
         <div class="maintain_client">
             <div class="maintain_client_info">';
-            if ($solID != '5' && $opeID !='3' && $_SESSION['loggedInCustomer'] = true){
+            if ($solID != '5' && $opeID !='3' && $_SESSION['loggedInCustomer'] = true && !isset($_SESSION['OperatorLoggedIn'])){
                 $pic = $opPic;
                 $row1 = 'Username: ' . $operUsername;
                 $row2 = 'Name: ' . $operatorName;

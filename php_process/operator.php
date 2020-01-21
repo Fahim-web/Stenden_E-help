@@ -68,10 +68,12 @@ if (isset($_SESSION['operatorId'])) {
         <?php
         // In this query we select all tickets that have not been yet assigned OR have been assigned to logged in operator
 
-        $sql = 'SELECT i.incidentid,i.RegisteredBy,i.description,i.report_date,i.topic,o.operator_name,li.description,t.description,s.StatusID,o.operatorid,i.resolution_date,c.username,c.customerid
+        $sql = 'SELECT i.incidentid,i.RegisteredBy,
+        i.description,i.report_date,i.topic,o.operator_name,li.description,
+        t.description,s.StatusID,o.operatorid,i.resolution_date,c.username,c.customerid
     FROM incident as i, operator as o, customer as c, type as t, status as s,company as cmp, license as li 
     WHERE i.operatorid=o.operatorid AND i.typeID=t.typeID AND i.StatusID=s.StatusID AND i.customerID=c.customerID AND cmp.companyID=c.companyID AND cmp.LicenseID=li.LicenseID 
-    AND (s.StatusID=1 OR s.StatusID=3) AND (o.operatorid=3 OR o.operatorid=?) ORDER BY i.incidentid ASC;';
+    AND s.StatusID=1 AND o.operatorid=3 ORDER BY i.incidentid ASC;';
 
         if ($stmt_select = mysqli_prepare($connect, $sql)) {
             $execute_select = mysqli_stmt_execute($stmt_select);
