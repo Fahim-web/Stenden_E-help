@@ -17,5 +17,4 @@
     header("location: php_process/index.php");
     ?>
 
-
 </html>

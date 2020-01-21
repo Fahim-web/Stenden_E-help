@@ -136,8 +136,10 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
                           <p>Category:<br><br>' . $TypeDescription . '</p>
                         </div>
                         <div class="ticket_box_bottom_category">
-                        <p>Report Date:<br><br>' . $incReportDate. '</p>
-                     </div>
+
+                          <p>Resolution Date:<br><br>' . $resolution_date . '</p>
+                        </div>
+
                         <div class="ticket_box_bottom_duedate">
                         <p>Due Date:<br><br>' . $resolution_date . '</p>
                         </div>

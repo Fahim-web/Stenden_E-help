@@ -63,13 +63,10 @@ include('header.php');
 
 
                                         header("location: ../index.php");
-                                        // }else{
-                                        //     echo $passwrd;
-                                        //    echo $hashed_pass;
-                                        //      echo "Password incorrect!<br>";
-                                        //}
+                                     
+                                        
                                     } else {
-                                        echo "didnt fetch";
+                                        echo "Password incorrect!<br>";
                                     }
                                 } else {
                                     echo "fail";

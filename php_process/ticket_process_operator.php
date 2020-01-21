@@ -7,6 +7,7 @@ if (isset($_POST['submit'])) {
     $incident = 'incident';
     $type_tb = 'type';
     //        TICKET
+    $solutionid = 5;
     $client_username = htmlentities($_POST['client_username']);
     $type = htmlentities($_POST['type']);
     $topic =  htmlentities($_POST['topic']);
@@ -63,6 +64,7 @@ if (isset($_POST['submit'])) {
                     mysqli_stmt_bind_param(
                         $stmt_insert,
                         'iiiissssss',
+                        $solutionid,
                         $typeid,
                         $_SESSION['operatorId'],
                         $statusid,
