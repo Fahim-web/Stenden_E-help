@@ -3,8 +3,9 @@ include('header.php');
 if (isset($_SESSION['operatorId'])) {
 ?>
 
-    <div class="user_banner">
-        <div class="user_banner_wrapper">
+<div class="user_banner">
+    <div class="user_banner_wrapper">
+        <div class="user_banner_wrapper_pic">
 
         <?php
         $operatorid = $_SESSION['operatorId'];
@@ -26,14 +27,14 @@ if (isset($_SESSION['operatorId'])) {
 
             echo '
             <img id="profilePic" src="'.$filepath.'" alt="Profile picture">
-
-        </div>
-        <div class="user_banner_wrapper_msg">
+            </div>
+            <div class="user_banner_wrapper_msg">
             <h3>Welcome back <b>'.$customer. '</b></h3>
-        </div>
-        ';
+            </div>
+                ';
         ?>
     </div>
+</div>
     <div class="content_wrapper">
         <!---BOX WID TIKET IN IT-->
 

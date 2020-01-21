@@ -16,7 +16,7 @@ require('connect_mar.php');
 </div>
 <div class="main_security_wrapper">
     <?php
-    $sql_select = 'SELECT customerid,companyid,username,customer_name,phone,email,password,filepath FROM Customer';
+    $sql_select = 'SELECT customerid,companyid,username,customer_name,phone,email,password,filepath FROM Customer WHERE CompanyID IS NULL';
     if ($stmt_select = mysqli_prepare($connect, $sql_select)) {
         $execute_select = mysqli_stmt_execute($stmt_select);
         if ($execute_select == FALSE) {

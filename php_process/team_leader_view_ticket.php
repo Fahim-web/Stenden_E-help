@@ -10,7 +10,9 @@ require('header.php');
 
 <div class="user_banner">
     <div class="user_banner_wrapper">
-    <?php
+        <div class="user_banner_wrapper_pic">
+
+        <?php
         $operatorid = $_SESSION['operatorId'];
         $mysqli = new mysqli("localhost", "root", "", "ssd");
         if ($stmt = $mysqli->prepare('SELECT filepath, Operator_name FROM operator WHERE OperatorID = ?')) {
@@ -30,12 +32,13 @@ require('header.php');
 
             echo '
             <img id="profilePic" src="'.$filepath.'" alt="Profile picture">
-        </div>
-        <div class="user_banner_wrapper_msg">
+            </div>
+            <div class="user_banner_wrapper_msg">
             <h3>Welcome back <b>'.$customer. '</b></h3>
-        </div>
-        ';
+            </div>
+                ';
         ?>
+    </div>
 </div>
 <div class="content_wrapper">
     <div class='view_legend'>
