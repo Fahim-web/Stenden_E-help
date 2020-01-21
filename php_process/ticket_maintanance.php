@@ -158,7 +158,7 @@ if (isset($_GET['maintain'])) {
                 }
                 
                 if(!empty($solution)){
-                    $anwser = $solution . '.<br>@: "' . date("h:i:s a") . '" Added: ' . $response;
+                    $anwser = $solution . '.<br>@: "' . date("h:i:s a") . '" ' . $operUsername . ': ' . $response;
                     $sql_update_solution = 'UPDATE solution SET Description = ? WHERE SolutionID = ?';
                     if ($stmt_update_sol = mysqli_prepare($con, $sql_update_solution)){
                         mysqli_stmt_bind_param($stmt_update_sol,'si',$anwser, $solID);
