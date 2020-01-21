@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
         } else {
 
 
-            $sql_insert = 'INSERT INTO incident VALUES(NULL,NULL,?,?,?,?,?,?,?,?,?,?);';
+            $sql_insert = 'INSERT INTO incident VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?);';
 
             while (mysqli_stmt_fetch($stmt_select)) {
 
@@ -58,16 +58,14 @@ if (isset($_POST['submit'])) {
 
                 // Since no operator is assigned when we submit ticket mysqli_stmt_num_rows on line 33 will be executed because no operator name will be found
                 //  That is why we create additional operator in database
-
+                $solutionid = '5';
                 $operatorid = '3';
                 if ($stmt_insert = mysqli_prepare($connect, $sql_insert)) {
 
                     mysqli_stmt_bind_param(
                         $stmt_insert,
-
                         'iiiisssssss',
                         $solutionid,
-
                         $typeid,
                         $operatorid,
                         $statusid,
