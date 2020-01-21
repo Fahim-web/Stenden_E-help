@@ -106,10 +106,16 @@ body {
 }
 
 .container {
+  /* min-width: 450px;
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto; */
   min-width: 450px;
   max-width: 1200px;
   padding: 0 15px;
   margin: 0 auto;
+  /* display: flex; */
+  height: 100%;
 }
 
 header {
@@ -119,11 +125,17 @@ header {
 }
 
 ul {
-  margin: 0px;
+  /* margin: 0px;
   margin-top: 44px;
   padding: 0px;
   float: right;
-  font-size: 30px;
+  font-size: 30px; */
+  margin: 0px;
+    /* margin-top: 44px; */
+    padding: 0px;
+    float: right;
+    font-size: 30px;
+    display: flex;
 }
 
 .menu li a:hover {
@@ -133,8 +145,11 @@ ul {
 }
 
 ul li {
+  /* display: inline-block;
+  padding: 5px 24px; */
   display: inline-block;
   padding: 5px 24px;
+  margin-top: 30px;
 }
 
 ul li a {
