@@ -35,7 +35,7 @@ if (isset($_GET['maintain'])) {
     <div class="maintain_wrapper">
         <div class="maintain_client">
             <div class="maintain_client_info">';
-            if ($solID != '5' && $opeID !='3' && $_SESSION['loggedInCustomer'] = true){
+            if ($solID != '5' && $opeID !='3' && $_SESSION['loggedInCustomer'] = true && !isset($_SESSION['OperatorLoggedIn'])){
                 $pic = $opPic;
                 $row1 = 'Username: ' . $operUsername;
                 $row2 = 'Name: ' . $operatorName;
@@ -158,7 +158,7 @@ if (isset($_GET['maintain'])) {
                 }
                 
                 if(!empty($solution)){
-                    $anwser = $solution . '.<br>@: "' . date("h:i:s a") . '" Added: ' . $response;
+                    $anwser = $solution . '.<br>@: "' . date("h:i:s a") . '" ' . $operUsername . ': ' . $response;
                     $sql_update_solution = 'UPDATE solution SET Description = ? WHERE SolutionID = ?';
                     if ($stmt_update_sol = mysqli_prepare($con, $sql_update_solution)){
                         mysqli_stmt_bind_param($stmt_update_sol,'si',$anwser, $solID);
