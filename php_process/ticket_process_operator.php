@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
     $description =  htmlentities($_POST['description']);
     $frequency =  htmlentities($_POST['freq']);
     $user = 'user';
-    $status = '3';
+    $status = '1';
     $registered_by = 'phone';
     $Date = date('Y-m-d');
 
@@ -43,7 +43,7 @@ if (isset($_POST['submit'])) {
         } else {
             // We insert into incident all of the values that we called in previous query and other values from form in previous page.
             // Those are: description of ticket,day it was registered,Topic of ticket etc.
-            $sql_insert = 'INSERT INTO incident VALUES(NULL,NULL,?,?,?,?,?,?,?,?,?,?);';
+            $sql_insert = 'INSERT INTO incident VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?);';
 
             while (mysqli_stmt_fetch($stmt_select)) {
                 if ($licenseid == 1) {
@@ -57,13 +57,15 @@ if (isset($_POST['submit'])) {
                 // Since no operator is assigned when we submit ticket mysqli_stmt_num_rows on line 33 will be executed because no operator name will be found
                 //  That is why we create additional operator in database
 
+                $solutionid = '5';
+
                 if ($stmt_insert = mysqli_prepare($connect, $sql_insert)) {
                     // mysqli_stmt_bind_param($stmt_insert,'iiississ',$typeid,$statusid,
                     //         $frequencyid,$topic,$description,$frequencyid,$registered_by,$date);
                     //                        with customer
                     mysqli_stmt_bind_param(
                         $stmt_insert,
-                        'iiiissssss',
+                        'iiiiiisssss',
                         $solutionid,
                         $typeid,
                         $_SESSION['operatorId'],
