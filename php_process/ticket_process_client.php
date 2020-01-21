@@ -1,8 +1,7 @@
 <?php
 require('connect_mar.php');
-
-require('header.php');
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+require('session.php');
+echo mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 if (isset($_POST['submit'])) {
     //        TABLES
@@ -16,75 +15,34 @@ if (isset($_POST['submit'])) {
     $frequency =  htmlentities($_POST['freq']);
     $statusid = 1;
     $registered_by = 'customer';
-    $customerid = $_SESSION['customerId'];
     $Date = date('Y-m-d');
-    
 
     if (empty($topic) || empty($description)) {
         header('Location:ticket_client.php?error=EmptyForm');
         exit();
     }
-    $sql_select = "SELECT l.licenseid 
-    FROM license as l, customer as c, company as com 
-    WHERE l.LicenseID=com.LicenseID AND com.companyID=c.companyID AND customerid= ?;";
+    $sql_select = "SELECT l.licenseid,t.typeid, f.frequencyid FROM type as t, status as s,frequency as f, company as com, customer as c, license as l WHERE c.companyid=com.companyid AND com.licenseid=l.licenseid
+    AND t.description=? AND f.description=? AND c.customerid=?;";
 
     // $sql_select = "SELECT t.typeid, f.frequencyid FROM type as t, status as s,frequency as f WHERE t.description=? AND f.description=? ;";
     if ($stmt_select =  mysqli_prepare($connect, $sql_select)) {
-        mysqli_stmt_bind_param($stmt_select, 'i', $customerid);
+        mysqli_stmt_bind_param($stmt_select, 'ssi', $type, $frequency,  $_SESSION['customerId']);
         $execute_select = mysqli_stmt_execute($stmt_select);
         if ($execute_select == FALSE) {
             //                echo mysqli_error($connect);
             header('Location:ticket_client.php?error=SelectIssue');
             exit();
         }
-
-        $mysqli = new mysqli("localhost", "root", "", "ssd");
-
-        if ($stmt = $mysqli->prepare('SELECT FrequencyID FROM frequency WHERE description = ?')) {
-            /* bind parameters for markers */
-            $stmt->bind_param('s', $frequency);
-            /* execute query */
-            $stmt->execute();
-    
-            /* bind result variables */
-            $stmt->bind_result($frequencyid);
-    
-            /* fetch value */
-            $stmt->fetch();
-    
-            $stmt->close();
-        }
-
-        if ($stmt = $mysqli->prepare('SELECT typeid FROM type WHERE description = ?')) {
-
-            /* bind parameters for markers */
-            $stmt->bind_param("s", $type);
-        
-            /* execute query */
-            $stmt->execute();
-        
-            /* bind result variables */
-            $stmt->bind_result($typeid);
-        
-            /* fetch value */
-            $stmt->fetch();
-        
-            $stmt->close();
-        }
-
-        
-        
-        mysqli_stmt_bind_result($stmt_select, $licenseid);
+        mysqli_stmt_bind_result($stmt_select, $licenseid, $typeid, $frequencyid);
         mysqli_stmt_store_result($stmt_select);
         if (mysqli_stmt_num_rows($stmt_select) == 0) {
-            //                echo mysqli_error($connect);
-            header('Location:ticket_client.php?error=NoLicenseKey');
-
+            // echo mysqli_error($connect);
+            header('Location:ticket_client.php?error=NoRowsFound');
             exit();
         } else {
 
 
-            $sql_insert = 'INSERT INTO incident VALUES(NULL,?,?,?,?,?,?,?,?,?,?,?);';
+            $sql_insert = 'INSERT INTO incident VALUES(NULL,NULL,?,?,?,?,?,?,?,?,?,?);';
 
             while (mysqli_stmt_fetch($stmt_select)) {
 
@@ -106,8 +64,10 @@ if (isset($_POST['submit'])) {
 
                     mysqli_stmt_bind_param(
                         $stmt_insert,
+
                         'iiiisssssss',
                         $solutionid,
+
                         $typeid,
                         $operatorid,
                         $statusid,
@@ -127,7 +87,7 @@ if (isset($_POST['submit'])) {
                         exit();
                     }
                     mysqli_stmt_close($stmt_insert);
-                    header('Location:client_ticket_view.php?Success=TicketSubmited');
+                    header('Location:ticket_client.php?Success=TicketSubmited');
                     exit();
                 }
             }

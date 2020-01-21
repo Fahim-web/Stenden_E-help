@@ -5,6 +5,7 @@ if (isset($_SESSION['operatorId'])) {
 
     <div class="user_banner">
         <div class="user_banner_wrapper">
+
         <?php
         $operatorid = $_SESSION['operatorId'];
         $mysqli = new mysqli("localhost", "root", "", "ssd");
@@ -25,6 +26,7 @@ if (isset($_SESSION['operatorId'])) {
 
             echo '
             <img id="profilePic" src="'.$filepath.'" alt="Profile picture">
+
         </div>
         <div class="user_banner_wrapper_msg">
             <h3>Welcome back <b>'.$customer. '</b></h3>

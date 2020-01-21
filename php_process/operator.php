@@ -8,6 +8,7 @@ if (isset($_SESSION['operatorId'])) {
 
     <div class="user_banner">
         <div class="user_banner_wrapper">
+
         <?php
         $operatorid = $_SESSION['operatorId'];
         $mysqli = new mysqli("localhost", "root", "", "ssd");
@@ -28,6 +29,7 @@ if (isset($_SESSION['operatorId'])) {
 
             echo '
             <img id="profilePic" src="'.$filepath.'" alt="Profile picture">
+
         </div>
         <div class="user_banner_wrapper_msg">
             <h3>Welcome back <b>'.$customer. '</b></h3>
@@ -69,8 +71,7 @@ if (isset($_SESSION['operatorId'])) {
         $sql = 'SELECT i.incidentid,i.RegisteredBy,i.description,i.report_date,i.topic,o.operator_name,li.description,t.description,s.StatusID,o.operatorid,i.resolution_date,c.username,c.customerid
     FROM incident as i, operator as o, customer as c, type as t, status as s,company as cmp, license as li 
     WHERE i.operatorid=o.operatorid AND i.typeID=t.typeID AND i.StatusID=s.StatusID AND i.customerID=c.customerID AND cmp.companyID=c.companyID AND cmp.LicenseID=li.LicenseID 
-
-    AND o.operatorid=3 AND i.StatusID=1';
+    AND (s.StatusID=1 OR s.StatusID=3) AND (o.operatorid=3 OR o.operatorid=?) ORDER BY i.incidentid ASC;';
 
         if ($stmt_select = mysqli_prepare($connect, $sql)) {
             $execute_select = mysqli_stmt_execute($stmt_select);
@@ -106,7 +107,9 @@ if (isset($_SESSION['operatorId'])) {
                     <p>#' . $incidentID . '</p>
                 </div>
 
+
                 <a href="ticket_maintanance.php?maintain=' . $incidentID . ':' . $customerid . '">
+
                 <div class="ticket_box_content">
                     <div class="ticket_box_content_title">
                         <h3>' . $topic . '</h3>
@@ -114,7 +117,6 @@ if (isset($_SESSION['operatorId'])) {
                     <div class="ticket_box_content_body">
                         <p>' . $description . '</p>
                     </div>
-                    </a>
                 </div>
             </div>
       

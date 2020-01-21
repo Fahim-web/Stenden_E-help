@@ -106,10 +106,16 @@ body {
 }
 
 .container {
+  /* min-width: 450px;
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto; */
   min-width: 450px;
   max-width: 1200px;
   padding: 0 15px;
   margin: 0 auto;
+  /* display: flex; */
+  height: 100%;
 }
 
 header {
@@ -119,11 +125,17 @@ header {
 }
 
 ul {
-  margin: 0px;
+  /* margin: 0px;
   margin-top: 44px;
   padding: 0px;
   float: right;
-  font-size: 30px;
+  font-size: 30px; */
+  margin: 0px;
+    /* margin-top: 44px; */
+    padding: 0px;
+    float: right;
+    font-size: 30px;
+    display: flex;
 }
 
 .menu li a:hover {
@@ -133,14 +145,18 @@ ul {
 }
 
 ul li {
+  /* display: inline-block;
+  padding: 5px 24px; */
   display: inline-block;
   padding: 5px 24px;
+  margin-top: 30px;
 }
 
 ul li a {
   font-family: "FuturaRener", sans-serif;
   font-weight: lighter;
   color: white;
+  font-size:20px;
   text-transform: uppercase;
   text-decoration: none;
 }
@@ -560,8 +576,8 @@ float:left;
 .ticket_box_assign_pic {
   float: left;
   margin: 1px 55px;
-  width:70px;
-  height:70px;
+  width:40px;
+  height:40px;
 }
 
 #statusLight {
@@ -758,7 +774,6 @@ footer {
 main {
   width: 100%;
   padding-bottom: 40px;
-  background-color: #90b1e8;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1307,6 +1322,16 @@ main {
   background-position: 8px 4px;
   background-size: 20px;
   background-repeat: no-repeat;
+}
+
+form select{
+  width: 100%;
+  height: 35px;
+  border: none;
+  width: 300px;
+  background-color: rgba(255,255,255, 0.5);
+  padding: 5px 5px 5px 38px;
+  margin: 10px;
 }
 
 .login_form input[type=submit]{

@@ -33,7 +33,7 @@ include('header.php');
                         $passwrd = trim($_POST['pass']);
                         $TbNameU = "operator";
                         $param_username = $_POST['operatorname'];
-                        $check_user_qr = "SELECT OperatorID, username, password 
+                        $check_user_qr = "SELECT OperatorID, username, password,filepath 
                         FROM $TbNameU 
                         WHERE username = ?";
 
@@ -46,7 +46,7 @@ include('header.php');
                                 //check if username exists
                                 if (mysqli_stmt_num_rows($stmt) == 1) {
                                     //bind result vars
-                                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_pass);
+                                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_pass, $filepath);
                                     mysqli_stmt_store_result($stmt);
 
                                     // We verify the password
@@ -59,6 +59,8 @@ include('header.php');
                                         $_SESSION['OperatorLoggedIn'] = true;
                                         $_SESSION['operatorId'] = $id;
                                         $_SESSION['username_ope'] = $username;
+                                        $_SESSION['ope_filepath'] = $filepath;
+
 
                                         header("location: ../index.php");
                                      
