@@ -28,10 +28,10 @@ require('connect_mar.php');
         if (mysqli_stmt_num_rows($stmt_select) == 0) {
             echo 'No customers have been registered';
         } else {
-            echo '<form class="security_form" action="security_operator_process.php" method="post">
-                            <div class="security_inside_form_top"><p class="notification">Register new Operator</p></div>
-                            <div class="security_inside_form">Choose customer id <input class="input_security" placeholder="Enter the id of the user" type="number" name="customerid"></div>
-                            <div class="security_inside_form"><input class="submit_security_operator" type="submit" name="submit" value="submit"></div>
+            echo '<form class="priv_form" action="security_operator_process.php" method="post">
+                            <p >Register new Operator</p>
+                            <div >Choose customer id <input placeholder="Enter the id of the user" type="number" name="customerid"></div>
+                            <div ><input  type="submit" name="submit" value="submit"></div>
                         
                     </form>';
             echo '<div id="security_wrap">';
@@ -40,30 +40,30 @@ require('connect_mar.php');
 
                 echo '<div class="security_general">
                             <div class="security_div">
-                            <div><p>CustomerID</p></div>
-                            <div><p>' . $customerid . '</p></div>
+                            <div ><p>CustomerID</p></div>
+                            <div class="sec_top"><p>' . $customerid . '</p></div>
                         </div>
                         <div class="security_div">
-                            <div><p>CompanyID</p></div>
-                            <div><p>' . $companyid . '</p></div>
+                            <div ><p>CompanyID</p></div>
+                            <div class="sec_top"><p>' . $companyid . '</p></div>
                         </div>
                         <div class="security_div">
-                            <div><p>Username</p></div>
-                            <div><p>' . $username . '</p></div>
+                            <div ><p>Username</p></div>
+                            <div class="sec_top"><p>' . $username . '</p></div>
                         </div>
                         <div class="security_div">
-                            <div><p>Customer Name</p></div>
-                            <div><p>' . $customer_name . '</p></div>
+                            <div ><p>Customer Name</p></div>
+                            <div class="sec_top"><p>' . $customer_name . '</p></div>
                         </div>
                         <div class="security_div">
-                            <div><p>Phone Nr.</p></div>
-                            <div><p>' . $phone . '</p></div>
+                            <div ><p>Phone Nr.</p></div>
+                            <div class="sec_top"><p>' . $phone . '</p></div>
                         </div>
                         <div class="security_div">
-                            <div><p>Email</p></div>
-                            <div><p>' . $email . '</p></div>
+                            <div ><p>Email</p></div>
+                            <div class="sec_top"><p>' . $email . '</p></div>
                         </div>
-                        <div class="security_div">
+                        <div class="security_div_user">
                             
                             <div><img class="security_user_img" src="' . $filepath . '"></img></div>
                         </div>
