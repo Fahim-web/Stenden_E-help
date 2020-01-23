@@ -52,14 +52,6 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
             </div>
             <div class="legend_Lvl_1">
                 <div>
-                    <img class="legendlight" src="../img/purple_dot.jpg" alt="Status of the Ticket" />
-                </div>
-                <div>
-                    <p>Awaits Operator Solution</p>
-                </div>
-            </div>
-            <div class="legend_Lvl_1">
-                <div>
                     <img class="legendlight" src="https://i.ibb.co/VHDmxhC/orange.png" alt="Status of the Ticket" />
                 </div>
                 <div>

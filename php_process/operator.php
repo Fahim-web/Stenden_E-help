@@ -52,14 +52,6 @@ if (isset($_SESSION['operatorId'])) {
                 </div>
                 <div class="legend_Lvl_1">
                     <div>
-                        <img class="legendlight" src="../img/purple_dot.jpg" alt="Status of the Ticket" />
-                    </div>
-                    <div>
-                        <p>Awaits Operator Solution</p>
-                    </div>
-                </div>
-                <div class="legend_Lvl_1">
-                    <div>
                         <img class="legendlight" src="../img/orange.png" alt="Status of the Ticket" />
                     </div>
                     <div>

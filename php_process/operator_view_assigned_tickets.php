@@ -69,8 +69,6 @@ if (isset($_SESSION['operatorId'])) {
                             $srcpic = "https://i.ibb.co/L1XbrZG/green.png";
                         } elseif ($status == 3) {
                             $srcpic = "https://i.ibb.co/VHDmxhC/orange.png";
-                        } elseif ($status == 4) {
-                            $srcpic = "../img/purple_dot.jpg";
                         }
 
                         echo '<div class="ticket_box">

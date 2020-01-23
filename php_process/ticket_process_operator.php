@@ -63,14 +63,13 @@ if (isset($_POST['submit'])) {
                     // mysqli_stmt_bind_param($stmt_insert,'iiississ',$typeid,$statusid,
                     //         $frequencyid,$topic,$description,$frequencyid,$registered_by,$date);
                     //                        with customer
-                    $status_awaits = 4;
                     mysqli_stmt_bind_param(
                         $stmt_insert,
                         'iiiiiisssss',
                         $solutionid,
                         $typeid,
                         $_SESSION['operatorId'],
-                        $status_awaits,
+                        $statusid,
                         $customerid,
                         $frequencyid,
                         $topic,
