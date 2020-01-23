@@ -699,7 +699,8 @@ float:left;
   flex-grow: 1;
   /* width: 60%; */
   margin-top:10px;
-  border:1px solid #035e7b;
+  background-color: #fff;
+  border:1px solid #eee8fc;
   -webkit-border-radius: 15px;
 -moz-border-radius: 15px;
 border-radius: 15px;

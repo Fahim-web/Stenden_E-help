@@ -47,7 +47,7 @@ if (isset($_SESSION['operatorId'])) {
                         <img class="legendlight" src="https://i.ibb.co/g7W2LcZ/red.png" alt="Status of the Ticket" />
                     </div>
                     <div>
-                        <p>Awaits to be assigned</p>
+                        <p>Opened</p>
                     </div>
                 </div>
                 <div class="legend_Lvl_1">
@@ -55,7 +55,7 @@ if (isset($_SESSION['operatorId'])) {
                         <img class="legendlight" src="../img/orange.png" alt="Status of the Ticket" />
                     </div>
                     <div>
-                        <p>Awaits to be completed or approved</p>
+                        <p>Pending for TL`s approval</p>
                     </div>
                 </div>
                 <div class="legend_Lvl_1">
@@ -63,7 +63,7 @@ if (isset($_SESSION['operatorId'])) {
                         <img class="legendlight" src="../img/green.png" alt="Status of the Ticket" />
                     </div>
                     <div>
-                        <p>Done</p>
+                        <p>Closed</p>
                     </div>
                 </div>
             </div>

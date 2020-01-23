@@ -47,7 +47,7 @@ require('header.php');
                     <img class="legendlight" src="https://i.ibb.co/g7W2LcZ/red.png" alt="Status of the Ticket" />
                 </div>
                 <div>
-                    <p>Awaits to be assigned</p>
+                    <p>Opened</p>
                 </div>
             </div>
             <div class="legend_Lvl_1">
@@ -55,7 +55,7 @@ require('header.php');
                     <img class="legendlight" src="../img/orange.png" alt="Status of the Ticket" />
                 </div>
                 <div>
-                    <p>Awaits to be completed or approved</p>
+                    <p>Pending for TL`s approval</p>
                 </div>
             </div>
             <div class="legend_Lvl_1">
@@ -63,7 +63,7 @@ require('header.php');
                     <img class="legendlight" src="../img/green.png" alt="Status of the Ticket" />
                 </div>
                 <div>
-                    <p>Done</p>
+                    <p>Closed</p>
                 </div>
             </div>
         </div>
@@ -71,7 +71,7 @@ require('header.php');
         $customerid = 2;
         // We select all the submited tickets by customers from database
 
-        $sql_select = "SELECT i.incidentid,i.description,i.report_date,i.topic,o.operator_name,c.customer_name,li.description,t.description,s.StatusID,o.operatorID,c.username, c.customerID
+        $sql_select = "SELECT i.incidentid,i.description,i.resolution_date,i.topic,o.operator_name,c.customer_name,li.description,t.description,s.StatusID,o.operatorID,c.username, c.customerID
             FROM incident as i, operator as o, customer as c, type as t, status as s,company as cmp, license as li WHERE i.operatorid=o.operatorid AND i.typeID=t.typeID and i.StatusID=s.StatusID and 
             i.customerID=c.customerID and cmp.companyID=c.companyID AND cmp.LicenseID=li.LicenseID AND (i.statusid=1 or i.statusid=3 )ORDER BY i.incidentid DESC ;";
         if ($stmt_select = mysqli_prepare($connect, $sql_select)) {
@@ -112,11 +112,11 @@ require('header.php');
                         <div class="ticket_box_assign">
                           <a href="operator_self_assign.php?update=' . $incID . ':' . $_SESSION['operatorId'] . '"><img class="ticket_box_assign_pic" src="https://i.ibb.co/881QtG6/open-a-ticket.png" alt="Assign a Ticket"/>
                         </a></div>';
+                } else {
+                    echo '
+                    <div class="ticket_box_assign">
+                      </div>';
                 }
-                echo '
-                        <div class="ticket_box_assign">
-                          <a href="#"><img id="ticket_box_assign_pic" src="https://i.ibb.co/881QtG6/open-a-ticket.png" alt="Assign a Ticket"/>
-                        </a></div>';
                 // In database we created row with operatorid=3. We did that because that row contains username="No operator assigned".
                 // Therefore if we choose operatorid=3 it will display on ticket information that no operator has been assigned
                 if ($opeID === 3) {

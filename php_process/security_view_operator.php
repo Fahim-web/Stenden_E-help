@@ -43,10 +43,7 @@ require('connect_mar.php');
                             <div ><p>CustomerID</p></div>
                             <div class="sec_top"><p>' . $customerid . '</p></div>
                         </div>
-                        <div class="security_div">
-                            <div ><p>CompanyID</p></div>
-                            <div class="sec_top"><p>' . $companyid . '</p></div>
-                        </div>
+                        
                         <div class="security_div">
                             <div ><p>Username</p></div>
                             <div class="sec_top"><p>' . $username . '</p></div>

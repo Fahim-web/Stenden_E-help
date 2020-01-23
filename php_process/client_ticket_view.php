@@ -47,23 +47,23 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
                     <img class="legendlight" src="https://i.ibb.co/g7W2LcZ/red.png" alt="Status of the Ticket" />
                 </div>
                 <div>
-                    <p>Awaits to be assigned</p>
+                    <p>Opened</p>
                 </div>
             </div>
             <div class="legend_Lvl_1">
                 <div>
-                    <img class="legendlight" src="https://i.ibb.co/VHDmxhC/orange.png" alt="Status of the Ticket" />
+                    <img class="legendlight" src="../img/orange.png" alt="Status of the Ticket" />
                 </div>
                 <div>
-                    <p>Awaits to be approved</p>
+                    <p>Pending for TL`s approval</p>
                 </div>
             </div>
             <div class="legend_Lvl_1">
                 <div>
-                    <img class="legendlight" src="https://i.ibb.co/L1XbrZG/green.png" alt="Status of the Ticket" />
+                    <img class="legendlight" src="../img/green.png" alt="Status of the Ticket" />
                 </div>
                 <div>
-                    <p>Done</p>
+                    <p>Closed</p>
                 </div>
             </div>
         </div>
@@ -74,7 +74,7 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
         $sql_select = "SELECT i.incidentid,i.description,i.report_date,i.topic,o.operator_name,c.customer_name,li.description,t.description,s.StatusID,i.resolution_date
             FROM incident as i, operator as o, customer as c, type as t, status as s,company as cmp, license as li WHERE i.operatorid=o.operatorid AND i.typeID=t.typeID and i.StatusID=s.StatusID and 
-            i.customerID=c.customerID and cmp.companyID=c.companyID AND cmp.LicenseID=li.LicenseID AND c.customerid=? ORDER BY i.incidentid DESC;";
+            i.customerID=c.customerID and cmp.companyID=c.companyID AND cmp.LicenseID=li.LicenseID AND c.customerid=? ORDER BY i.statusid ASC;";
         if ($stmt_select = mysqli_prepare($connect, $sql_select)) {
             mysqli_stmt_bind_param($stmt_select, 'i', $_SESSION['customerId']);
             $execute = mysqli_stmt_execute($stmt_select);

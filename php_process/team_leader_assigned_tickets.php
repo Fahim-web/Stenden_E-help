@@ -45,7 +45,7 @@ if (isset($_SESSION['operatorId'])) {
             $sql = 'SELECT i.incidentid,i.RegisteredBy,i.description,i.resolution_date,i.topic,o.operator_name,li.description,t.description,s.StatusID,o.operatorid,c.customerid,c.username
     FROM incident as i, operator as o, customer as c, type as t, status as s,company as cmp, license as li 
     WHERE i.operatorid=o.operatorid AND i.typeID=t.typeID AND i.StatusID=s.StatusID AND i.customerID=c.customerID AND cmp.companyID=c.companyID AND cmp.LicenseID=li.LicenseID 
-    AND i.operatorid= "' . $_SESSION['operatorId'] . '" ORDER BY i.statusid ASC;';
+    AND i.operatorid= "' . $_SESSION['operatorId'] . '"';
             if ($stmt_select = mysqli_prepare($connect, $sql)) {
                 $execute_select = mysqli_stmt_execute($stmt_select);
                 if ($execute_select == FALSE) {
