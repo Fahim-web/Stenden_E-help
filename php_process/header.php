@@ -44,8 +44,8 @@ include('session.php');
                                     require('header_log_button.php');
                                 } elseif ($clearance == '3') {
                                     echo "
-                                    <li><a href='#'>Review Tickets</a></li>
-                                    <li><a href='team_leader_view_ticket.php'>View all Tickets</a></li>
+                                    <li><a href='team_leader_closed_tickets.php'>Closed Tickets</a></li>
+                                    <li><a href='team_leader_view_ticket.php'>View awaiting tickets</a></li>
                                     ";
                                     require('header_log_button.php');
                                 }

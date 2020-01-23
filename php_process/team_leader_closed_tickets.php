@@ -52,14 +52,6 @@ require('header.php');
             </div>
             <div class="legend_Lvl_1">
                 <div>
-                    <img class="legendlight" src="../img/purple_dot.jpg" alt="Status of the Ticket" />
-                </div>
-                <div>
-                    <p>Awaits Operator Solution</p>
-                </div>
-            </div>
-            <div class="legend_Lvl_1">
-                <div>
                     <img class="legendlight" src="../img/orange.png" alt="Status of the Ticket" />
                 </div>
                 <div>
@@ -81,7 +73,7 @@ require('header.php');
 
         $sql_select = "SELECT i.incidentid,i.description,i.report_date,i.topic,o.operator_name,c.customer_name,li.description,t.description,s.StatusID,o.operatorID,c.username, c.customerID
             FROM incident as i, operator as o, customer as c, type as t, status as s,company as cmp, license as li WHERE i.operatorid=o.operatorid AND i.typeID=t.typeID and i.StatusID=s.StatusID and 
-            i.customerID=c.customerID and cmp.companyID=c.companyID AND cmp.LicenseID=li.LicenseID AND (i.statusid=1 or i.statusid=3 )ORDER BY i.incidentid DESC ;";
+            i.customerID=c.customerID and cmp.companyID=c.companyID  AND cmp.LicenseID=li.LicenseID AND i.statusid=4 ORDER BY i.incidentid DESC ;";
         if ($stmt_select = mysqli_prepare($connect, $sql_select)) {
             $execute = mysqli_stmt_execute($stmt_select);
             if ($execute == FALSE) {
@@ -92,7 +84,7 @@ require('header.php');
             mysqli_stmt_store_result($stmt_select);
             if (mysqli_stmt_num_rows($stmt_select) == 0) {
                 echo '<div id="none_submitted">
-                            <h3>No tickets have been submitted</h3>
+                            <h3>No tickets have been completed</h3>
                         </div>';
             }
 

@@ -583,6 +583,8 @@ float:left;
 #statusLight {
   float: left;
   margin: 16px 18px;
+  width: 23px;
+  height: 23px;
 }
 
 
@@ -780,7 +782,11 @@ footer {
   margin-left: 225px;
   font-size: 15px;
 }
-
+/*-------------------------------DOT-------------------------*/
+.purp_dot{
+  width:23px;
+  height:23px;
+}
 
 /* ---------------------TICKET--------------------- */
 main {

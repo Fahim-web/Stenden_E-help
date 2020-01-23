@@ -2,7 +2,7 @@
 require('connect_mar.php');
 
 if (isset($_GET['update'])) {
-    $status = 1;
+    $status = 4;
     $exp = explode(":", $_GET['update']);
     $sql_update = 'UPDATE incident SET operatorid=?, `statusid`=? WHERE incidentid=?';
     if ($stmt = mysqli_prepare($connect, $sql_update)) {
