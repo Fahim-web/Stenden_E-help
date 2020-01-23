@@ -1,1 +1,0 @@
-ALTER TABLE customer ADD COLUMN filepath TEXT AFTER password;
