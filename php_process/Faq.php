@@ -17,63 +17,63 @@ include('header.php');
 <div class="content_wrapper">
 	<div class="response">
 		<div class="dropdown">
-			<button class="dropbtn">Do I need to have a license?</button>
+			<button class="dropbtn">What are the benefits of Gold, Silver & Bronze license?</button>
 			<div class="dropdown-content">
-				<a href="#">1. Yes you do.</a>
-				<a href="#">2. It depends on what you want to do.</a>
+				<a href="#">1. If you have a GOLD license, your tickect will be solved in 24 hours.</a>
+				<a href="#">2. If you have a SILVER license, your tickect will be solved in 48 hours.</a>
+				<a href="#">3. If you have a BRONZE license, your tickect will be solved in 72 hours.</a>
 			</div>
 		</div>
 
 		<div class="dropdown">
-			<button class="dropbtn">How secure is the website?</button>
+			<button class="dropbtn">When my submitted ticket associated with a problem will close? </button>
 			<div class="dropdown-content">
-				<a href="#">1. Pretty good.</a>
-				<a href="#">2. Good enough.</a>
+				<a href="#">1. It will automatically close when your problem is solved or closed.</a>
 			</div>
 		</div>
 
 		<div class="dropdown">
-			<button class="dropbtn">How do I take the test?</button>
+			<button class="dropbtn">How do I apply the license if Support Desk service is down due to license expiry ?</button>
 			<div class="dropdown-content">
-				<a href="#">1. You need to have a license first.</a>
+				<a href="#">1. As the current license is expired we won't be able to login in to the Support Desk to apply the new license.
+							   This can be accomplished by applying the license from the backend in the Server.</a>
 
 			</div>
 		</div>
 
 		<div class="dropdown">
-			<button class="dropbtn">What is this about?</button>
+			<button class="dropbtn">How many tickects can be submitted by one person?</button>
 			<div class="dropdown-content">
-				<a href="#">1. Programming</a>
-				<a href="#">2. IT</a>
+				<a href="#">1. Client can submit as many tickects as he/she wants if he/she has a maintenance license.</a>
 			</div>
 		</div>
 
 		<div class="dropdown">
-			<button class="dropbtn">How to buy the license?</button>
+			<button class="dropbtn">Can I submit a ticket via phone call?</button>
 			<div class="dropdown-content">
-				<a href="#">1. Contact the security operator</a>
+				<a href="#">1. Yes you can. In order to do so, you have to give your username and some information about your 
+							   account to the operator.</a>
 			</div>
 		</div>
 
 		<div class="dropdown">
-			<button class="dropbtn">What is the license?</button>
+			<button class="dropbtn">What if my ticket doesn't get solved in 3 days?</button>
 			<div class="dropdown-content">
-				<a href="#">1. License is for ensuring that you are a member.</a>
+				<a href="#">1. If that happens, you will be notified by one of the operators about the problem.</a>
 			</div>
 		</div>
 
 		<div class="dropdown">
-			<button class="dropbtn">Is it necessary to have a license?</button>
+			<button class="dropbtn">Can I delete one of my submitted tickets?  </button>
 			<div class="dropdown-content">
-				<a href="#">1. To get access to submit ticket, you need license.</a>
-				<a href="#">2. Yes.</a>
+				<a href="#">1. Unfortunately, no. Client can't delete his/her own ticket if it is already submitted.</a>
 			</div>
 		</div>
 
 		<div class="dropdown">
-			<button class="dropbtn">Can I contact the admin?</button>
+			<button class="dropbtn">What happens if my license expires?</button>
 			<div class="dropdown-content">
-				<a href="#">1. You can't contact directly but you can contact the security operator if you want.</a>
+				<a href="#">1. You need to renew your license if you want to submit a ticket in future. Otherwise you won't be able to do so.</a>
 			</div>
 		</div>
 
