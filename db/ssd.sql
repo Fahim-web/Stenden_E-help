@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 23 Sty 2020, 16:59
+-- Czas generowania: 24 Sty 2020, 13:21
 -- Wersja serwera: 10.4.11-MariaDB
 -- Wersja PHP: 7.2.26
 
@@ -69,14 +69,15 @@ CREATE TABLE `customer` (
 
 INSERT INTO `customer` (`CustomerID`, `CompanyID`, `username`, `customer_name`, `phone`, `email`, `password`, `filepath`) VALUES
 (2, 3, 'John Doe', 'John', '38483298423', 'John@mam.com', 'password', '../userImg/download.png'),
-(3, 4, 'Nick', 'Nickboi', '543958432', 'nick@gege', 'password', NULL),
-(8, NULL, 'Chiki465', 'Tomek', '999888222', 'ss@gmail.com', '$2y$10$gsOSlKZJTVHWO', 'userImg/pobrane.jpg'),
+(3, 4, 'Nick', 'Nickboi', '543958432', 'nick@gege', 'password', '../userImg/kim.png'),
 (9, NULL, 'Tokk', 'Tomek', '999888222', 'ss@gmail.com', '$2y$10$JWG8ILjAa5HUw', '../userImg/pobrane.jpg'),
 (10, 2, 'afasfasfas', 'fsafas', '999888222', 'grondofrondo@gmail.com', '$2y$10$dp6wCK.UQYfib', '../userImg/Rick_Sanchez.png'),
 (11, NULL, 'afasfasfasfsfasfas', 'fsafas', '999888222', 'grondofrondo@gmail.com', '$2y$10$KtNh4zfuv02hP', '../userImg/Rick_Sanchez.png'),
 (14, 2, 'david', 'david', 'david', 'david@magic.com', '$2y$10$xH.kbwv5ke02L7pOVyk3vOWxLN.9WMa07eGUllJiqZJ8dP5Jt6SfW', '../userImg/zuck.png'),
-(15, NULL, 'nghi.banh', 'Nghi Hao', '06836112225', 'banhhaonghi02@gmail.com', '$2y$10$lSfyVRKzS7A5wJekE2N2c.g.OZmcOZrpLbV8MrTZrVTZpW3nUmUN6', '../userImg/'),
-(16, 2, 'marek', 'marek', '123456789', 'grondofrondo@gmail.com', '$2y$10$M.gXowdfWHYGnisWE5N1IODaRiGobQbv89Ijm57VpRVhl59/3/J7i', '../userImg/pobrane.jpg');
+(16, 2, 'marek', 'marek', '123456789', 'grondofrondo@gmail.com', '$2y$10$M.gXowdfWHYGnisWE5N1IODaRiGobQbv89Ijm57VpRVhl59/3/J7i', '../userImg/pobrane.jpg'),
+(17, 3, 'Tom', 'Xuan', '999888222', 'tom@gmail.com', '$2y$10$BpDj39RXgkg.asfjf.Kp0uLZHoa4IEcdbGtMW9BNJYmwkdw7BunP2', '../userImg/smily_face.png'),
+(18, 2, 'Ponta', 'Brzeszczyszczykiewicz', '999888456', 'powodzenia@gmail.com', '$2y$10$qxEAFo00zjo4.xGJDuojveBXIXmMdU31TiZllU5Up1L7WoR5KkXe2', '../userImg/kamil.jpg'),
+(19, NULL, 'DaveBave', 'dave', '123', 'grondofrondo@gmail.com', '$2y$10$mus.rGaAGEkZ/XMeUuQZc..NmX78fVBznplt7odXYz/PzBLiV.kty', '../userImg/Rick_Sanchez.png');
 
 -- --------------------------------------------------------
 
@@ -142,20 +143,30 @@ INSERT INTO `incident` (`IncidentID`, `SolutionID`, `TypeID`, `OperatorID`, `Sta
 (38, 34, 1, 10, 2, 14, 1, 'PROBLEM', 'PLES HALP\r\n', 'customer', '2020-01-21', '2020-01-24'),
 (39, 53, 3, 10, 2, 14, 4, 'SOSAT SUKI', 'SAKI PIT SUKI\r\nAZAZAZA', 'customer', '2020-01-21', '2020-01-24'),
 (40, 60, 1, 10, 2, 14, 4, 'The program is crashing randomly', 'I cannot get my work done as every 15 minutes it crashes', 'customer', '2020-01-21', '2020-01-24'),
-(42, 5, 1, 10, 1, 14, 4, 'What is love', 'Baby dont hurt me', 'customer', '2020-01-21', '2020-01-24'),
-(43, 5, 5, 10, 1, 14, 1, 'aSFASF', 'asfasf', 'phone', '2020-01-21', '2020-01-24'),
+(42, 83, 1, 10, 2, 14, 4, 'What is love', 'Baby dont hurt me', 'customer', '2020-01-21', '2020-01-24'),
+(43, 79, 5, 10, 3, 14, 1, 'aSFASF', 'asfasf', 'phone', '2020-01-21', '2020-01-24'),
 (44, 62, 1, 10, 3, 14, 1, 'fasf', 'fsaf', 'phone', '2020-01-21', '2020-01-24'),
 (45, 66, 1, 7, 1, 16, 2, 'avenus', 'kokoko afffffffffff asssssssssss', 'customer', '2020-01-23', '2020-01-26'),
 (46, 67, 1, 7, 2, 3, 1, 'fsafas', 'saf', 'phone', '2020-01-23', '2020-01-24'),
 (48, 68, 1, 5, 1, 3, 1, 'uuuuuuuuuuuuuuu', 'uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu', 'phone', '2020-01-23', '2020-01-24'),
 (49, 5, 1, 5, 2, 3, 1, 'hhhhhhhhhhhhhhhhhhh', 'hhhhhhhhhhhhhhhhhhhhhhhhhhhhh', 'phone', '2020-01-23', '2020-01-24'),
-(50, 5, 1, 10, 1, 16, 1, 'fasfasfas', 'fsafa', 'customer', '2020-01-23', '2020-01-26'),
+(50, 80, 1, 10, 2, 16, 1, 'fasfasfas', 'fsafa', 'customer', '2020-01-23', '2020-01-26'),
 (51, 5, 1, 10, 1, 3, 1, 'fasfas', 'fasfa', 'phone', '2020-01-23', '2020-01-24'),
 (52, 70, 1, 5, 2, 16, 1, 'hdthdthtt', 'dhhthd', 'customer', '2020-01-23', '2020-01-26'),
 (53, 5, 4, 5, 1, 16, 1, 'ticket submit', 'error', 'customer', '2020-01-23', '2020-01-26'),
 (54, 74, 1, 2, 2, 16, 1, 'ooooooooooooooooooooooooo', 'ja pierdole\r\n', 'customer', '2020-01-23', '2020-01-26'),
 (55, 76, 1, 5, 2, 16, 1, 'chuj', 'submit chuj', 'customer', '2020-01-23', '2020-01-26'),
-(56, 5, 1, 3, 1, 16, 1, 'wwwwwwwwwwwwww', 'wwwwwwwwwwwwwwwwww', 'customer', '2020-01-23', '2020-01-26');
+(56, 5, 1, 10, 1, 16, 1, 'wwwwwwwwwwwwww', 'wwwwwwwwwwwwwwwwww', 'customer', '2020-01-23', '2020-01-26'),
+(57, 77, 1, 2, 2, 16, 1, 'fsafas', 'fsafas', 'customer', '2020-01-23', '2020-01-26'),
+(58, 5, 1, 2, 1, 16, 1, 'sssss', 'ssssss', 'customer', '2020-01-23', '2020-01-26'),
+(59, 5, 1, 10, 1, 16, 1, 'aaaaaaaaa', 'aaaaaaaaaaa', 'customer', '2020-01-23', '2020-01-26'),
+(60, 87, 1, 10, 2, 16, 1, 'fsa', 'fsa', 'phone', '2020-01-23', '2020-01-26'),
+(61, 5, 1, 3, 1, 16, 3, 'Connect error', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', 'customer', '2020-01-24', '2020-01-27'),
+(62, 5, 5, 3, 1, 17, 3, 'System shuts down', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', 'customer', '2020-01-24', '2020-01-26'),
+(63, 85, 4, 10, 2, 18, 2, 'Network issue', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has su', 'customer', '2020-01-24', '2020-01-27'),
+(64, 89, 1, 10, 2, 17, 1, 'ok', 'dsokdsoks', 'customer', '2020-01-24', '2020-01-26'),
+(65, 91, 4, 10, 2, 17, 4, 'A problem', 'Big problem, plis help!', 'customer', '2020-01-24', '2020-01-26'),
+(66, 94, 3, 10, 3, 16, 1, 'Topic', 'Problem', 'phone', '2020-01-24', '2020-01-27');
 
 -- --------------------------------------------------------
 
@@ -197,16 +208,18 @@ CREATE TABLE `operator` (
 --
 
 INSERT INTO `operator` (`OperatorID`, `username`, `Operator_name`, `Clearance`, `password`, `filepath`) VALUES
-(1, 'René Laan', 'René', 1, 'password', NULL),
+(1, 'René Laan', 'René', 1, 'password', '../userImg/Operator1.png'),
 (2, 'Bert', 'Bert Meijrink', 3, '$2y$10$VMYfhyRzeAk6m3I0Db.V4eFID9IOIB/YKB9FZqZhTIFh3zBZOCOVe', '../userImg/download.png'),
-(3, 'no operator assigned', 'no operator assigned', 1, 'mein swamp', NULL),
-(4, 'Moo', 'Motoo', 2, '$2y$10$VMYfhyRzeAk6m3I0Db.V4eFID9IOIB/YKB9FZqZhTIFh3zBZOCOVe', '../userImg/download.png'),
-(5, 'Nick', 'Nickboi', 1, 'password', NULL),
-(6, 'John Doe', 'John', 1, 'password', NULL),
-(7, 'Aleksii', 'aleks69', 1, 'password', NULL),
-(8, 'John Doe', 'John', 1, 'password', NULL),
-(9, 'John Doe', 'John', 1, 'password', NULL),
-(10, 'dave', 'dave', 1, '$2y$10$VMYfhyRzeAk6m3I0Db.V4eFID9IOIB/YKB9FZqZhTIFh3zBZOCOVe', '../userImg/download.png');
+(3, 'no operator assigned', 'no operator assigned', 1, 'mein swamp', '../userImg/Operator2.png'),
+(4, 'Moo', 'Motoo', 2, '$2y$10$VMYfhyRzeAk6m3I0Db.V4eFID9IOIB/YKB9FZqZhTIFh3zBZOCOVe', '../userImg/trump.png'),
+(5, 'Nick', 'Nickboi', 1, 'password', '../userImg/kayne.jpg'),
+(6, 'John Doe', 'John', 1, 'password', '../userImg/man_flex.jpg'),
+(7, 'Aleksii', 'aleks69', 1, 'password', '../userImg/some_dude.jpg'),
+(8, 'John Doe', 'John', 1, 'password', '../userImg/beard_dude.jpeg'),
+(9, 'John Doe', 'John', 1, 'password', '../userImg/obama.jpg'),
+(10, 'dave', 'dave', 1, '$2y$10$VMYfhyRzeAk6m3I0Db.V4eFID9IOIB/YKB9FZqZhTIFh3zBZOCOVe', '../userImg/duda.png'),
+(11, 'Chiki465', 'Tomek', 1, '$2y$10$gsOSlKZJTVHWO', '../userImg/gandalf.jpg'),
+(12, 'nghi.banh', 'Nghi Hao', 1, '$2y$10$lSfyVRKzS7A5wJekE2N2c.g.OZmcOZrpLbV8MrTZrVTZpW3nUmUN6', '../userImg/man_flex.jpg');
 
 -- --------------------------------------------------------
 
@@ -297,7 +310,25 @@ INSERT INTO `solution` (`SolutionID`, `Description`) VALUES
 (73, 'fsa'),
 (74, 'chuje muje dzikie weze\r\n.<br>@: \"04:32:04 pm\" Bert: ass'),
 (75, 'ass'),
-(76, 'chiki briki.<br>@: \"04:52:27 pm\" Team Leader Added: dsadsaas');
+(76, 'chiki briki.<br>@: \"04:52:27 pm\" Team Leader Added: dsadsaas'),
+(77, 'BIG FLEX.<br>@: \"05:21:27 pm\" Bert: EVEN BIGGER FLEX.<br>@: \"05:21:33 pm\" Team Leader Added: '),
+(78, 'EVEN BIGGER FLEX'),
+(79, 'gdgdgdgdgdgdg'),
+(80, 'Yo\r\n.<br>@: \"05:53:33 pm\" dave: bih.<br>@: \"05:53:39 pm\" dave: wanna fuk?.<br>@: \"05:54:43 pm\" Team Leader Added: YEAH BOI.<br>@: \"05:55:12 pm\" Team Leader Added: YA YEEET'),
+(81, 'bih'),
+(82, 'wanna fuk?'),
+(83, 'Dont hurt me.<br>@: \"05:56:13 pm\" dave: No more.<br>@: \"05:56:45 pm\" Team Leader Added: haddaway'),
+(84, 'No more'),
+(85, 't is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout..<br>@: \"09:59:29 am\" dave: There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteratio'),
+(86, 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomise.'),
+(87, 'ookokokok.<br>@: \"10:48:22 am\" dave: ssssssssssssss.<br>@: \"10:48:57 am\" Team Leader Added: ijijijiji'),
+(88, 'ssssssssssssss'),
+(89, 'done otjojokwa.<br>@: \"11:32:58 am\" dave: wokrokwaokroawkrwaok.<br>@: \"11:33:25 am\" Team Leader Added: oki'),
+(90, 'wokrokwaokroawkrwaok'),
+(91, 'Okay, so its ur pttoblem!.<br>@: \"12:06:09 pm\" dave: U got a problem with it?.<br>@: \"12:06:22 pm\" dave: Good luck :).<br>@: \"12:07:13 pm\" Team Leader Added: Nice'),
+(92, 'U got a problem with it?'),
+(93, 'Good luck :)'),
+(94, 'Whats the problem, i dont c it');
 
 -- --------------------------------------------------------
 
@@ -420,7 +451,7 @@ ALTER TABLE `company`
 -- AUTO_INCREMENT dla tabeli `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustomerID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `CustomerID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT dla tabeli `frequency`
@@ -432,7 +463,7 @@ ALTER TABLE `frequency`
 -- AUTO_INCREMENT dla tabeli `incident`
 --
 ALTER TABLE `incident`
-  MODIFY `IncidentID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `IncidentID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT dla tabeli `license`
@@ -444,13 +475,13 @@ ALTER TABLE `license`
 -- AUTO_INCREMENT dla tabeli `operator`
 --
 ALTER TABLE `operator`
-  MODIFY `OperatorID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `OperatorID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT dla tabeli `solution`
 --
 ALTER TABLE `solution`
-  MODIFY `SolutionID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `SolutionID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT dla tabeli `status`
