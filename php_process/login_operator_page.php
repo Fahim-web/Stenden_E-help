@@ -50,35 +50,33 @@ include('header.php');
                                     mysqli_stmt_store_result($stmt);
 
                                     // We verify the password
-                                    password_verify($_POST['pass'], $hashed_pass);
 
                                     if (mysqli_stmt_fetch($stmt)) {
-                                        // if(password_verify($passwrd, $hashed_pass)){
+                                        if (password_verify($passwrd, $hashed_pass)) {
 
-                                        $_SESSION['loggedIn'] = true;
-                                        $_SESSION['OperatorLoggedIn'] = true;
-                                        $_SESSION['operatorId'] = $id;
-                                        $_SESSION['username_ope'] = $username;
-                                        $_SESSION['ope_filepath'] = $filepath;
+                                            $_SESSION['loggedIn'] = true;
+                                            $_SESSION['OperatorLoggedIn'] = true;
+                                            $_SESSION['operatorId'] = $id;
+                                            $_SESSION['username_ope'] = $username;
+                                            $_SESSION['ope_filepath'] = $filepath;
 
 
-                                        header("location: ../index.php");
-                                     
-                                        
+                                            header("location: ../index.php");
+                                        } else {
+                                            echo "Password incorrect!<br>";
+                                        }
                                     } else {
-                                        echo "Password incorrect!<br>";
+                                        echo "fail";
                                     }
                                 } else {
-                                    echo "fail";
+                                    echo "failed to exec";
                                 }
                             } else {
-                                echo "failed to exec";
+                                echo "failed to prepare";
                             }
-                        } else {
-                            echo "failed to prepare";
+                            mysqli_stmt_close($stmt);
+                            mysqli_close($con);
                         }
-                        mysqli_stmt_close($stmt);
-                        mysqli_close($con);
                     }
                 }
             }
